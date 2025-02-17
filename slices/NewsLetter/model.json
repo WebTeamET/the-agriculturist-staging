@@ -1,0 +1,115 @@
+{
+  "id": "news_letter",
+  "type": "SharedSlice",
+  "name": "NewsLetter",
+  "description": "NewsLetter",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "preheading": {
+          "type": "Text",
+          "config": {
+            "label": "PreHeading",
+            "placeholder": ""
+          }
+        },
+        "preheading_color": {
+          "type": "Color",
+          "config": {
+            "label": "PreHeading Color",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": ""
+          }
+        },
+        "placeholder_text": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder Text",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Background Color",
+            "placeholder": ""
+          }
+        },
+        "border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Border Color",
+            "placeholder": ""
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
