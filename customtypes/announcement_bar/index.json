@@ -1,0 +1,53 @@
+{
+  "format": "custom",
+  "id": "announcement_bar",
+  "label": "AnnouncementBar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "background_color": {
+        "type": "Color",
+        "config": {
+          "label": "Background Color",
+          "placeholder": ""
+        }
+      },
+      "items": {
+        "type": "Group",
+        "config": {
+          "label": "Items",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Image",
+              "config": {
+                "label": "Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

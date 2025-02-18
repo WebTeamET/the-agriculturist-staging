@@ -39,30 +39,30 @@ const products = [
     rating: 4,
     imageUrl:
       "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
-  }
+  },
 ];
 
 const ProductGrid = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center gap-4">
+    <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30 px-20 mdscreen6:px-75">
       {products.map((product, index) => (
         <div
           key={index}
-          className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-[#CDBAA7] bg-white shadow-md"
+          className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] border border-[#CDBAA7] bg-white shadow-md"
         >
           <a
             className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
             href="#"
           >
             <img
-              className="object-cover mx-auto"
+              className="object-cover mx-auto w-full h-full"
               src={product.imageUrl}
               alt="product image"
             />
           </a>
 
-          <div className="flex flex-col justify-center items-center mt-4 px-5 pb-5 space-y-4">
-            <div className="flex items-center justify-center">
+          <div className="flex flex-col justify-center items-center gap-15 mt-4 px-5 pb-5 space-y-4">
+            <div className="flex items-center justify-center mt-15">
               {[...Array(5)].map((_, idx) => (
                 <svg
                   key={idx}
@@ -77,24 +77,24 @@ const ProductGrid = () => {
               ))}
             </div>
 
-            <a href="#" className="text-center">
-              <h5 className="text-xl tracking-tight text-slate-900">
+            <a href="#" className="text-center !mt-0">
+              <h5 className="text-24 tracking-tight text-slate-900">
                 {product.name}
               </h5>
             </a>
 
-            <div className="text-center">
+            <div className="text-center !mt-0">
               <p>
-                <span className="text-3xl font-bold text-slate-900">
+                <span className="text-20 mr-10 font-bold text-slate-900">
                   ${product.price}
                 </span>
-                <span className="text-sm text-slate-900 line-through">
+                <span className="text-12 text-slate-900 line-through">
                   ${product.oldPrice}
                 </span>
               </p>
             </div>
 
-            <button className="inline-block px-6 py-3 text-lg rounded-full bg-[#004D43] text-white text-center mx-auto">
+            <button className="btn  inline-block px-32 py-14 text-16 rounded-full bg-[#004D43] text-white text-center mx-auto">
               Add to cart
             </button>
           </div>
@@ -116,101 +116,103 @@ const FeaturedProducts = ({ slice }) => {
       style={{
         backgroundColor: slice.primary.background_color || "#F8F5F1",
       }}
-      className="py-12 px-4"
+      className="lgscreen:py-60 py-40"
     >
-      {/* Optional Title/Sub-Title */}
-      {slice.primary.sub_title && (
-        <div className="flex justify-center mb-6">
-          <PrismicRichText
-            field={slice.primary.sub_title}
-            components={{
-              paragraph: ({ children }) => (
-                <p
-                  className="text-base font-medium font-body sm:text-left text-center"
-                  style={{
-                    color: slice.primary.sub_title_color || "#004D43",
-                  }}
-                >
-                  {children}
-                </p>
-              ),
-            }}
-          />
-        </div>
-      )}
+      <div className="product-container">
+        {/* Optional Title/Sub-Title */}
+        {slice.primary.sub_title && (
+          <div className="flex justify-center mb-6">
+            <PrismicRichText
+              field={slice.primary.sub_title}
+              components={{
+                paragraph: ({ children }) => (
+                  <p
+                    className="text-base font-['Open Sans'] font-medium sm:text-left text-center"
+                    style={{
+                      color: slice.primary.sub_title_color || "#004D43",
+                    }}
+                  >
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+          </div>
+        )}
 
-      {slice.primary.title && (
-        <div className="flex justify-center mb-4">
-          <PrismicRichText
-            field={slice.primary.title}
-            components={{
-              heading2: ({ children }) => (
-                <h2
-                  className="text-5xl md:text-3xl font-bold text-center"
-                  style={{
-                    color: slice.primary.title_color || "#004D43",
-                  }}
-                >
-                  {children}
-                </h2>
-              ),
-            }}
-          />
-        </div>
-      )}
+        {slice.primary.title && (
+          <div className="flex justify-center mb-4">
+            <PrismicRichText
+              field={slice.primary.title}
+              components={{
+                heading2: ({ children }) => (
+                  <h2
+                    className="lgscreen:text-48 smscreen:text-32 leading-[52px] smscreen:leading-[36px] leading-[42px] text-38 font-bold text-center"
+                    style={{
+                      color: slice.primary.title_color || "#004D43",
+                    }}
+                  >
+                    {children}
+                  </h2>
+                ),
+              }}
+            />
+          </div>
+        )}
 
-      {/* Tabs */}
-      <div className="flex flex-wrap justify-center mb-8">
-        <button
-          onClick={() => handleTabClick("bestSellers")}
-          className={`px-6 py-3 text-lg rounded-full mx-2 ${
-            activeTab === "bestSellers"
-              ? "border-[#004D43] border-2 text-[#004D43]"
-              : "text-gray-500"
-          }`}
-        >
-          BEST SELLERS
-        </button>
-        <button
-          onClick={() => handleTabClick("newArrivals")}
-          className={`px-6 py-3 text-lg rounded-full mx-2 ${
-            activeTab === "newArrivals"
-              ? "border-[#004D43] border-2 text-[#004D43]"
-              : "text-gray-500"
-          }`}
-        >
-          NEW ARRIVALS
-        </button>
-        <button
-          onClick={() => handleTabClick("seasonalDrops")}
-          className={`px-6 py-3 text-lg rounded-full mx-2 ${
-            activeTab === "seasonalDrops"
-              ? "border-[#004D43] border-2 text-[#004D43]"
-              : "text-gray-500"
-          }`}
-        >
-          SEASONAL DROPS
-        </button>
-      </div>
-
-      {/* Product Grid */}
-      <ProductGrid />
-
-      {slice.primary.button_text && slice.primary.button_link && (
-        <div className="flex justify-center">
-          <PrismicNextLink
-            field={slice.primary.button_link}
-            className="inline-block px-6 py-3 text-lg rounded-full"
-            style={{
-              backgroundColor:
-                slice.primary.button_background_color || "#1E3932",
-              color: slice.primary.button_text_color || "white",
-            }}
+        {/* Tabs */}
+        <div className="flex mdscreen:flex-wrap justify-between lgscreen:py-[45px] py-30 max-w-[600px] mx-auto mdscreen:px-20">
+          <button
+            onClick={() => handleTabClick("bestSellers")}
+            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full ${
+              activeTab === "bestSellers"
+                ? "border-[#004D43] border-2 text-[#004D43]"
+                : "text-gray-500"
+            }`}
           >
-            {slice.primary.button_text}
-          </PrismicNextLink>
+            BEST SELLERS
+          </button>
+          <button
+            onClick={() => handleTabClick("newArrivals")}
+            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full ${
+              activeTab === "newArrivals"
+                ? "border-[#004D43] border-2 text-[#004D43]"
+                : "text-gray-500"
+            }`}
+          >
+            NEW ARRIVALS
+          </button>
+          <button
+            onClick={() => handleTabClick("seasonalDrops")}
+            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full ${
+              activeTab === "seasonalDrops"
+                ? "border-[#004D43] border-2 text-[#004D43]"
+                : "text-gray-500"
+            }`}
+          >
+            SEASONAL DROPS
+          </button>
         </div>
-      )}
+
+        {/* Product Grid */}
+        <ProductGrid />
+
+        {slice.primary.button_text && slice.primary.button_link && (
+          <div className="flex justify-center px-20 mt-55">
+            <PrismicNextLink
+              field={slice.primary.button_link}
+              className="btn uppercase inline-block px-32 py-14 text-16 rounded-full bg-[#004D43] text-white text-center mx-auto"
+              style={{
+                backgroundColor:
+                  slice.primary.button_background_color || "#1E3932",
+                color: slice.primary.button_text_color || "white",
+              }}
+            >
+              {slice.primary.button_text}
+            </PrismicNextLink>
+          </div>
+        )}
+      </div>
     </section>
   );
 };

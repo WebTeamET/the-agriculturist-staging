@@ -4,6 +4,172 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Age Verification documents
+ */
+interface AgeVerificationDocumentData {
+  /**
+   * Background Image field in *Age Verification*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Background Color field in *Age Verification*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.background_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Heading field in *Age Verification*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Sub Heading field in *Age Verification*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.sub_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_heading: prismic.KeyTextField;
+
+  /**
+   * Agreement Text field in *Age Verification*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.agreement_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  agreement_text: prismic.RichTextField;
+
+  /**
+   * Age Number field in *Age Verification*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.age_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  age_number: prismic.NumberField;
+
+  /**
+   * Logo field in *Age Verification*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Age Verification document from Prismic
+ *
+ * - **API ID**: `age_verification`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AgeVerificationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AgeVerificationDocumentData>,
+    "age_verification",
+    Lang
+  >;
+
+/**
+ * Item in *AnnouncementBar → Items*
+ */
+export interface AnnouncementBarDocumentDataItemsItem {
+  /**
+   * Icon field in *AnnouncementBar → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcement_bar.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Link field in *AnnouncementBar → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcement_bar.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for AnnouncementBar documents
+ */
+interface AnnouncementBarDocumentData {
+  /**
+   * Background Color field in *AnnouncementBar*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcement_bar.background_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Items field in *AnnouncementBar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcement_bar.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<AnnouncementBarDocumentDataItemsItem>>;
+}
+
+/**
+ * AnnouncementBar document from Prismic
+ *
+ * - **API ID**: `announcement_bar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AnnouncementBarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AnnouncementBarDocumentData>,
+    "announcement_bar",
+    Lang
+  >;
+
 type ContainerDocumentDataSlicesSlice = SliderSlice;
 
 /**
@@ -38,9 +204,109 @@ export type ContainerDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Footer → Footer Categories*
+ */
+export interface FooterDocumentDataFooterCategoriesItem {
+  /**
+   * Category Heading field in *Footer → Footer Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_categories[].category_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category_heading: prismic.KeyTextField;
+
+  /**
+   * Category Link field in *Footer → Footer Categories*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_categories[].category_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  category_link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Background Image field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Background Color field in *Footer*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.background_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Footer Terms field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_terms
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  footer_terms: prismic.RichTextField;
+
+  /**
+   * Footer Warning field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_warning
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  footer_warning: prismic.RichTextField;
+
+  /**
+   * Footer Categories field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_categories[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_categories: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterCategoriesItem>
+  >;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
+
 type HomeDocumentDataSlicesSlice =
   | FeaturedProductsSlice
-  | HeaderSlice
   | NewsLetterSlice
   | ImageWithTextSlice
   | SliderSlice;
@@ -222,10 +488,90 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Settings → Social Media*
+ */
+export interface SettingsDocumentDataSocialMediaItem {
+  /**
+   * Social Icon field in *Settings → Social Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[].social_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  social_icon: prismic.ImageField<never>;
+
+  /**
+   * Social Link field in *Settings → Social Media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[].social_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  social_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Site Logo field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  site_logo: prismic.ImageField<never>;
+
+  /**
+   * Social Media field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_media: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialMediaItem>
+  >;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
 export type AllDocumentTypes =
+  | AgeVerificationDocument
+  | AnnouncementBarDocument
   | ContainerDocument
+  | FooterDocument
   | HomeDocument
-  | NavigationDocument;
+  | NavigationDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *FeaturedProducts → Default → Primary*
@@ -357,48 +703,6 @@ export type FeaturedProductsSlice = prismic.SharedSlice<
   "featured_products",
   FeaturedProductsSliceVariation
 >;
-
-/**
- * Primary content in *Header → Default → Primary*
- */
-export interface HeaderSliceDefaultPrimary {
-  /**
-   * Navigation field in *Header → Default → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.default.primary.navigation
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  navigation: prismic.ContentRelationshipField<"navigation">;
-}
-
-/**
- * Default variation for Header Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeaderSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Header*
- */
-type HeaderSliceVariation = HeaderSliceDefault;
-
-/**
- * Header Shared Slice
- *
- * - **API ID**: `header`
- * - **Description**: Header
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
 
 /**
  * Primary content in *ImageWithText → Default → Primary*
@@ -826,9 +1130,17 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AgeVerificationDocument,
+      AgeVerificationDocumentData,
+      AnnouncementBarDocument,
+      AnnouncementBarDocumentData,
+      AnnouncementBarDocumentDataItemsItem,
       ContainerDocument,
       ContainerDocumentData,
       ContainerDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataFooterCategoriesItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -836,15 +1148,14 @@ declare module "@prismicio/client" {
       NavigationDocumentData,
       NavigationDocumentDataNavItemsItem,
       NavigationDocumentDataNavActionsItem,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataSocialMediaItem,
       AllDocumentTypes,
       FeaturedProductsSlice,
       FeaturedProductsSliceDefaultPrimary,
       FeaturedProductsSliceVariation,
       FeaturedProductsSliceDefault,
-      HeaderSlice,
-      HeaderSliceDefaultPrimary,
-      HeaderSliceVariation,
-      HeaderSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceVariation,

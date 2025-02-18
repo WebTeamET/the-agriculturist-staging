@@ -20,7 +20,7 @@ const ImageWithText = ({ slice }) => {
 
   const components = {
     heading2: ({ children }) => (
-      <Heading as="h2" size="md" className="text-start mb-12" style={textStyle}>
+      <Heading as="h2" size="md" className="mb-12" style={textStyle}>
         {children}
       </Heading>
     ),
@@ -36,7 +36,7 @@ const ImageWithText = ({ slice }) => {
     ),
     paragraph: ({ children }) => (
       <p
-        className="text-base font-medium font-body sm:text-left text-center"
+        className="text-base text-18 !mt-0 font-medium font-body sm:text-left text-center"
         style={textStyle}
       >
         {children}
@@ -46,22 +46,22 @@ const ImageWithText = ({ slice }) => {
 
   return (
     <section
-      className="py-16"
+      className="py-100 lgscreen2:pb-50 lgscreen2:pt-0"
       style={{ backgroundColor: background_color || "white" }}
     >
-      <div className="container mx-auto flex flex-col lg:flex-row items-center px-8">
+      <div className="flex flex-col lg:flex-row items-center lg:gap-0 gap-30">
         {image_position === "Left" && (
           <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
             <PrismicNextImage
               field={image}
-              className="w-full h-auto object-cover rounded-lg"
+              className="w-full h-auto object-cover rounded-lg lgscreen2:rounded-none"
               alt="image"
             />
           </div>
         )}
         <div
-          className={`lg:w-1/2 w-full space-y-8 ${
-            image_position === "Left" ? "lg:pl-12" : "lg:pr-12"
+          className={`lg:w-1/2 w-full space-y-8 px-20 ${
+            image_position === "Left" ? "lg:px-60" : "lg:pr-12"
           } text-center lg:text-left`}
         >
           <PrismicRichText
@@ -78,7 +78,7 @@ const ImageWithText = ({ slice }) => {
           {button_text && button_link && (
             <PrismicNextLink
               field={button_link}
-              className="inline-block px-6 py-3 text-lg rounded-full"
+              className="btn inline-block px-32 py-14 text-16 rounded-full"
               style={{
                 backgroundColor: button_background_color || "#2563eb",
                 color: button_text_color || "#ffffff",

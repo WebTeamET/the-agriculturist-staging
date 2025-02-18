@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+}
+@layer components {
+}
+@layer utilities {
+
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,12 +22,245 @@
   }
 }
 
+/* Teodor Trial Font */
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Regular-BF672198fb97abe.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-RegularItalic-BF672198fb9e4d5.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Medium-BF672198fb97adf.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-MediumItalic-BF672198fb9959d.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Bold-BF672198fba5748.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-BoldItalic-BF672198fba1bbd.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Light-BF672198fb5c0ea.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-LightItalic-BF672198fb97af6.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Thin-BF672198fb9fdb1.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-ThinItalic-BF672198fb9f370.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-ExtraBold-BF672198fa9f2a0.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-ExtraBoldItalic-BF672198fb53abe.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-Heavy-BF672198fb5455e.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teodor Trial";
+  src: url("/fonts/TeodorTRIAL-HeavyItalic-BF672198fb57872.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Gill Sans Regular */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gill Sans Italic */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Gill Sans Medium */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gill Sans Medium Italic */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Medium Italic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Gill Sans Bold */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gill Sans Bold Italic */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Bold Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Gill Sans Light */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gill Sans Light Italic */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Light Italic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Gill Sans Heavy */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gill Sans Heavy Italic */
+@font-face {
+  font-family: "Gill Sans";
+  src: url("/fonts/Gill Sans Heavy Italic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Gill Sans Condensed Font Faces --- */
+
+/* GillSans Condensed Regular */
+@font-face {
+  font-family: "Gill Sans Condensed";
+  src: url("/fonts/GillSans Condensed.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* GillSans Condensed Bold */
+@font-face {
+  font-family: "Gill Sans Condensed";
+  src: url("/fonts/GillSans Condensed Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply the font */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Teodor Trial";
+  font-family: "Teodor Trial", "Gill Sans", sans-serif;
 }
-.swiper-pagination-bullet { 
-  background: transparent !important; 
+
+.swiper-pagination-bullet {
+  background: transparent !important;
   margin: 5px !important;
+}
+
+.footer-img-line {
+  position: relative;
+  height: 100%;
+}
+
+.footer-line-left, .footer-line-right {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  height: 1px;
+  width: 100%;
 }

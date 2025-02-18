@@ -1,0 +1,64 @@
+{
+  "format": "custom",
+  "id": "age_verification",
+  "label": "Age Verification",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Background Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "background_color": {
+        "type": "Color",
+        "config": {
+          "label": "Background Color",
+          "placeholder": ""
+        }
+      },
+      "heading": {
+        "type": "Text",
+        "config": {
+          "label": "Heading",
+          "placeholder": ""
+        }
+      },
+      "sub_heading": {
+        "type": "Text",
+        "config": {
+          "label": "Sub Heading",
+          "placeholder": ""
+        }
+      },
+      "agreement_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Agreement Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "age_number": {
+        "type": "Number",
+        "config": {
+          "label": "Age Number",
+          "placeholder": ""
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

@@ -14,9 +14,6 @@
             "featured_products": {
               "type": "SharedSlice"
             },
-            "header": {
-              "type": "SharedSlice"
-            },
             "news_letter": {
               "type": "SharedSlice"
             },
