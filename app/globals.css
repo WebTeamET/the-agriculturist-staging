@@ -377,3 +377,7 @@ body {
 .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) path {
   color: rgb(249 244 239 / 74%);
 }
+
+body:has(.age-popup) {
+  overflow: hidden;
+}

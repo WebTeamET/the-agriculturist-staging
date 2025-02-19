@@ -48,7 +48,7 @@ const AgeVerification = ({ data }) => {
 
   return (
     <div
-      className="fixed z-10 inset-0 flex items-center justify-center bg-cover bg-center"
+      className="fixed z-10 age-popup inset-0 flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url('${data.background_image.url}')`,
       }}
