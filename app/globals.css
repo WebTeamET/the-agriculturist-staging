@@ -374,3 +374,6 @@ body {
   color: white; /* Active bullet fill */
 }
 
+.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) path {
+  color: rgb(249 244 239 / 74%);
+}
