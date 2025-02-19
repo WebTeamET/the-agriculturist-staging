@@ -36,7 +36,7 @@ const ImageWithText = ({ slice }) => {
     ),
     paragraph: ({ children }) => (
       <p
-        className="text-base text-18 !mt-0 font-medium font-body sm:text-left text-center"
+        className="lg:!text-18 lg:leading-28 !mt-0 font-opensans lg:text-left text-center"
         style={textStyle}
       >
         {children}
@@ -44,9 +44,11 @@ const ImageWithText = ({ slice }) => {
     ),
   };
 
+  if (slice.primary.hide_module) return null;
+
   return (
     <section
-      className="py-100 lgscreen2:pb-50 lgscreen2:pt-0"
+      className="py-100 lgscreen2:pb-40 lgscreen2:pt-0"
       style={{ backgroundColor: background_color || "white" }}
     >
       <div className="flex flex-col lg:flex-row items-center lg:gap-0 gap-30">
@@ -60,7 +62,7 @@ const ImageWithText = ({ slice }) => {
           </div>
         )}
         <div
-          className={`lg:w-1/2 w-full space-y-8 px-20 ${
+          className={`lg:w-1/2 w-full space-y-8 px-20 lg:max-w-[705px] ${
             image_position === "Left" ? "lg:px-60" : "lg:pr-12"
           } text-center lg:text-left`}
         >
@@ -78,11 +80,11 @@ const ImageWithText = ({ slice }) => {
           {button_text && button_link && (
             <PrismicNextLink
               field={button_link}
-              className="btn inline-block px-32 py-14 text-16 rounded-full"
-              style={{
-                backgroundColor: button_background_color || "#2563eb",
-                color: button_text_color || "#ffffff",
-              }}
+              className="white-btn-xl"
+              // style={{
+              //   backgroundColor: button_background_color || "#2563eb",
+              //   color: button_text_color || "#ffffff",
+              // }}
             >
               {button_text}
             </PrismicNextLink>

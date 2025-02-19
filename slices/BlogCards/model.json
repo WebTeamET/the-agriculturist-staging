@@ -1,0 +1,39 @@
+{
+  "id": "blog_cards",
+  "type": "SharedSlice",
+  "name": "BlogCards",
+  "description": "BlogCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "blog_relation": {
+          "type": "Group",
+          "config": {
+            "label": "Blog Relation",
+            "repeat": true,
+            "fields": {
+              "blog_rel": {
+                "type": "Link",
+                "config": {
+                  "label": "Blog Rel",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "blog_post"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

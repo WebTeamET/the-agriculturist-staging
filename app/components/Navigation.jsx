@@ -4,15 +4,15 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Navigation = ({data}) => {
+const Navigation = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   if (!data) return null;
+  if (data.hide_module) return null;
   return (
     <div>
-      <nav className="bg-[#F9F4EF] py-[20px] px-20 mdscreen6:px-75">
+      <nav className="header bg-[#F9F4EF] py-[20px] px-20 mdscreen6:px-75">
         {/* Top row: Left side nav items (on desktop), center logo, right side actions */}
-        <div className="xlscreen1:grid xlscreen1:grid-cols-3 flex items-center justify-between ">
+        <div className="xlscreen1:grid xlscreen1:grid-cols-3 flex items-center justify-between">
           {/* Left nav (desktop) */}
           <ul className="hidden minxlscreen:flex gap-40 uppercase text-black items-center xlscreen1:w-max xlscreen1:mr-auto">
             {data?.nav_items.map((item, index) => (
@@ -34,7 +34,6 @@ const Navigation = ({data}) => {
             ))}
           </ul>
 
-          {/* Center logo */}
           <div className="flex-shrink-0 mx-4 xlscreen1:w-max xlscreen1:mx-auto">
             <Link href="/">
               <PrismicNextImage
@@ -49,7 +48,7 @@ const Navigation = ({data}) => {
             <input
               type="text"
               placeholder="Search here..."
-              className="w-full border-b bg-transparent border-[#004D43] placeholder-gray-500 px-2 focus:outline-none text-[#004D43]"
+              className="w-full border-b bg-transparent border-green placeholder-meant px-2 focus:outline-none text-[#004D43]"
             />
             {data?.nav_actions.map((item, index) => (
               <li
@@ -96,9 +95,9 @@ const Navigation = ({data}) => {
 
         {/* Mobile dropdown menu */}
         {isOpen && (
-          <div className="minxlscreen:hidden mt-4 flex flex-col items-center gap-6">
+          <div className="minxlscreen:hidden mt-30 flex flex-col items-center gap-6">
             {/* Nav items (mobile) */}
-            <ul className="flex flex-col gap-4 uppercase text-black items-center">
+            <ul className="menus flex flex-col gap-4 uppercase text-black items-center">
               {data?.nav_items.map((item, index) => (
                 <li key={index} className="flex gap-2 items-center">
                   <PrismicNextLink field={item.nav_link}>
@@ -117,7 +116,7 @@ const Navigation = ({data}) => {
             </ul>
 
             {/* Actions (mobile) */}
-            <ul className="flex flex-row gap-6 items-center">
+            <ul className="menu-icone flex flex-row gap-6 items-center">
               {data.nav_actions.map((item, index) => (
                 <li
                   key={index}

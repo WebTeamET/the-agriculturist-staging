@@ -6,13 +6,22 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./slices/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    // Ensure dynamic colors are not purged
+    /^bg-\[#([0-9a-fA-F]{6})\]$/,
+  ],
   theme: {
     extend: {
       fontFamily: {
-        // body: ['Relative Faux Pro Book'],
+        body: ['"Teodor Trial"'],
+        opensans: ['"Open Sans"'],
+        grillsans: ['"Gill Sans"'],
       },
       colors: {
         White: '#FFFFFF',
+        green: '#004D43',
+        meant: '#004d438a',
+        gray: '#10100f57',
       },
       zIndex: {
         '-1': '-1',
@@ -109,11 +118,14 @@ export default {
         32: '32px',
         36: '36px',
         38: '38px',
+        40: '40px',
+        38: '38px',
         42: '42px',
         40: '40px',
         44: '44px',
         48: '48px',
         50: '50px',
+        50: '54px',
         60: '60px',
         64: '64px',
       },
@@ -122,6 +134,7 @@ export default {
         300: 300,
         400: '400',
         500: '500',
+        700: '700',
         900: '900',
       },
       lineHeight: {
@@ -139,10 +152,13 @@ export default {
         32: '32px',
         36: '36px',
         38: '38px',
+        40: '40px',
         42: '42px',
         46: '46px',
         57: '57px',
         63: '63px',
+        64: '64px',
+        74: '74px',
         76: '76px',
       },
       gap: {

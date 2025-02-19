@@ -9,6 +9,18 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
  */
 interface AgeVerificationDocumentData {
   /**
+   * Hide Module field in *Age Verification*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: age_verification.hide_module
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
    * Background Image field in *Age Verification*
    *
    * - **Field Type**: Image
@@ -96,7 +108,7 @@ interface AgeVerificationDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type AgeVerificationDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
+  prismic.PrismicDocumentWithUID<
     Simplify<AgeVerificationDocumentData>,
     "age_verification",
     Lang
@@ -131,6 +143,18 @@ export interface AnnouncementBarDocumentDataItemsItem {
  * Content for AnnouncementBar documents
  */
 interface AnnouncementBarDocumentData {
+  /**
+   * Hide Module field in *AnnouncementBar*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: announcement_bar.hide_module
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
   /**
    * Background Color field in *AnnouncementBar*
    *
@@ -167,6 +191,167 @@ export type AnnouncementBarDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<AnnouncementBarDocumentData>,
     "announcement_bar",
+    Lang
+  >;
+
+type BlogDocumentDataSlicesSlice = BlogCardsSlice | SliderSlice;
+
+/**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+  /**
+   * Category field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Featured Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.sub_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+
+  /**
+   * Content field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Publish Date field in *Blog Post*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Shareable Links field in *Blog Post*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.shareable_links
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  shareable_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blog_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogPostDocumentData>,
+    "blog_post",
     Lang
   >;
 
@@ -235,6 +420,18 @@ export interface FooterDocumentDataFooterCategoriesItem {
  * Content for Footer documents
  */
 interface FooterDocumentData {
+  /**
+   * Hide Module field in *Footer*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: footer.hide_module
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
   /**
    * Background Image field in *Footer*
    *
@@ -437,6 +634,18 @@ export interface NavigationDocumentDataNavActionsItem {
  */
 interface NavigationDocumentData {
   /**
+   * Hide Module field in *Navigation*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: navigation.hide_module
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
    * Nav Items field in *Navigation*
    *
    * - **Field Type**: Group
@@ -567,6 +776,8 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AgeVerificationDocument
   | AnnouncementBarDocument
+  | BlogDocument
+  | BlogPostDocument
   | ContainerDocument
   | FooterDocument
   | HomeDocument
@@ -574,9 +785,82 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *BlogCards → Default → Primary → Blog Relation*
+ */
+export interface BlogCardsSliceDefaultPrimaryBlogRelationItem {
+  /**
+   * Blog Rel field in *BlogCards → Default → Primary → Blog Relation*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_cards.default.primary.blog_relation[].blog_rel
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  blog_rel: prismic.ContentRelationshipField<"blog_post">;
+}
+
+/**
+ * Primary content in *BlogCards → Default → Primary*
+ */
+export interface BlogCardsSliceDefaultPrimary {
+  /**
+   * Blog Relation field in *BlogCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_cards.default.primary.blog_relation[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  blog_relation: prismic.GroupField<
+    Simplify<BlogCardsSliceDefaultPrimaryBlogRelationItem>
+  >;
+}
+
+/**
+ * Default variation for BlogCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogCards*
+ */
+type BlogCardsSliceVariation = BlogCardsSliceDefault;
+
+/**
+ * BlogCards Shared Slice
+ *
+ * - **API ID**: `blog_cards`
+ * - **Description**: BlogCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCardsSlice = prismic.SharedSlice<
+  "blog_cards",
+  BlogCardsSliceVariation
+>;
+
+/**
  * Primary content in *FeaturedProducts → Default → Primary*
  */
 export interface FeaturedProductsSliceDefaultPrimary {
+  /**
+   * Hide Module field in *FeaturedProducts → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: featured_products.default.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
   /**
    * Sub Title field in *FeaturedProducts → Default → Primary*
    *
@@ -709,15 +993,15 @@ export type FeaturedProductsSlice = prismic.SharedSlice<
  */
 export interface ImageWithTextSliceDefaultPrimary {
   /**
-   * Active field in *ImageWithText → Default → Primary*
+   * Hide Module field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: image_with_text.default.primary.active
+   * - **Default Value**: false
+   * - **API ID Path**: image_with_text.default.primary.hide_module
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  active: prismic.BooleanField;
+  hide_module: prismic.BooleanField;
 
   /**
    * Image field in *ImageWithText → Default → Primary*
@@ -860,6 +1144,17 @@ export type ImageWithTextSlice = prismic.SharedSlice<
  * Primary content in *NewsLetter → Default → Primary*
  */
 export interface NewsLetterSliceDefaultPrimary {
+  /**
+   * Hide Module field in *NewsLetter → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: news_letter.default.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
   /**
    * PreHeading field in *NewsLetter → Default → Primary*
    *
@@ -1054,6 +1349,16 @@ export interface SliderSliceDefaultPrimarySlidesItem {
    * - **Documentation**: https://prismic.io/docs/field#embed
    */
   slide_video: prismic.EmbedField;
+
+  /**
+   * Slide Subtext field in *Slider → Default → Primary → Slides*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.default.primary.slides[].slide_subtext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  slide_subtext: prismic.RichTextField;
 }
 
 /**
@@ -1135,6 +1440,11 @@ declare module "@prismicio/client" {
       AnnouncementBarDocument,
       AnnouncementBarDocumentData,
       AnnouncementBarDocumentDataItemsItem,
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
+      BlogPostDocument,
+      BlogPostDocumentData,
       ContainerDocument,
       ContainerDocumentData,
       ContainerDocumentDataSlicesSlice,
@@ -1152,6 +1462,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataSocialMediaItem,
       AllDocumentTypes,
+      BlogCardsSlice,
+      BlogCardsSliceDefaultPrimaryBlogRelationItem,
+      BlogCardsSliceDefaultPrimary,
+      BlogCardsSliceVariation,
+      BlogCardsSliceDefault,
       FeaturedProductsSlice,
       FeaturedProductsSliceDefaultPrimary,
       FeaturedProductsSliceVariation,

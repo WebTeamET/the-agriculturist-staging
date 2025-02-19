@@ -6,6 +6,15 @@
   "status": true,
   "json": {
     "Main": {
+      "hide_module": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide Module",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
       "uid": {
         "type": "UID",
         "config": {

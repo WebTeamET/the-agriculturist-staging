@@ -12,13 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "active": {
+        "hide_module": {
           "type": "Boolean",
           "config": {
-            "label": "Active",
+            "label": "Hide Module",
             "placeholder_false": "false",
             "placeholder_true": "true",
-            "default_value": true
+            "default_value": false
           }
         },
         "image": {

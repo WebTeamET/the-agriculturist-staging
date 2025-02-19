@@ -1,12 +1,8 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
-/**
- * @typedef {import("@prismicio/client").Content.NewsLetterSlice} NewsLetterSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<NewsLetterSlice>} NewsLetterProps
- * @type {import("react").FC<NewsLetterProps>}
- */
 const NewsLetter = ({ slice }) => {
+  if (slice.primary.hide_module) return null;
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -23,13 +19,13 @@ const NewsLetter = ({ slice }) => {
             {/* Bottom Left Image */}
             <PrismicNextImage
               field={slice.primary.background_image}
-              className="absolute bottom-[-20px] left-[-20px] h-32 w-32 md:h-40 md:w-40 object-contain opacity-50"
+              className="absolute bottom-[-20px] left-[-20px] h-auto max-w-[200px] object-contain"
               alt="background"
             />
             {/* Top Right Rotated Image */}
             <PrismicNextImage
               field={slice.primary.background_image}
-              className="absolute top-[-20px] right-[-20px] h-32 w-32 md:h-40 md:w-40 object-contain opacity-50 rotate-180"
+              className="absolute top-[-20px] right-[-20px] h-auto max-w-[200px] object-contain rotate-180"
               alt="background rotated"
             />
           </>
@@ -38,10 +34,10 @@ const NewsLetter = ({ slice }) => {
         {/* Preheading */}
         {slice.primary.preheading && (
           <p
-            className="text-16 uppercase text-gray-500 !mt-0 !mb-15"
-            style={{
-              color: slice.primary.preheading_color || "white",
-            }}
+            className="text-base font-opensans tracking-[0.15em] text-meant font-medium text-center mb-14"
+            // style={{
+            //   color: slice.primary.preheading_color || "white",
+            // }}
           >
             {slice.primary.preheading}
           </p>
@@ -86,22 +82,22 @@ const NewsLetter = ({ slice }) => {
         )}
 
         {/* Email Input & Button */}
-        <div className="relative mt-4!mt-0 !mb-0">
+        <div className="relative mt-4!mt-0 !mb-0 smscreen:flex flex-col gap-20 justify-center items-center">
           <input
             type="email"
             placeholder={slice.primary.placeholder_text || "Enter your email"}
-            className="w-full px-[10px] py-[10px] rounded-full border-2 outline-none text-lg text-[#004D43]/35 bg-transparent"
+            className="w-full pr-[10px] pl-20 py-[10px] rounded-full border-2 outline-none text-16 text-[#004D43] bg-transparent placeholder-green"
             style={{
               borderColor: slice.primary.border_color || "#004D43",
             }}
           />
 
           <button
-            className="absolute !px-50 right-[6px] top-1/2 transform -translate-y-1/2 px-[6px] py-[8px] rounded-full font-bold text-white text-16"
-            style={{
-              backgroundColor:
-                slice.primary.button_background_color || "#1E3932",
-            }}
+            className="btn-green-xxl absolute !px-50 right-[5px] top-1/2 transform   -translate-y-1/2 px-[6px] py-[8px] rounded-full text-white text-16 smscreen:relative smscreen:transform-unset smsreen:right:0 smsreen:inline-block smscreen:mt-20"
+            // style={{
+            //   backgroundColor:
+            //     slice.primary.button_background_color || "#1E3932",
+            // }}
           >
             {slice.primary.button_text || "Subscribe"}
           </button>

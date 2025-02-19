@@ -76,6 +76,20 @@
 									},
 									"__TYPE__": "EmbedContent"
 								}
+							],
+							[
+								"slide_subtext",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Laborum aliqua culpa aute anim occaecat veniam enim anim tempor sit esse aute nostrud do minim. Eu consequat occaecat reprehenderit sint. Ipsum nostrud consequat sit proident exercitation dolor et officia cillum veniam aliquip elit."
+											}
+										}
+									]
+								}
 							]
 						]
 					}

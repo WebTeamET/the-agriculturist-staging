@@ -67,6 +67,10 @@
 				"__TYPE__": "FieldContent",
 				"type": "Color",
 				"value": "#004D43"
+			},
+			"hide_module": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

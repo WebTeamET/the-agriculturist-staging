@@ -3,10 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"active": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
 			"image": {
 				"origin": {
 					"id": "main",
@@ -90,6 +86,10 @@
 				"__TYPE__": "FieldContent",
 				"type": "Select",
 				"value": "Left"
+			},
+			"hide_module": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

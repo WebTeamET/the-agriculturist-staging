@@ -3,11 +3,101 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply box-border;
+  }
+  body {
+    @apply overflow-x-hidden;
+  }
+  img {
+    @apply w-full h-full object-cover;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply !font-body m-0;
+  }
+  p {
+    @apply !text-16 leading-28 font-400 font-opensans;
+  }
+  h1 {
+    @apply lgscreen:text-60 leading-74 small_desktop1:text-42 small_desktop1:leading-46 tracking-normal xxsscreen1:!text-22 xxsscreen1:!leading-32 !font-400;
+  }
+  h2 {
+    @apply small_desktop:!text-48 small_desktop:!leading-[58px] !font-700 !text-38 !leading-40 mdscreen:!text-28 mdscreen:!leading-30 tracking-normal;
+  }
+  h3 {
+    @apply small_desktop:!text-40 small_desktop:!leading-[44px] !text-36 !leading-40 mdscreen:!text-26 mdscreen:!leading-30;
+  } 
+  h4 {
+    @apply !text-32 !leading-[44px] mdscreen:!text-28 mdscreen:!leading-30;
+  }
+  h5 {
+    @apply !text-24 !leading-[26px];
+  }  
+  .grid-container {
+    @apply px-100 xlscreen3:px-60 lgscreen:!px-30;
+  }
+  .grid-container-lg {
+    @apply px-55 xlscreen4:px-30;
+  }
+  a {
+    @apply transition-all duration-500 ease-in-out;
+  }
 }
 @layer components {
+  .btn {
+    @apply inline-block !text-16 !leading-26 !font-300 !font-body capitalize !flex w-fit items-center !no-underline;
+  }
+  .green-btn {
+    @apply inline-block text-white py-14 px-32 rounded-full bg-green transition-all duration-500 ease-in-out;
+  }
+  .green-btn:hover {
+    @apply text-green py-14 px-32 bg-transparent border-1 border-green border-solid;
+  }
+  .green-btn-xl {
+    @apply inline-block text-white py-13 px-40 uppercase rounded-full bg-green transition-all duration-500 ease-in-out;
+  }
+  .green-btn-xl:hover {
+    @apply text-green py-13 px-40 bg-transparent border-1 border-green border-solid;
+  }
+  .white-btn {
+    @apply inline-block text-green py-14 px-32 bg-white transition-all duration-500 ease-in-out;
+  }
+  .white-btn:hover {
+    @apply text-white py-14 px-32 bg-transparent border border-white border-solid;
+  }
+  .white-btn-xl {
+    @apply inline-block text-green uppercase py-13 px-40 rounded-full bg-white transition-all duration-500 ease-in-out;
+  }
+  .white-btn-xl:hover {
+    @apply text-white py-13 px-40 bg-transparent border border-white border-solid;
+  }
+  .btn-green-xxl{
+    @apply inline-block uppercase font-300 text-green py-8 !px-50 bg-green transition-all duration-500 ease-in-out;
+  }
+  .btn-green-xxl:hover{
+    @apply text-green py-8 px-50 bg-transparent border-1 border-green border-solid;
+  }
 }
 @layer utilities {
-
+  .header a {
+    @apply font-300;
+  }
+  .tabs .active {
+    @apply border-1 border-solid border-green text-green;
+  }
+  .menus li img, .menu-icone li img {
+    @apply w-[16px] h-[16px] object-contain;
+  }
+  .fotter .footer-container ul li a:hover {
+    @apply scale-[1.1];
+  }
 }
 
 :root {
