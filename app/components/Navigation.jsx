@@ -1,8 +1,10 @@
 "use client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import Logo from "./Icons/Logo";
 
 const Navigation = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,51 +24,58 @@ const Navigation = ({ data }) => {
                   {item.nav_link?.text}
                 </PrismicNextLink>
                 {/* Icon (if any) */}
-                {item.nav_item_image?.url && (
-                  <PrismicNextImage
-                    alt={item.nav_item_image.alt || "img"}
-                    height={16}
-                    width={16}
-                    field={item.nav_item_image}
+                {index == 0 ? (
+                  <img
+                    src="/home.svg"
+                    alt="wishlist"
+                    className="w-[16px] object-contain h-[16px]"
                   />
+                ) : (
+                  <Fragment>
+                    {item.nav_item_image?.url && (
+                      <PrismicNextImage
+                        alt={item.nav_item_image.alt || "img"}
+                        height={16}
+                        width={16}
+                        field={item.nav_item_image}
+                      />
+                    )}
+                  </Fragment>
                 )}
               </li>
             ))}
           </ul>
 
-          <div className="flex-shrink-0 mx-4 xlscreen1:w-max xlscreen1:mx-auto">
+          <div className="flex-shrink-0 mx-4 xlscreen1:w-max xlscreen1:mx-auto grid">
             <Link href="/">
-              <PrismicNextImage
-                alt={data?.nav_logo?.alt || "Logo"}
-                field={data?.nav_logo}
-              />
+              <Logo />
             </Link>
           </div>
 
           {/* Right nav actions (desktop) */}
-          <ul className="hidden minxlscreen:flex gap-4 items-center w-max xlscreen1:ml-auto">
+          <ul className="nav-right hidden minxlscreen:flex gap-15 items-center w-max xlscreen1:ml-auto">
             <input
               type="text"
               placeholder="Search here..."
               className="w-full border-b bg-transparent border-green placeholder-meant px-2 focus:outline-none text-[#004D43]"
             />
-            {data?.nav_actions.map((item, index) => (
-              <li
-                key={index}
-                className="cursor-pointer flex items-center gap-2"
-              >
-                {item.action_image?.url && (
-                  <PrismicNextImage
-                    height={16}
-                    width={16}
-                    alt={item.action_image.alt || "Action icon"}
-                    field={item.action_image}
-                  />
-                )}
-                {/* Link if needed */}
-                <PrismicNextLink field={item.action_link} />
-              </li>
-            ))}
+            <div className="flex items-center gap-14">
+              <img
+                src="/bag.svg"
+                alt="wishlist"
+                className="w-[16px] object-contain h-[16px]"
+              />
+              <img
+                src="/wishlist.svg"
+                alt="wishlist"
+                className="w-[16px] object-contain h-[16px]"
+              />
+              <img
+                src="/user.svg"
+                alt="wishlist"
+                className="w-[16px] object-contain h-[16px]"
+              />
+            </div>
           </ul>
 
           {/* Hamburger button (mobile only) */}

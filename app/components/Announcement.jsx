@@ -20,12 +20,13 @@ const Announcement = ({ data }) => {
   if (!data) return null;
   if (data.hide_module) return null;
   return (
-    <div className={`flex items-center justify-between py-8 px-75 bg-green`}>
+    <div
+      className={`flex items-center justify-between py-8 px-75 bg-green mdscreen2:grid mdscreen2:grid-cols-3`}
+    >
       {isMobile ? (
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
-          centeredSlides={true}
           loop={true}
           autoplay={{
             delay: 3000,
@@ -36,19 +37,47 @@ const Announcement = ({ data }) => {
           {data.items.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="flex items-center gap-2 justify-center">
-                <PrismicNextImage className="w-full max-w-[10px]" alt="image" field={item.icon} />
-                <PrismicNextLink field={item.link} />
+                <PrismicNextImage
+                  className="w-full max-w-[10px]"
+                  alt="image"
+                  field={item.icon}
+                />
+                <PrismicNextLink
+                  className="text-white text-body"
+                  field={item.link}
+                />
+                <PrismicNextImage
+                  className="w-full max-w-[10px]"
+                  alt="image"
+                  field={item.icon_2}
+                />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       ) : (
-        data.items.map((item, index) => (
-          <div className="flex items-center gap-2" key={index}>
-            <PrismicNextImage alt="image" className="w-full max-w-[10px]" field={item.icon} />
-            <PrismicNextLink field={item.link} />
-          </div>
-        ))
+        data.items.map((item, index) => {
+          const justifyClass =
+            index === 1 ? "justify-center text-16" : index === 2 ? "justify-end text-14" : "text-14";
+          return (
+            <div
+              key={index}
+              className={`flex items-center gap-2 custom-class-${index} ${justifyClass}`}
+            >
+              <PrismicNextImage
+                alt="image"
+                className="w-full max-w-[10px]"
+                field={item.icon}
+              />
+              <PrismicNextLink className="text-white font-body" field={item.link} />
+              <PrismicNextImage
+                className="w-full max-w-[10px] cursor-pointer"
+                alt="image"
+                field={item.icon_2}
+              />
+            </div>
+          );
+        })
       )}
     </div>
   );

@@ -4,101 +4,96 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import React, { useEffect, useState } from "react";
 
-const AgeVerification = () => {
-  const [isVerified, setIsVerified] = useState(false);
-  const [data, setData] = useState();
+const AgeVerification = ({ data }) => {
+  const [showVerification, setShowVerification] = useState(false);
 
   useEffect(() => {
+    // If the user hasn't been verified, show the verification overlay.
     if (!localStorage.getItem("ageVerified")) {
-      setIsVerified(true);
+      setShowVerification(true);
     }
     const fetchData = async () => {
-      let client = createClient();
+      const client = createClient();
       const response = await client.getByUID(
         "age_verification",
         "age_verification-uid"
       );
-      setData(response.data);
     };
     fetchData();
   }, []);
+
   if (!data) return null;
 
-  const handleVerification = (isVerified) => {
-    localStorage.setItem("ageVerified", isVerified);
-    setIsVerified(false);
+  const components = {
+    paragraph: ({ children }) => (
+      <p className="mb-[48px] font-grillsans !text-26 text-white font-300">
+        {children}
+      </p>
+    ),
   };
 
-  if (!isVerified) return null;
-  if (data.hide_module) return null;
+  const handleVerification = (choice) => {
+    if (choice) {
+      // If "Yes" is clicked, save the flag and remove the overlay.
+      localStorage.setItem("ageVerified", "true");
+      setShowVerification(false);
+    } else {
+      // If "No" is clicked, redirect the user (or handle it as needed).
+      window.location.href = "about:blank"; // Replace with your exit URL
+    }
+  };
+
+  // If verification is not needed or the module is hidden, don't render the overlay.
+  if (!showVerification || data.hide_module) return null;
 
   return (
     <div
-      className={`fixed inset-0 bg-green] flex items-center justify-center bg-cover bg-center`}
-     
+      className="fixed z-10 inset-0 flex items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage: `url('${data.background_image.url}')`,
+      }}
     >
-      <div className="absolute top-0 left-0 right-0 p-8 text-center">
-        <PrismicNextImage field={data.logo} />
+      <div className="absolute my-[46px] top-0 left-0 right-0 p-8 text-center">
+        <PrismicNextImage
+          alt="Logo"
+          className="mx-auto mb-4 max-w-80"
+          field={data.logo}
+        />
       </div>
 
-      <div className="p-8 rounded-lg text-center max-w-lg w-full">
-        <h2 className="text-5xl text-white mb-4">{data.heading}</h2>
-        <p className="mb-6 text-white">
-          <PrismicRichText field={data.agreement_text} />
-        </p>
-        <div className="flex justify-center space-x-4">
-          <button
-            onClick={() => handleVerification(true)}
-            className="green-btn"
-          >
-            Yes
-          </button>
-          <button
-            onClick={() => handleVerification(false)}
-            className="px-6 py-2 text-white rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-2 hover:outline-white hover:outline-offset-4 transition"
-          >
-            No
-          </button>
+      <div className="p-[20px] rounded-lg text-center max-w-lg w-full">
+        <h2 className="text-5xl text-white mb-[24px] !font-400">
+          {data.heading}
+        </h2>
+        <PrismicRichText components={components} field={data.agreement_text} />
+        <div className="flex justify-center gap-[40px]">
+          <div className="rounded-full">
+            <button
+              onClick={() => handleVerification(true)}
+              className="font-body capitalize leading-[normal] px-[48px] py-[11px] m-[1px] text-white rounded-full bg-transparent border-1 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-1 hover:outline-white hover:outline-offset-4 transition "
+            >
+              Yes
+            </button>
+          </div>
+          <div className="rounded-full">
+            <button
+              onClick={() => handleVerification(false)}
+              className="font-body capitalize leading-[normal] px-[48px] py-[11px] m-[1px] text-white rounded-full bg-transparent border-1 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-1 hover:outline-white hover:outline-offset-4 transition "
+            >
+              no
+            </button>
+          </div>
+        </div>
+        <div className="vertical-line absolute bottom-0 left-[50%]">
+          <img
+            className="relative max-w-max"
+            src="/Line1.png"
+            alt=""
+            srcSet=""
+          />
         </div>
       </div>
     </div>
-
-    //     <div
-    //       className="fixed inset-0 flex items-center justify-center bg-cover bg-center"
-    //       style={{
-    //         backgroundImage: "url('/assets/green-bg.png')",
-    //       }}
-    //     >
-    //       <div className="absolute top-0 left-0 right-0 p-8 text-center">
-    //         <img
-    //           src="/assets/logo.png"
-    //           alt="Logo"
-    //           className="mx-auto mb-4 max-w-80"
-
-    //         />
-    //       </div>
-
-    //       <div className="p-8 rounded-lg text-center max-w-lg w-full">
-    //         <h2 className="text-5xl text-white mb-4">Age Verification</h2>
-
-    //         <div className="flex justify-center space-x-4">
-
-    //     <button
-    //   onClick={() => handleVerification(true)}
-    //   className="px-6 py-2 text-white rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-2 hover:outline-white hover:outline-offset-4 transition"
-    // >
-    // Sorry,you must be 21+
-    // </button>
-    // <button
-    //   onClick={() => handleVerification(false)}
-    //   className="px-6 py-2 text-white rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-2 hover:outline-white hover:outline-offset-4 transition"
-    // >
-    // Exit the site
-    // </button>
-
-    //       </div>
-    //       </div>
-    //     </div>
   );
 };
 

@@ -7,7 +7,7 @@ const NewsLetter = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative overflow-hidden text-center lgscreen:py-60 py-40 border-2 space-y-6"
+      className="relative overflow-hidden text-center lgscreen:py-60 py-40 space-y-6"
       style={{
         backgroundColor: slice.primary.background_color || "#F8F5F1",
       }}
@@ -93,7 +93,7 @@ const NewsLetter = ({ slice }) => {
           />
 
           <button
-            className="btn-green-xxl absolute !px-50 right-[5px] top-1/2 transform   -translate-y-1/2 px-[6px] py-[8px] rounded-full text-white text-16 smscreen:relative smscreen:transform-unset smsreen:right:0 smsreen:inline-block smscreen:mt-20"
+            className="btn-green-xxl absolute !px-50 right-[5px] top-1/2 transform -translate-y-1/2 rounded-full text-white text-16 smscreen:relative smscreen:transform-unset smsreen:right:0 smsreen:inline-block smscreen:mt-20"
             // style={{
             //   backgroundColor:
             //     slice.primary.button_background_color || "#1E3932",

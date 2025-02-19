@@ -53,6 +53,14 @@
                 "allowText": true,
                 "repeat": false
               }
+            },
+            "icon_2": {
+              "type": "Image",
+              "config": {
+                "label": "Icon 2",
+                "constraint": {},
+                "thumbnails": []
+              }
             }
           }
         }

@@ -34,16 +34,21 @@ const headerData = async () => {
     "announcement_bar",
     "announcement-bar-uid"
   );
-  return { response, announcementBar };
+  const AgeVarification = await client.getByUID(
+    "age_verification",
+    "age_verification-uid"
+  );
+  return { response, announcementBar, AgeVarification };
 };
 
 export default async function RootLayout({ children }) {
-  const { response, announcementBar } = await headerData();
+  const { response, announcementBar, AgeVarification } = await headerData();
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased scroll-smooth`}
       >
+        <AgeVerification data={AgeVarification.data} />
         <Announcement data={announcementBar.data} />
         <Navigation data={response.data} />
         {children}

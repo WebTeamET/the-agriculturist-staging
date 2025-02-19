@@ -12,6 +12,20 @@
           "label": "UID"
         }
       },
+      "title_color": {
+        "type": "Color",
+        "config": {
+          "label": "Title Color",
+          "placeholder": ""
+        }
+      },
+      "content_color": {
+        "type": "Color",
+        "config": {
+          "label": "Content Color",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -48,6 +48,17 @@
             }
           }
         }
+      },
+      "demo_image": {
+        "type": "Image",
+        "config": {
+          "label": "demo image",
+          "constraint": {
+            "width": 16,
+            "height": 16
+          },
+          "thumbnails": []
+        }
       }
     }
   }

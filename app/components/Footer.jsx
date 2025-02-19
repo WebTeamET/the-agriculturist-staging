@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import Link from "next/link";
 import React from "react";
 
 const Footer = async () => {
@@ -8,8 +9,6 @@ const Footer = async () => {
   const { data } = await client.getByUID("footer", "footer-uid");
   const settings = await client.getByUID("settings", "settings-uid");
   if (data.hide_module) return null;
-  console.log(data.footer_terms, 11);
-
   const fontBody = {
     paragraph: ({ children }) => <p className="font-body">{children}</p>,
   };
@@ -28,7 +27,11 @@ const Footer = async () => {
                 <ul className="mt-2 space-y-2">
                   {item.category_link.map((link, index) => (
                     <li key={index}>
-                      <PrismicNextLink className="inline-block" key={link.key} field={link} />
+                      <PrismicNextLink
+                        className="inline-block"
+                        key={link.key}
+                        field={link}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -46,11 +49,20 @@ const Footer = async () => {
             <div className="flex flex-col gap-10 mdscreen:justify-center mdscreen:items-center !mt-[18px]">
               <h6 className="font-semibold text-16">FOLLOW US</h6>
               <div className="flex items-center gap-4 mt-2">
-                {settings.data.social_media.map((item, index) => (
-                  <PrismicNextLink key={index} field={item.social_link}>
-                    <PrismicNextImage alt="img" field={item.social_icon} />
-                  </PrismicNextLink>
-                ))}
+                <Link target="_blank" href={"https://www.instagram.com"}>
+                  <img
+                    src="/insta.svg"
+                    alt="wishlist"
+                    className="w-[16px] object-contain h-[16px]"
+                  />
+                </Link>
+                <Link target="_blank" href={"https://www.linkedin.com"}>
+                  <img
+                    src="/linkedin.svg"
+                    alt="wishlist"
+                    className="w-[16px] object-contain h-[16px]"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -67,9 +79,13 @@ const Footer = async () => {
         <div className="px-20 mdscreen6:px-75 flex justify-between smscreen:flex-wrap smscreen:text-center smscreen:justify-center smscreen:gap-5 text-sm">
           <p>Copyright © 2025. All rights reserved.</p>
           <div className="flex gap-4">
-            <a className="font-300" href="#">Terms & Conditions</a>
+            <a className="font-300" href="#">
+              Terms & Conditions
+            </a>
             <span>|</span>
-            <a className="font-300" href="#">Privacy Policy</a>
+            <a className="font-300" href="#">
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>

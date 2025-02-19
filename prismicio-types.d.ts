@@ -137,6 +137,16 @@ export interface AnnouncementBarDocumentDataItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Icon 2 field in *AnnouncementBar → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcement_bar.items[].icon_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_2: prismic.ImageField<never>;
 }
 
 /**
@@ -200,6 +210,28 @@ type BlogDocumentDataSlicesSlice = BlogCardsSlice | SliderSlice;
  * Content for Blog documents
  */
 interface BlogDocumentData {
+  /**
+   * Title Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Content Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.content_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  content_color: prismic.ColorField;
+
   /**
    * Slice Zone field in *Blog*
    *
@@ -755,6 +787,17 @@ interface SettingsDocumentData {
   social_media: prismic.GroupField<
     Simplify<SettingsDocumentDataSocialMediaItem>
   >;
+
+  /**
+   * demo image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.demo_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  demo_image: prismic.ImageField<never>;
 }
 
 /**

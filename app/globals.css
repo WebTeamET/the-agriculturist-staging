@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  scroll-behavior: smooth !important;
+}
+
 @layer base {
   *,
   ::before,
@@ -47,70 +51,79 @@
     @apply px-55 xlscreen4:px-30;
   }
   a {
-    @apply transition-all duration-500 ease-in-out;
+    @apply inline-block transition-all duration-500 ease-in-out;
   }
 }
 @layer components {
   .btn {
-    @apply inline-block !text-16 !leading-26 !font-300 !font-body capitalize !flex w-fit items-center !no-underline;
+    @apply inline-block leading-[normal] !text-16 !leading-26 !font-300 !font-body capitalize !flex w-fit items-center !no-underline;
   }
   .green-btn {
-    @apply inline-block text-white py-14 px-32 rounded-full bg-green transition-all duration-500 ease-in-out;
+    @apply capitalize inline-block leading-[normal] font-body text-white py-14 px-32 rounded-full bg-green transition-all duration-500 ease-in-out;
   }
   .green-btn:hover {
     @apply text-green py-14 px-32 bg-transparent border-1 border-green border-solid;
   }
   .green-btn-xl {
-    @apply inline-block text-white py-13 px-40 uppercase rounded-full bg-green transition-all duration-500 ease-in-out;
+    @apply inline-block leading-[normal] font-body text-white py-13 px-40 uppercase rounded-full bg-green transition-all duration-500 ease-in-out;
   }
   .green-btn-xl:hover {
     @apply text-green py-13 px-40 bg-transparent border-1 border-green border-solid;
   }
   .white-btn {
-    @apply inline-block text-green py-14 px-32 bg-white transition-all duration-500 ease-in-out;
+    @apply capitalize inline-block leading-[normal] font-body rounded-full text-green py-14 px-32 bg-white transition-all duration-500 ease-in-out;
   }
   .white-btn:hover {
     @apply text-white py-14 px-32 bg-transparent border border-white border-solid;
   }
   .white-btn-xl {
-    @apply inline-block text-green uppercase py-13 px-40 rounded-full bg-white transition-all duration-500 ease-in-out;
+    @apply inline-block leading-[normal] font-body text-green uppercase py-13 px-40 rounded-full bg-white transition-all duration-500 ease-in-out;
   }
   .white-btn-xl:hover {
     @apply text-white py-13 px-40 bg-transparent border border-white border-solid;
   }
   .btn-green-xxl{
-    @apply inline-block uppercase font-300 text-green py-8 !px-50 bg-green transition-all duration-500 ease-in-out;
+    @apply inline-block leading-[normal] font-body uppercase font-300 text-green py-10 !px-50 bg-green transition-all duration-500 ease-in-out;
   }
   .btn-green-xxl:hover{
-    @apply text-green py-8 px-50 bg-transparent border-1 border-green border-solid;
+    @apply text-green py-10 px-50 bg-transparent border-1 border-green border-solid;
   }
 }
+
 @layer utilities {
   .header a {
     @apply font-300;
   }
   .tabs .active {
-    @apply border-1 border-solid border-green text-green;
+    @apply border-1 border-solid border-green text-green leading-[normal];
   }
   .menus li img, .menu-icone li img {
     @apply w-[16px] h-[16px] object-contain;
   }
+  .fotter .footer-container ul li a{
+    @apply font-body font-300;
+  }
   .fotter .footer-container ul li a:hover {
     @apply scale-[1.1];
   }
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .header .logo img {
+    @apply  max-w-[160px];
+  }
+  .custom-class-0 a, .custom-class-2 a {
+    @apply text-14;
+  }
+  .custom-class-1 {
+    @apply justify-center;
+  }
+  .custom-class-2 {
+    @apply justify-end;
   }
 }
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
 
 /* Teodor Trial Font */
 @font-face {
@@ -330,15 +343,17 @@
 }
 
 /* Apply the font */
-body {
+/* body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Teodor Trial", "Gill Sans", sans-serif;
-}
+} */
 
 .swiper-pagination-bullet {
   background: transparent !important;
-  margin: 5px !important;
+  margin: 10px !important;
+  padding-bottom: 10px !important;
+  bottom: 0;
 }
 
 .footer-img-line {
@@ -354,3 +369,8 @@ body {
   height: 1px;
   width: 100%;
 }
+
+.swiper-pagination-bullet-active {
+  color: white; /* Active bullet fill */
+}
+

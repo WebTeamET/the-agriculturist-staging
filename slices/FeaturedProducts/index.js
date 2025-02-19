@@ -5,52 +5,122 @@ import { PrismicRichText } from "@prismicio/react";
 import StarIcon from "../../public/star.svg";
 import Image from "next/image";
 
-const products = [
-  {
-    name: "Product Name",
-    price: 449,
-    oldPrice: 699,
-    discount: 39,
-    rating: 5,
-    imageUrl:
-      "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
-  },
-  {
-    name: "Product Name",
-    price: 499,
-    oldPrice: 799,
-    discount: 38,
-    rating: 4,
-    imageUrl:
-      "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
-  },
-  {
-    name: "Product Name",
-    price: 389,
-    oldPrice: 649,
-    discount: 40,
-    rating: 4,
-    imageUrl:
-      "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
-  },
-  {
-    name: "Product Name",
-    price: 389,
-    oldPrice: 649,
-    discount: 40,
-    rating: 4,
-    imageUrl:
-      "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
-  },
-];
+const productsData = {
+  bestSellers: [
+    {
+      name: "Product Name",
+      price: 449,
+      oldPrice: 699,
+      discount: 39,
+      rating: 5,
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Product Name",
+      price: 499,
+      oldPrice: 799,
+      discount: 38,
+      rating: 4,
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Product Name",
+      price: 499,
+      oldPrice: 799,
+      discount: 38,
+      rating: 4,
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Product Name",
+      price: 499,
+      oldPrice: 799,
+      discount: 38,
+      rating: 4,
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+  ],
+  newArrivals: [
+    {
+      name: "New Arrival 1",
+      price: 550,
+      oldPrice: 750,
+      discount: 27,
+      rating: 5,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "New Arrival 2",
+      price: 620,
+      oldPrice: 820,
+      discount: 24,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "New Arrival 3",
+      price: 620,
+      oldPrice: 820,
+      discount: 24,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "New Arrival 4",
+      price: 620,
+      oldPrice: 820,
+      discount: 24,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+  ],
+  seasonalDrops: [
+    {
+      name: "Seasonal Drop 1",
+      price: 480,
+      oldPrice: 680,
+      discount: 30,
+      rating: 5,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Seasonal Drop 2",
+      price: 510,
+      oldPrice: 710,
+      discount: 28,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Seasonal Drop 3",
+      price: 510,
+      oldPrice: 710,
+      discount: 28,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+    {
+      name: "Seasonal Drop 4",
+      price: 510,
+      oldPrice: 710,
+      discount: 28,
+      rating: 4,
+      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+    },
+  ],
+};
 
-const ProductGrid = () => {
+const ProductGrid = ({ products }) => {
   return (
     <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30 px-20 mdscreen6:px-75">
       {products.map((product, index) => (
         <div
           key={index}
-          className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] border border-[#CDBAA7] bg-white shadow-md"
+          className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] hover:border hover:border-[#CDBAA7] bg-white shadow-md"
         >
           <a
             className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
@@ -83,7 +153,7 @@ const ProductGrid = () => {
                   height={15}
                   width={14}
                   key={idx}
-                  className="mx-4"
+                  className="mx-2"
                 />
               ))}
             </div>
@@ -115,9 +185,10 @@ const ProductGrid = () => {
 
 const FeaturedProducts = ({ slice }) => {
   const [activeTab, setActiveTab] = useState("bestSellers");
-
+  const [products, setProducts] = useState(productsData.bestSellers);
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    setProducts(productsData[tab]);
   };
 
   if (slice.primary.hide_module) return null;
@@ -195,7 +266,7 @@ const FeaturedProducts = ({ slice }) => {
         </div>
 
         {/* Product Grid */}
-        <ProductGrid />
+        <ProductGrid products={products} />
 
         {slice.primary.button_text && slice.primary.button_link && (
           <div className="flex justify-center px-20 mt-55">
