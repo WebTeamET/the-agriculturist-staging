@@ -47,7 +47,7 @@ const Announcement = ({ data }) => {
                   field={item.link}
                 />
                 <PrismicNextImage
-                  className="w-full max-w-[10px]"
+                  className="w-full max-w-[16px]"
                   alt="image"
                   field={item.icon_2}
                 />
@@ -58,7 +58,11 @@ const Announcement = ({ data }) => {
       ) : (
         data.items.map((item, index) => {
           const justifyClass =
-            index === 1 ? "justify-center text-16" : index === 2 ? "justify-end text-14" : "text-14";
+            index === 1
+              ? "justify-center text-16"
+              : index === 2
+                ? "justify-end text-14"
+                : "text-14";
           return (
             <div
               key={index}
@@ -66,12 +70,15 @@ const Announcement = ({ data }) => {
             >
               <PrismicNextImage
                 alt="image"
-                className="w-full max-w-[10px]"
+                className={`w-full cursor-pointer ${index === 0 ? "max-w-[15px] mt-2" : "max-w-[16px]"}`}
                 field={item.icon}
               />
-              <PrismicNextLink className="text-white font-body" field={item.link} />
+              <PrismicNextLink
+                className="text-white font-body"
+                field={item.link}
+              />
               <PrismicNextImage
-                className="w-full max-w-[10px] cursor-pointer"
+                className={`w-full cursor-pointer ${index === 0 ? "max-w-[15px] mt-2" : "max-w-[16px]"}`}
                 alt="image"
                 field={item.icon_2}
               />

@@ -49,20 +49,19 @@ const Footer = async () => {
             <div className="flex flex-col gap-10 mdscreen:justify-center mdscreen:items-center !mt-[18px]">
               <h6 className="font-semibold text-16">FOLLOW US</h6>
               <div className="flex items-center gap-4 mt-2">
-                <Link target="_blank" href={"https://www.instagram.com"}>
-                  <img
-                    src="/insta.svg"
-                    alt="wishlist"
-                    className="w-[16px] object-contain h-[16px]"
-                  />
-                </Link>
-                <Link target="_blank" href={"https://www.linkedin.com"}>
-                  <img
-                    src="/linkedin.svg"
-                    alt="wishlist"
-                    className="w-[16px] object-contain h-[16px]"
-                  />
-                </Link>
+                {settings?.data?.social_media?.map((item, index) => (
+                  <PrismicNextLink
+                    key={index}
+                    field={item.social_link}
+                    target="_blank"
+                  >
+                    <PrismicNextImage
+                      field={item.social_icon}
+                      alt="social-icon"
+                      className="w-[16px] h-[16px] object-contain"
+                    />
+                  </PrismicNextLink>
+                ))}
               </div>
             </div>
           </div>
@@ -70,14 +69,16 @@ const Footer = async () => {
         <div className="px-20 mdscreen6:px-75 text-center text-xl font-bold pb-20 footer-img-line flex items-center gap-10">
           <div className="footer-line-left w-full mx-auto"></div>
           <PrismicNextImage
-            className="w-max mx-auto"
+            className="w-max mx-auto h-[63px]"
             alt="img"
             field={settings.data.site_logo}
           />
           <div className="footer-line-right w-full mx-auto"></div>
         </div>
         <div className="font-body px-20 mdscreen6:px-75 flex justify-between smscreen:flex-wrap smscreen:text-center smscreen:justify-center smscreen:gap-5 text-sm">
-          <p className="font-body font-300">Copyright © 2025. All rights reserved.</p>
+          <p className="font-body font-300">
+            Copyright © 2025. All rights reserved.
+          </p>
           <div className="flex gap-4">
             <a className="font-300" href="#">
               Terms & Conditions
