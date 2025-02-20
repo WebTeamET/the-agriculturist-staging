@@ -142,13 +142,13 @@ const Navigation = ({ data }) => {
 
       {/* Mobile Dropdown Menu with smooth transition */}
       <div
-        className={`minxlscreen:hidden flex flex-col items-center gap-6 overflow-hidden transition-all duration-300 ease-in-out transform ${
+        className={`minxlscreen:hidden absolute top-full left-0 right-0 z-50 flex flex-col items-center gap-6 overflow-hidden transition-all duration-300 ease-in-out transform ${
           isOpen
-            ? "max-h-screen opacity-100 translate-y-0"
+            ? "max-h-screen opacity-100 translate-y-0  bg-[#F9F4EF]"
             : "max-h-0 opacity-0 -translate-y-2"
         }`}
       >
-        <ul className="menus flex flex-col gap-4 uppercase text-black items-center">
+        <ul className="menus flex flex-col my-30 gap-4 uppercase text-black items-center">
           {data.nav_items.map((item, index) => (
             <li key={index} className="flex gap-2 items-center">
               <PrismicNextLink field={item.nav_link}>
