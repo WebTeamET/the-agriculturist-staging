@@ -1,23 +1,23 @@
 {
   "format": "page",
-  "id": "shop",
-  "label": "Shop",
-  "repeatable": false,
+  "id": "test",
+  "label": "test",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
             "hero_banner": {
-              "type": "SharedSlice"
-            },
-            "news_letter": {
-              "type": "SharedSlice"
-            },
-            "promotional_banner": {
               "type": "SharedSlice"
             }
           }
@@ -49,19 +49,6 @@
           "thumbnails": []
         },
         "type": "Image"
-      }
-    },
-    "Style": {
-      "slices2": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "style": {
-              "type": "SharedSlice"
-            }
-          }
-        }
       }
     }
   }

@@ -834,9 +834,9 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 type ShopDocumentDataSlicesSlice =
+  | HeroBannerSlice
   | NewsLetterSlice
-  | PromotionalBannerSlice
-  | SliderSlice;
+  | PromotionalBannerSlice;
 
 type ShopDocumentDataSlices2Slice = StyleSlice;
 
@@ -908,6 +908,67 @@ interface ShopDocumentData {
 export type ShopDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<ShopDocumentData>, "shop", Lang>;
 
+type TestDocumentDataSlicesSlice = HeroBannerSlice;
+
+/**
+ * Content for test documents
+ */
+interface TestDocumentData {
+  /**
+   * Slice Zone field in *test*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TestDocumentDataSlicesSlice> /**
+   * Meta Title field in *test*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: test.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *test*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: test.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *test*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * test document from Prismic
+ *
+ * - **API ID**: `test`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TestDocumentData>, "test", Lang>;
+
 export type AllDocumentTypes =
   | AgeVerificationDocument
   | AnnouncementBarDocument
@@ -918,7 +979,8 @@ export type AllDocumentTypes =
   | HomeDocument
   | NavigationDocument
   | SettingsDocument
-  | ShopDocument;
+  | ShopDocument
+  | TestDocument;
 
 /**
  * Item in *BlogCards → Default → Primary → Blog Relation*
@@ -1122,6 +1184,71 @@ type FeaturedProductsSliceVariation = FeaturedProductsSliceDefault;
 export type FeaturedProductsSlice = prismic.SharedSlice<
   "featured_products",
   FeaturedProductsSliceVariation
+>;
+
+/**
+ * Primary content in *HeroBanner → Default → Primary*
+ */
+export interface HeroBannerSliceDefaultPrimary {
+  /**
+   * Hero Image field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub Heading field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeroBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroBanner*
+ */
+type HeroBannerSliceVariation = HeroBannerSliceDefault;
+
+/**
+ * HeroBanner Shared Slice
+ *
+ * - **API ID**: `hero_banner`
+ * - **Description**: HeroBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroBannerSlice = prismic.SharedSlice<
+  "hero_banner",
+  HeroBannerSliceVariation
 >;
 
 /**
@@ -1865,6 +1992,9 @@ declare module "@prismicio/client" {
       ShopDocumentData,
       ShopDocumentDataSlicesSlice,
       ShopDocumentDataSlices2Slice,
+      TestDocument,
+      TestDocumentData,
+      TestDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogCardsSlice,
       BlogCardsSliceDefaultPrimaryBlogRelationItem,
@@ -1875,6 +2005,10 @@ declare module "@prismicio/client" {
       FeaturedProductsSliceDefaultPrimary,
       FeaturedProductsSliceVariation,
       FeaturedProductsSliceDefault,
+      HeroBannerSlice,
+      HeroBannerSliceDefaultPrimary,
+      HeroBannerSliceVariation,
+      HeroBannerSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceVariation,

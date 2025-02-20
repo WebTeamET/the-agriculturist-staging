@@ -28,8 +28,5 @@ export async function generateMetadata({ params }) {
         ? [asImageSrc(page.data.meta_image)]
         : undefined,
     },
-    icons: {
-      icon: '../../public/star.svg',
-    },
   };
 }
