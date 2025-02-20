@@ -14,7 +14,7 @@ const Footer = async () => {
   };
 
   return (
-    <footer className={`fotter bg-green text-white pt-60 mdscreen:pt-30 pb-30`}>
+    <footer className={`footer bg-green text-white pt-60 mdscreen:pt-30 pb-30`}>
       <div className="footer-container">
         <div className="px-20 pb-30 mdscreen6:px-75 mx-auto px-6 flex justify-between items-start flex-wrap lgscreen:flex-nowrap lgscreen2:gap-30">
           {/* Categories Section */}
@@ -76,8 +76,8 @@ const Footer = async () => {
           />
           <div className="footer-line-right w-full mx-auto"></div>
         </div>
-        <div className="px-20 mdscreen6:px-75 flex justify-between smscreen:flex-wrap smscreen:text-center smscreen:justify-center smscreen:gap-5 text-sm">
-          <p>Copyright © 2025. All rights reserved.</p>
+        <div className="font-body px-20 mdscreen6:px-75 flex justify-between smscreen:flex-wrap smscreen:text-center smscreen:justify-center smscreen:gap-5 text-sm">
+          <p className="font-body font-300">Copyright © 2025. All rights reserved.</p>
           <div className="flex gap-4">
             <a className="font-300" href="#">
               Terms & Conditions

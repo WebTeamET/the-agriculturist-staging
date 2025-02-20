@@ -20,7 +20,7 @@ const Navigation = ({ data }) => {
             {data?.nav_items.map((item, index) => (
               <li key={index} className="flex gap-2 items-center">
                 {/* Text link */}
-                <PrismicNextLink field={item.nav_link}>
+                <PrismicNextLink className="font-body" field={item.nav_link}>
                   {item.nav_link?.text}
                 </PrismicNextLink>
                 {/* Icon (if any) */}
@@ -53,13 +53,14 @@ const Navigation = ({ data }) => {
           </div>
 
           {/* Right nav actions (desktop) */}
-          <ul className="nav-right hidden minxlscreen:flex gap-15 items-center w-max xlscreen1:ml-auto">
+          <div className="menu-right">
+          <div className="nav-right hidden minxlscreen:flex gap-15 items-center w-max xlscreen1:ml-auto">
             <input
               type="text"
               placeholder="Search here..."
-              className="w-full border-b bg-transparent border-green placeholder-meant px-2 focus:outline-none text-[#004D43]"
+              className="w-[235px] font-body border-b mr-20 bg-transparent border-green placeholder-meant px-2 focus:outline-none text-[#004D43]"
             />
-            <div className="flex items-center gap-14">
+            <div className="flex items-center gap-14 w-full max-w-max">
               <img
                 src="/bag.svg"
                 alt="wishlist"
@@ -76,8 +77,8 @@ const Navigation = ({ data }) => {
                 className="w-[16px] object-contain h-[16px]"
               />
             </div>
-          </ul>
-
+          </div>
+          </div>
           {/* Hamburger button (mobile only) */}
           <button
             className="minxlscreen:hidden block text-black"

@@ -241,7 +241,7 @@ const FeaturedProducts = ({ slice }) => {
         <div className="tabs flex mdscreen:flex-wrap justify-between lgscreen:py-[45px] py-30 max-w-[600px] mx-auto mdscreen:px-20">
           <button
             onClick={() => handleTabClick("bestSellers")}
-            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
+            className={`font-body smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
               activeTab === "bestSellers" && "active"
             }`}
           >
@@ -249,7 +249,7 @@ const FeaturedProducts = ({ slice }) => {
           </button>
           <button
             onClick={() => handleTabClick("newArrivals")}
-            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
+            className={`font-body smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
               activeTab === "newArrivals" && "active"
             }`}
           >
@@ -257,7 +257,7 @@ const FeaturedProducts = ({ slice }) => {
           </button>
           <button
             onClick={() => handleTabClick("seasonalDrops")}
-            className={`smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
+            className={`font-body smscreen:!w-full mdscreen:w-1/2 px-32 py-16 mdscreen:px-28 mdscreen:py-14 text-16 rounded-full text-meant font-500 ${
               activeTab === "seasonalDrops" && "active"
             }`}
           >

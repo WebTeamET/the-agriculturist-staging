@@ -86,7 +86,7 @@ const NewsLetter = ({ slice }) => {
           <input
             type="email"
             placeholder={slice.primary.placeholder_text || "Enter your email"}
-            className="w-full pr-[10px] pl-20 py-[10px] rounded-full border-2 outline-none text-16 text-[#004D43] bg-transparent placeholder-green"
+            className="font-body w-full pr-[10px] pl-20 py-[10px] rounded-full border-2 outline-none text-16 text-[#004D43] bg-transparent placeholder-green"
             style={{
               borderColor: slice.primary.border_color || "#004D43",
             }}
