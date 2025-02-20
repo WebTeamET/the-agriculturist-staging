@@ -8,6 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
+
+const getPlainText = (richText) => {
+  if (!richText) return "";
+  return richText.map((block) => block.text).join(" ");
+};
+
 const Slider = ({ slice }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -53,7 +60,7 @@ const Slider = ({ slice }) => {
             },
           }}
           modules={[Pagination]}
-          className="h-[calc(100vh_-_105px)] mdscreen:h-[500px] w-full"
+          className={`${slice.primary.extra_class} h-[calc(100vh_-_105px)] mdscreen:h-[500px] w-full`}
         >
           {slice.primary.slides.map((item, index) => (
             <SwiperSlide key={index} className="relative h-full w-full">
@@ -69,22 +76,22 @@ const Slider = ({ slice }) => {
               <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-30">
                 <div className="max-w-3xl text-center text-white">
                   {/* The key includes the activeIndex so that it re-mounts on slide change */}
-                  <PrismicRichText
-                    key={`slide-text-${index}-${activeIndex}`}
-                    field={item.slide_text}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className="text-lg md:text-xl mb-4 opacity-0 animate-fadeInUp">
-                          {children}
-                        </p>
-                      ),
-                      heading1: ({ children }) => (
-                        <h1 className="!h1-text lgscreen:text-60 text-42 mb-6 opacity-0 animate-fadeInUp">
-                          {children}
-                        </h1>
-                      ),
-                    }}
-                  />
+                  <h1
+                    key={`typewriter-slide-${index}-${activeIndex}`}
+                    className="!h1-text lgscreen:text-60 text-42 mb-6 opacity-0 animate-fadeInUp"
+                  >
+                    <Typewriter
+                      words={[
+                        getPlainText(item.slide_text),
+
+                        getPlainText(item.slide_text_two),
+                      ]}
+                      typeSpeed={50}
+                      deleteSpeed={30}
+                      delaySpeed={1000} // Wait before deleting
+                      loop={1} // Runs only once per slide
+                    />
+                  </h1>
                 </div>
                 <div className="max-w-3xl text-center text-white">
                   <PrismicRichText

@@ -51,7 +51,8 @@ const productsData = {
       oldPrice: 750,
       discount: 27,
       rating: 5,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "New Arrival 2",
@@ -59,7 +60,8 @@ const productsData = {
       oldPrice: 820,
       discount: 24,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "New Arrival 3",
@@ -67,7 +69,8 @@ const productsData = {
       oldPrice: 820,
       discount: 24,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "New Arrival 4",
@@ -75,7 +78,8 @@ const productsData = {
       oldPrice: 820,
       discount: 24,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
   ],
   seasonalDrops: [
@@ -85,7 +89,8 @@ const productsData = {
       oldPrice: 680,
       discount: 30,
       rating: 5,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "Seasonal Drop 2",
@@ -93,7 +98,8 @@ const productsData = {
       oldPrice: 710,
       discount: 28,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "Seasonal Drop 3",
@@ -101,7 +107,8 @@ const productsData = {
       oldPrice: 710,
       discount: 28,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
     {
       name: "Seasonal Drop 4",
@@ -109,14 +116,15 @@ const productsData = {
       oldPrice: 710,
       discount: 28,
       rating: 4,
-      imageUrl: "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      imageUrl:
+        "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
     },
   ],
 };
 
 const ProductGrid = ({ products }) => {
   return (
-    <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30 px-20 mdscreen6:px-75">
+    <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30">
       {products.map((product, index) => (
         <div
           key={index}
@@ -200,7 +208,7 @@ const FeaturedProducts = ({ slice }) => {
       }}
       className="lgscreen:py-60 py-40"
     >
-      <div className="product-container">
+      <div className="product-container container-lg">
         {/* Optional Title/Sub-Title */}
         {slice.primary.sub_title && (
           <div className="flex justify-center">
@@ -208,7 +216,7 @@ const FeaturedProducts = ({ slice }) => {
               field={slice.primary.sub_title}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-base font-opensans tracking-[0.15em] text-meant font-medium sm:text-left text-center mb-14">
+                  <p className="font-opensans tracking-[0.15em] text-meant font-medium sm:text-left text-center mb-14">
                     {children}
                   </p>
                 ),
@@ -223,12 +231,7 @@ const FeaturedProducts = ({ slice }) => {
               field={slice.primary.title}
               components={{
                 heading2: ({ children }) => (
-                  <h2
-                    className="lgscreen:text-48 smscreen:text-32 leading-[52px] smscreen:leading-[36px] leading-[42px] text-38 font-bold text-center"
-                    style={{
-                      color: slice.primary.title_color || "#004D43",
-                    }}
-                  >
+                  <h2 className="text-green mobile-br lgscreen:text-48 smscreen:text-32 lgscreen:leading-[52px] smscreen:leading-[36px] leading-[42px] text-38 font-bold text-center">
                     {children}
                   </h2>
                 ),

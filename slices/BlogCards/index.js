@@ -45,36 +45,38 @@ const BlogCards = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="m-[75px]"
+      className="container-lg py-60 lgscreen2:py-40"
     >
-      <div className="flex items-center justify-between mb-40 text-green font-semibold">
-        <div className="flex items-center gap-4">
-          <h4 className="!text-24">Categorised By</h4>
-          <div className="flex gap-4">
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8">
+      <div className="flex items-center justify-between mb-40 text-green font-semibold xlscreen2:flex-wrap xlscreen2:gap-20">
+        <div className="flex items-center gap-4 w-2/3 xlscreen2:w-full flex-wrap">
+          <h5 className="!text-24">Categorised By</h5>
+          <div className="flex items-center justify-start flex-wrap gap-4 text-body">
+            <button className="font-body bg-[#F9F4EF] leading-[normal] rounded-full px-16 py-8 border-1 border-green border-solid">
               All
             </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8">
+            <button className="font-body bg-[#F9F4EF] leading-[normal] rounded-full px-16 py-8">
               Strain Reviews
             </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8">
+            <button className="font-body bg-[#F9F4EF] leading-[normal] rounded-full px-16 py-8">
               Lifestyle Articles
             </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8">
+            <button className="font-body bg-[#F9F4EF] leading-[normal] rounded-full px-16 py-8">
               Product Tips
             </button>
           </div>
         </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Search Keywords"
-            className="border border-green rounded-full px-16 py-8 font-normal w-full min-w-72"
-          />
+        <div className="w-2/6 xlscreen2:w-full">
+          <div className="flex justify-end xlscreen2:justify-start">
+            <input
+              type="text"
+              placeholder="Search Keywords"
+              className="border border-green rounded-full px-16 py-8 font-normal w-[275] min-w-72"
+            />
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-3 xlscreen:grid-cols-2 smscreen:!grid-cols-1 gap-6 mt-8">
         {blogPostDetails?.map((post) => (
           <div key={post?.uid} className="rounded-lg p-4">
             <div className="relative">

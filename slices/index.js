@@ -7,5 +7,7 @@ export const components = {
   featured_products: dynamic(() => import("./FeaturedProducts")),
   image_with_text: dynamic(() => import("./ImageWithText")),
   news_letter: dynamic(() => import("./NewsLetter")),
+  promotional_banner: dynamic(() => import("./PromotionalBanner")),
   slider: dynamic(() => import("./Slider")),
+  style: dynamic(() => import("./Style")),
 };

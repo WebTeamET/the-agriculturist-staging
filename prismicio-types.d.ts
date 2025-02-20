@@ -96,6 +96,23 @@ interface AgeVerificationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logo: prismic.ImageField<never>;
+
+  /**
+   * To Redirect field in *Age Verification*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_verification.to_redirect
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  to_redirect: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -816,6 +833,81 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type ShopDocumentDataSlicesSlice =
+  | NewsLetterSlice
+  | PromotionalBannerSlice
+  | SliderSlice;
+
+type ShopDocumentDataSlices2Slice = StyleSlice;
+
+/**
+ * Content for Shop documents
+ */
+interface ShopDocumentData {
+  /**
+   * Slice Zone field in *Shop*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ShopDocumentDataSlicesSlice> /**
+   * Meta Title field in *Shop*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: shop.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Shop*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: shop.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Shop*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never> /**
+   * Slice Zone field in *Shop*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop.slices2[]
+   * - **Tab**: Style
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */;
+  slices2: prismic.SliceZone<ShopDocumentDataSlices2Slice>;
+}
+
+/**
+ * Shop document from Prismic
+ *
+ * - **API ID**: `shop`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ShopDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<ShopDocumentData>, "shop", Lang>;
+
 export type AllDocumentTypes =
   | AgeVerificationDocument
   | AnnouncementBarDocument
@@ -825,7 +917,8 @@ export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
   | NavigationDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | ShopDocument;
 
 /**
  * Item in *BlogCards → Default → Primary → Blog Relation*
@@ -1360,6 +1453,187 @@ export type NewsLetterSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *PromotionalBanner → Default → Primary → Promotional Items*
+ */
+export interface PromotionalBannerSliceDefaultPrimaryPromotionalItemsItem {
+  /**
+   * Extra Class field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].extra_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  extra_class: prismic.KeyTextField;
+
+  /**
+   * Image field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Content field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Percentage Offer field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].percentage_offer
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  percentage_offer: prismic.NumberField;
+
+  /**
+   * Button Position field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].button_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_position: prismic.SelectField<"Left" | "Right", "filled">;
+
+  /**
+   * Hover Bg Color field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  hover_bg_color: prismic.ColorField;
+
+  /**
+   * Button Link field in *PromotionalBanner → Default → Primary → Promotional Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *PromotionalBanner → Default → Primary*
+ */
+export interface PromotionalBannerSliceDefaultPrimary {
+  /**
+   * Hide Module field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: promotional_banner.default.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
+   * Container field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: promotional_banner.default.primary.container
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  container: prismic.BooleanField;
+
+  /**
+   * Background Image field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub Heading field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Promotional Items field in *PromotionalBanner → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promotional_banner.default.primary.promotional_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  promotional_items: prismic.GroupField<
+    Simplify<PromotionalBannerSliceDefaultPrimaryPromotionalItemsItem>
+  >;
+}
+
+/**
+ * Default variation for PromotionalBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PromotionalBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PromotionalBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PromotionalBanner*
+ */
+type PromotionalBannerSliceVariation = PromotionalBannerSliceDefault;
+
+/**
+ * PromotionalBanner Shared Slice
+ *
+ * - **API ID**: `promotional_banner`
+ * - **Description**: PromotionalBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PromotionalBannerSlice = prismic.SharedSlice<
+  "promotional_banner",
+  PromotionalBannerSliceVariation
+>;
+
+/**
  * Item in *Slider → Default → Primary → Slides*
  */
 export interface SliderSliceDefaultPrimarySlidesItem {
@@ -1376,12 +1650,12 @@ export interface SliderSliceDefaultPrimarySlidesItem {
   /**
    * Slide Text field in *Slider → Default → Primary → Slides*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: slider.default.primary.slides[].slide_text
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  slide_text: prismic.RichTextField;
+  slide_text: prismic.TitleField;
 
   /**
    * Slide Video field in *Slider → Default → Primary → Slides*
@@ -1402,6 +1676,16 @@ export interface SliderSliceDefaultPrimarySlidesItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   slide_subtext: prismic.RichTextField;
+
+  /**
+   * Slide Text 2 field in *Slider → Default → Primary → Slides*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.default.primary.slides[].slide_text_two
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  slide_text_two: prismic.TitleField;
 }
 
 /**
@@ -1418,6 +1702,16 @@ export interface SliderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   hide_module: prismic.BooleanField;
+
+  /**
+   * Extra Class field in *Slider → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.default.primary.extra_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  extra_class: prismic.KeyTextField;
 
   /**
    * Slides field in *Slider → Default → Primary*
@@ -1456,6 +1750,69 @@ type SliderSliceVariation = SliderSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type SliderSlice = prismic.SharedSlice<"slider", SliderSliceVariation>;
+
+/**
+ * Primary content in *Style → Default → Primary*
+ */
+export interface StyleSliceDefaultPrimary {
+  /**
+   * Extra Class field in *Style → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: style.default.primary.extra_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  extra_class: prismic.KeyTextField;
+
+  /**
+   * Clear Margin field in *Style → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: style.default.primary.clear_margin
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  clear_margin: prismic.SelectField<"top" | "bottom" | "left" | "right">;
+
+  /**
+   * Continer field in *Style → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: style.default.primary.continer
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  continer: prismic.BooleanField;
+}
+
+/**
+ * Default variation for Style Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StyleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StyleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Style*
+ */
+type StyleSliceVariation = StyleSliceDefault;
+
+/**
+ * Style Shared Slice
+ *
+ * - **API ID**: `style`
+ * - **Description**: Style
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StyleSlice = prismic.SharedSlice<"style", StyleSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -1504,6 +1861,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataSocialMediaItem,
+      ShopDocument,
+      ShopDocumentData,
+      ShopDocumentDataSlicesSlice,
+      ShopDocumentDataSlices2Slice,
       AllDocumentTypes,
       BlogCardsSlice,
       BlogCardsSliceDefaultPrimaryBlogRelationItem,
@@ -1522,11 +1883,20 @@ declare module "@prismicio/client" {
       NewsLetterSliceDefaultPrimary,
       NewsLetterSliceVariation,
       NewsLetterSliceDefault,
+      PromotionalBannerSlice,
+      PromotionalBannerSliceDefaultPrimaryPromotionalItemsItem,
+      PromotionalBannerSliceDefaultPrimary,
+      PromotionalBannerSliceVariation,
+      PromotionalBannerSliceDefault,
       SliderSlice,
       SliderSliceDefaultPrimarySlidesItem,
       SliderSliceDefaultPrimary,
       SliderSliceVariation,
       SliderSliceDefault,
+      StyleSlice,
+      StyleSliceDefaultPrimary,
+      StyleSliceVariation,
+      StyleSliceDefault,
     };
   }
 }

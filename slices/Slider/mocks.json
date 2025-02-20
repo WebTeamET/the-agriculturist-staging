@@ -41,9 +41,9 @@
 									"__TYPE__": "StructuredTextContent",
 									"value": [
 										{
-											"type": "paragraph",
+											"type": "heading1",
 											"content": {
-												"text": "Ullamco ipsum aute consectetur et aliquip quis ad veniam cillum."
+												"text": "Valuable"
 											}
 										}
 									]
@@ -90,6 +90,20 @@
 										}
 									]
 								}
+							],
+							[
+								"slide_text_two",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading1",
+											"content": {
+												"text": "Pocket"
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -98,6 +112,11 @@
 			"hide_module": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"extra_class": {
+				"__TYPE__": "FieldContent",
+				"value": "busy",
+				"type": "Text"
 			}
 		},
 		"items": []

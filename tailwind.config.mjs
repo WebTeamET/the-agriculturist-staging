@@ -8,7 +8,13 @@ export default {
   ],
   safelist: [
     // Ensure dynamic colors are not purged
-    /^bg-\[#([0-9a-fA-F]{6})\]$/,
+    {
+      pattern: /^bg-\[.*\]$/,
+    },
+    'hero-banner',
+    {
+      pattern: /^m-\d+$/,
+    },
   ],
   theme: {
     extend: {

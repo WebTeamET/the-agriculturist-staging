@@ -7,7 +7,7 @@ const NewsLetter = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative overflow-hidden text-center lgscreen:py-60 py-40 space-y-6"
+      className="relative overflow-hidden text-center container-lg container-py"
       style={{
         backgroundColor: slice.primary.background_color || "#F8F5F1",
       }}
@@ -34,7 +34,7 @@ const NewsLetter = ({ slice }) => {
         {/* Preheading */}
         {slice.primary.preheading && (
           <p
-            className="text-base font-opensans tracking-[0.15em] text-meant font-medium text-center mb-14"
+            className="font-opensans tracking-[0.15em] text-meant font-medium text-center mb-14"
             // style={{
             //   color: slice.primary.preheading_color || "white",
             // }}
@@ -50,7 +50,7 @@ const NewsLetter = ({ slice }) => {
             components={{
               heading2: ({ children }) => (
                 <h2
-                  className="lgscreen:text-48 smscreen:text-32 leading-[52px] smscreen:leading-[36px] leading-[42px] text-38 font-bold text-center !mt-0 !mb-15"
+                  className="mobile-br font-bold text-center !mt-0 !mb-15"
                   style={{
                     color: slice.primary.title_color || "#004D43",
                   }}
@@ -85,6 +85,7 @@ const NewsLetter = ({ slice }) => {
         <div className="relative mt-4!mt-0 !mb-0 smscreen:flex flex-col gap-20 justify-center items-center">
           <input
             type="email"
+            aria-label={slice.primary.placeholder_text || "Enter your email"}
             placeholder={slice.primary.placeholder_text || "Enter your email"}
             className="font-body w-full pr-[10px] pl-20 py-[10px] rounded-full border-2 outline-none text-16 text-[#004D43] bg-transparent placeholder-green"
             style={{

@@ -1,0 +1,23 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"extra_class": {
+				"__TYPE__": "FieldContent",
+				"value": "hand",
+				"type": "Text"
+			},
+			"clear_margin": {
+				"__TYPE__": "FieldContent",
+				"value": "bottom",
+				"type": "Select"
+			},
+			"continer": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	}
+]

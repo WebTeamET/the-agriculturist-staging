@@ -36,7 +36,7 @@ const ImageWithText = ({ slice }) => {
     ),
     paragraph: ({ children }) => (
       <p
-        className="lg:!text-18 lg:leading-28 !mt-0 font-opensans lg:text-left text-center"
+        className="lgscreen:!text-18 lgscreen:leading-28 smscreen:!text-16 !mt-0 font-opensans lgscreen:text-left text-center"
         style={textStyle}
       >
         {children}
@@ -51,9 +51,9 @@ const ImageWithText = ({ slice }) => {
       className="py-100 lgscreen2:pb-40 lgscreen2:pt-0"
       style={{ backgroundColor: background_color || "white" }}
     >
-      <div className="flex flex-col lg:flex-row items-center lg:gap-0 gap-30">
+      <div className="flex flex-col lgscreen:flex-row items-center lgscreen:gap-0 gap-30">
         {image_position === "Left" && (
-          <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
+          <div className="lgscreen:w-1/2 w-full mb-8 lgscreen:mb-0">
             <PrismicNextImage
               field={image}
               className="w-full h-auto object-cover rounded-lg lgscreen2:rounded-none"
@@ -62,9 +62,9 @@ const ImageWithText = ({ slice }) => {
           </div>
         )}
         <div
-          className={`lg:w-1/2 w-full space-y-8 px-20 lg:max-w-[705px] ${
-            image_position === "Left" ? "lg:px-60" : "lg:pr-12"
-          } text-center lg:text-left`}
+          className={`lgscreen:w-1/2 w-full space-y-8 px-20 lgscreen:max-w-[705px] ${
+            image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
+          } text-center lgscreen:text-left`}
         >
           <PrismicRichText
             components={components}
@@ -91,7 +91,7 @@ const ImageWithText = ({ slice }) => {
           )}
         </div>
         {image_position === "Right" && (
-          <div className="lg:w-1/2 w-full">
+          <div className="lgscreen:w-1/2 w-full">
             <PrismicNextImage
               field={image}
               className="w-full h-auto object-cover rounded-lg"

@@ -74,6 +74,17 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "to_redirect": {
+        "type": "Link",
+        "config": {
+          "label": "To Redirect",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     }
   }

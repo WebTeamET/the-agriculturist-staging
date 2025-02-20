@@ -43,11 +43,11 @@ const Announcement = ({ data }) => {
                   field={item.icon}
                 />
                 <PrismicNextLink
-                  className="text-white text-body"
+                  className="text-white text-body xsscreen2:text-12  font-body"
                   field={item.link}
                 />
                 <PrismicNextImage
-                  className="w-full max-w-[16px]"
+                  className="w-full max-w-[16px] xsscreen2:max-w-[10px]"
                   alt="image"
                   field={item.icon_2}
                 />
@@ -74,7 +74,7 @@ const Announcement = ({ data }) => {
                 field={item.icon}
               />
               <PrismicNextLink
-                className="text-white font-body"
+                className="text-white font-body tracking-[0.5px]"
                 field={item.link}
               />
               <PrismicNextImage

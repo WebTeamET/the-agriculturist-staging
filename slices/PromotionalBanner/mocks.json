@@ -1,0 +1,156 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"promotional_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+										"width": 2747,
+										"height": 4120
+									},
+									"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+									"width": 2747,
+									"height": 4120,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"content",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Voluptate cillum id minim Lorem et."
+											}
+										}
+									]
+								}
+							],
+							[
+								"percentage_offer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "17",
+									"type": "Number"
+								}
+							],
+							[
+								"extra_class",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "onto",
+									"type": "Text"
+								}
+							],
+							[
+								"button_position",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Left",
+									"type": "Select"
+								}
+							],
+							[
+								"hover_bg_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#ba23ae",
+									"type": "Color"
+								}
+							],
+							[
+								"button_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "eff2bc43-14c6-4be9-9cd3-b4af58218296",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "public"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Proident velit nostrud reprehenderit aute labore cupidatat ut Lorem eiusmod velit. Tempor ipsum eu esse elit irure minim minim."
+						}
+					}
+				]
+			},
+			"sub_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ut sit aliqua fugiat occaecat sit voluptate enim voluptate id non deserunt duis ex nulla. Quis ut enim in nostrud enim consectetur proident pariatur. Sint mollit pariatur ut cupidatat qui commodo consectetur eu dolore esse tempor labore nulla est ad."
+						}
+					}
+				]
+			},
+			"background_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+					"width": 3168,
+					"height": 4752
+				},
+				"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+				"width": 3168,
+				"height": 4752,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"container": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"hide_module": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": []
+	}
+]

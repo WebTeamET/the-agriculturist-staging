@@ -27,7 +27,7 @@ body {
     @apply !font-body m-0;
   }
   p {
-    @apply !text-16 leading-28 font-400 font-opensans;
+    @apply !text-16 leading-24 font-400 font-opensans;
   }
   h1 {
     @apply lgscreen:text-60 leading-74 small_desktop1:text-42 small_desktop1:leading-46 tracking-normal xxsscreen1:!text-22 xxsscreen1:!leading-32 !font-400;
@@ -44,11 +44,11 @@ body {
   h5 {
     @apply !text-24 !leading-[26px];
   }  
-  .grid-container {
-    @apply px-100 xlscreen3:px-60 lgscreen:!px-30;
+  .container-lg {
+    @apply lgscreen2:px-20 px-75;
   }
-  .grid-container-lg {
-    @apply px-55 xlscreen4:px-30;
+  .container-py {
+    @apply py-60 lgscreen2:py-40;
   }
   a {
     @apply inline-block transition-all duration-500 ease-in-out;
@@ -91,6 +91,7 @@ body {
 }
 
 @layer utilities {
+  /* header start */
   .header a {
     @apply font-300;
   }
@@ -109,6 +110,17 @@ body {
   .custom-class-2 {
     @apply justify-end;
   }
+  /* header end */
+
+  /* hero banner satrt */
+  .hero-banner {
+    @apply !h-[480px];
+  }
+  .swiper-pagination {
+    @apply !bottom-25; 
+  }
+  /* hero banner satrt */
+
   /* footer start */
   .footer .footer-container p {
     @apply font-300;
@@ -122,9 +134,21 @@ body {
   .footer .footer-container ul li a:hover {
     @apply scale-[1.1];
   }
+  .footer .footer-categorie {
+    @apply smscreen:columns-2;
+  }
+  .footer .footer-categorie ul li:nth-child(6) {
+    @apply smscreen:break-after-column;
+  }
+  .footer .footer-categorie ul li:nth-child(7) {
+    @apply smscreen:pt-32;
+  }
   /* footer end */
   .tabs .active {
     @apply border-1 border-solid border-green text-green leading-[normal];
+  }
+  .mobile-br br {
+    @apply smscreen:hidden;
   }
 }
 
@@ -360,8 +384,7 @@ body {
 .swiper-pagination-bullet {
   background: transparent !important;
   margin: 10px !important;
-  padding-bottom: 10px !important;
-  bottom: 0;
+  padding-bottom: 25px !important;
 }
 
 .footer-img-line {

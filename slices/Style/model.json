@@ -1,0 +1,48 @@
+{
+  "id": "style",
+  "type": "SharedSlice",
+  "name": "Style",
+  "description": "Style",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "extra_class": {
+          "type": "Text",
+          "config": {
+            "label": "Extra Class",
+            "placeholder": ""
+          }
+        },
+        "clear_margin": {
+          "type": "Select",
+          "config": {
+            "label": "Clear Margin",
+            "placeholder": "",
+            "options": [
+              "top",
+              "bottom",
+              "left",
+              "right"
+            ]
+          }
+        },
+        "continer": {
+          "type": "Boolean",
+          "config": {
+            "label": "Continer",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
