@@ -24,7 +24,7 @@ const Page = () => {
     <section className="shop-page">
       <div className="flex items-center justify-between mb-40 text-green font-semibold xlscreen2:gap-[12px] small_desktop1:flex-wrap mdscreen3:!flex-nowrap">
         <div className="flex items-center gap-4 w-2/3 xlscreen2:w-full flex-wrap">
-          <div className="flex items-center justify-start smscreen:flex-wrap gap-[12] font-body mdscreen3:relative">
+          <div className="flex items-center justify-start smscreen:flex-wrap gap-[12px] font-body mdscreen3:relative">
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="bg-white text-14 font-body leading-[normal] font-400 border border-green rounded-full px-12 py-13 flex items-center gap-x-2"
