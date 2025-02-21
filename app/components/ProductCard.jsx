@@ -44,7 +44,7 @@ const products = [
 const ProductCard = () => {
   return (
     <div className="container-lg container-py">
-      <h2 className="text-3xl font-semibold text-green">You may also like</h2>
+      <h2 className="text-center mb-40 font-semibold text-green">You may also like</h2>
       <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30">
         {products.map((product, index) => (
           <div

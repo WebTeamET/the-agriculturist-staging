@@ -56,6 +56,15 @@
 					"url": "http://twitter.com",
 					"text": "older"
 				}
+			},
+			"sub_heading_prefix_2": {
+				"__TYPE__": "LinkContent",
+				"key": "aa60e67b-4a53-4757-8a21-11a11508fcd8",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "discussion"
+				}
 			}
 		},
 		"items": []

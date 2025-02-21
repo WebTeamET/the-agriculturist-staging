@@ -42,7 +42,7 @@ const Testimonials = async ({ slice }) => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-lg:gap-12 max-md:justify-center text-center max-lg:max-w-3xl max-md:max-w-lg mx-auto mt-16">
             {testimonials.map((item, index) => (
-              <div key="{index}" className={`border-r border-[#F9F4EF] pr-[24px] ${index === testimonials.length - 1 ? 'border-r-0' : ''}`}>
+              <div key={index} className={`border-r border-[#F9F4EF] pr-[24px] ${index === testimonials.length - 1 ? 'border-r-0' : ''}`}>
                 <div className="flex justify-center space-x-1 mt-2.5">
                   {[...Array(item.data.rating_count)].map((_, starIndex) => (
                     <Icon key={starIndex} type="star" />

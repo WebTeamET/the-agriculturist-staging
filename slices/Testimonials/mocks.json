@@ -7,9 +7,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading2",
+						"type": "paragraph",
 						"content": {
-							"text": "Point"
+							"text": "Sunt ad commodo Lorem exercitation laboris pariatur aliquip dolore occaecat mollit laborum proident ad esse velit. Aliqua esse ea id eu veniam eiusmod sit elit aute amet ea ex irure tempor. Qui et cillum ullamco eu do in."
 						}
 					}
 				]
@@ -23,8 +23,8 @@
 							[
 								"testimonial",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "1ca59a62-efd5-48f2-bc91-724c22e43806",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
@@ -34,6 +34,15 @@
 						]
 					}
 				]
+			},
+			"button_link": {
+				"key": "a05d4841-54f4-4e5c-bd55-f3687ce84dba",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "realize"
+				}
 			}
 		},
 		"items": []

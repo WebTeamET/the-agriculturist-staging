@@ -1359,6 +1359,22 @@ export interface HeroBannerSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   sub_heading: prismic.RichTextField;
+
+  /**
+   * Sub Heading Prefix 2 field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.sub_heading_prefix_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  sub_heading_prefix_2: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -2139,12 +2155,12 @@ export interface TestimonialsSliceDefaultPrimary {
   /**
    * Title field in *Testimonials → Default → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: testimonials.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
 
   /**
    * TestimonialCards field in *Testimonials → Default → Primary*
@@ -2156,6 +2172,22 @@ export interface TestimonialsSliceDefaultPrimary {
    */
   testimonialcards: prismic.GroupField<
     Simplify<TestimonialsSliceDefaultPrimaryTestimonialcardsItem>
+  >;
+
+  /**
+   * Button Link field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
   >;
 }
 

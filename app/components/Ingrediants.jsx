@@ -2,12 +2,12 @@ import React from 'react'
 
 const Ingrediants = () => {
   return (
-    <div className="grid grid-cols-2 gap-8">
+    <div className="flex items-start justify-between gap-[50px] lgscreen2:flex-wrap">
       {/* Terpenes Section */}
-      <div className="bg-dark_cream rounded-[20px] px-20 py-40">
+      <div className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40">
         <h3 className="text-3xl font-semibold text-green">Terpenes</h3>
         <div className="border-t border-green/20 my-[16px]"></div>
-        <div className="flex flex-col gap-[16px]">
+        <div className="flex flex-col gap-[16px] px-12">
         {[
           { 
             name: "Beta Caryophyllene", 
@@ -39,7 +39,7 @@ const Ingrediants = () => {
           <div key={index} className="flex flex-col gap-[8px]">
             <div className="flex items-center">
               <p className="text-xl text-green font-700 font-body">{terpene.name}</p>
-              <span className="ml-20 px-16 py-3 font-body text-12">{terpene.percentage}</span>
+              <span className="ml-20 px-16 py-3 font-body text-12 bg-green font-400 tracking-[0.5px] text-white rounded-full">{terpene.percentage}</span>
             </div>
             <p className="text-sm text-green">{terpene.description}</p>
           </div>
@@ -48,23 +48,23 @@ const Ingrediants = () => {
       </div>
 
       {/* Cannabinoids Section */}
-      <div className="space-y-6 bg-[#F9F4EF] rounded-lg p-40 w-[620px] h-[484px]">
-        <h2 className="text-3xl font-semibold text-green">Cannabinoids</h2>
-        <div className="border-t border-green/20 mt-8"></div>
+      <div className="w-1/2 lgscreen2:w-full bg-[#F9F4EF] rounded-[20px] p-40 h-full">
+        <h3 className="text-3xl font-semibold text-green">Cannabinoids</h3>
+        <div className="border-t border-green/20 my-[16px]"></div>
         <div className="flex flex-row">
-          <div className="space-y-3">
+          <div className="w-1/2">
             {[
               { name: "THC", percentage: "27.99%" }, 
               { name: "THCA", percentage: "28.2151%" }, 
               { name: "THCV", percentage: "0.00%" }
             ].map((cannabinoid, index) => (
-              <div key={index} className="flex justify-between items-center">
-                <p className="text-xl text-green">{cannabinoid.name}</p>
-                <p className="text-lg text-green">{cannabinoid.percentage}</p>
+              <div key={index} className="flex justify-start items-center">
+                <p className="w-1/2 text-xl text-green">{cannabinoid.name}</p>
+                <p className="w-1/2 text-lg text-green">{cannabinoid.percentage}</p>
               </div>
             ))}
           </div>
-          <div className="space-y-3">
+          <div className="w-1/2">
             {[
               { name: "CBD", percentage: "0.0303%" }, 
               { name: "CBDA", percentage: "0.0345%" }, 
@@ -72,7 +72,7 @@ const Ingrediants = () => {
               { name: "CBG", percentage: "0.00%" }, 
               { name: "CBN", percentage: "0.00%" }
             ].map((cannabinoid, index) => (
-              <div key={index} className="flex justify-between items-center">
+              <div key={index} className="flex justify-start items-center">
                 <p className="text-xl text-green">{cannabinoid.name}</p>
                 <p className="text-lg text-green">{cannabinoid.percentage}</p>
               </div>
