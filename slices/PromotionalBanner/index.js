@@ -28,6 +28,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 5,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2023-08-01",
     },
     {
       name: "Product Name",
@@ -37,6 +38,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 5,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2024-08-01",
     },
     {
       name: "Product Name",
@@ -46,6 +48,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 5,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2023-10-01",
     },
     {
       name: "Product Name",
@@ -55,6 +58,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 4,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2024-03-01",
     },
     {
       name: "Product Name",
@@ -64,6 +68,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 4,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2023-08-04",
     },
     {
       name: "Product Name",
@@ -73,6 +78,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 4,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2023-02-25",
     },
     {
       name: "Product Name",
@@ -82,6 +88,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 4,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2023-02-16",
     },
     {
       name: "Product Name",
@@ -91,6 +98,7 @@ const PromotionalBanner = ({ slice }) => {
       rating: 4,
       imageUrl:
         "https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg?auto=format,compress",
+      date: "2024-12-18",
     },
   ];
 
@@ -99,9 +107,10 @@ const PromotionalBanner = ({ slice }) => {
   const sortedProducts = [...products].sort((a, b) => {
     if (filter === "newest") return new Date(b.date) - new Date(a.date);
     if (filter === "oldest") return new Date(a.date) - new Date(b.date);
+    if (filter === "low-high") return a.price - b.price;
+    if (filter === "high-low") return b.price - a.price;
     return 0;
   });
-  console.log(filter, "filter");
 
   return (
     <section
@@ -120,37 +129,42 @@ const PromotionalBanner = ({ slice }) => {
             <div key={index} className="deals-inner relative w-full h-full">
               <div className="ctm-deals-inner relative w-full h-full">
                 <div className="deals-img relative">
-                  <PrismicNextImage className="rounded-[20px]" alt="img" field={item.image} />
+                  <PrismicNextImage
+                    className="rounded-[20px]"
+                    alt="img"
+                    field={item.image}
+                  />
                   <div className="gradiant absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
                 </div>
                 <div className="deals-main w-full h-full absolute top-0 flex flex-col justify-between">
                   <div className="deals-descount w-full relative top-[55px] left-0">
                     <div className="flex justify-between">
-                    <h4 className="text-white font-700">
-                      {item.percentage_offer}
-                    </h4>
-                    <div className="deals-btn">
-                    <PrismicNextLink
-                      className="green-btn"
-                      field={item.button_link}
-                    />
-                  </div>
+                      <h4 className="text-white font-700">
+                        {item.percentage_offer}
+                      </h4>
+                      <div className="deals-btn">
+                        <PrismicNextLink
+                          className="green-btn"
+                          field={item.button_link}
+                        />
+                      </div>
                     </div>
                     <div className="deals-details">
-                <PrismicRichText className="text-white" field={item.content} />
-              </div>
-
+                      <PrismicRichText
+                        className="text-white"
+                        field={item.content}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
       </div>
       <Filter />
       <div className="grid smscreen:!grid-cols-1 xlscreen:grid-cols-2 md:grid-cols-4 place-items-center gap-30">
-        {products.map((product, index) => (
+        {sortedProducts?.map((product, index) => (
           <div
             key={index}
             className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] hover:border hover:border-[#CDBAA7] bg-white shadow-[0px_6px_40px_0px_rgba(0,0,0,0.1)] hover:shadow-none"

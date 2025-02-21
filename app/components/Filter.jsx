@@ -12,6 +12,7 @@ const Page = () => {
   ];
   const { filter, setFilter } = useFilter();
   const [isOpen, setIsOpen] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   const [selectedOption, setSelectedOption] = useState(filterOptions[0]);
 
   useEffect(() => {
@@ -23,12 +24,17 @@ const Page = () => {
     <section className="shop-page">
       <div className="flex items-center justify-between mb-40 text-green font-semibold xlscreen2:gap-[12px] small_desktop1:flex-wrap mdscreen3:!flex-nowrap">
         <div className="flex items-center gap-4 w-2/3 xlscreen2:w-full flex-wrap">
-          <div className="flex items-center justify-start smscreen:flex-wrap gap-[12] font-body">
-            <button className="bg-white text-14 font-body leading-[normal] font-400 border border-green rounded-full px-12 py-13 flex items-center gap-x-2">
+          <div className="flex items-center justify-start smscreen:flex-wrap gap-[12] font-body mdscreen3:relative">
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="bg-white text-14 font-body leading-[normal] font-400 border border-green rounded-full px-12 py-13 flex items-center gap-x-2"
+            >
               <Icon type="filter" />
               FILTER
             </button>
-            <div className="mdscreen3:hidden flex items-center justify-start gap-[12px] w-full">
+            <div
+              className={`flex items-center justify-start gap-[12px] w-full ${showFilters ? "mdscreen3:block" : "mdscreen3:hidden"} mdscreen3:absolute mdscreen3:bg-white mdscreen3:shadow-lg mdscreen3:z-10 mdscreen3:top-[50px] mdscreen3:p-10 mdscreen3:rounded-lg mdscreen3:border mdscreen3:border-green mdscreen3:flex-col mdscreen3:flex mdscreen3:justify-start mdscreen3:items-start mdscreen3::w-full mdscreen3:min-w-40`}
+            >
               <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
                 <Icon type="sale" />
                 On Sale
