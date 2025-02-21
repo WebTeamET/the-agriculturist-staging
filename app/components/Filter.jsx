@@ -1,6 +1,7 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Icon from "./Icon";
+import useFilter from "../hooks/useFilter";
 
 const Page = () => {
   const filterOptions = [
@@ -9,73 +10,76 @@ const Page = () => {
     { label: "Price: Low to High", value: "low-high" },
     { label: "Price: High to Low", value: "high-low" },
   ];
-
+  const { filter, setFilter } = useFilter();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(filterOptions[0]); // Default to 'Newest'
+  const [selectedOption, setSelectedOption] = useState(filterOptions[0]);
+
+  useEffect(() => {
+    const current = filterOptions.find((option) => option.value === filter);
+    if (current) setSelectedOption(current);
+  }, [filter]);
 
   return (
-    <section className="container-lg py-60 lgscreen2:py-40">
-      <div className="flex items-center justify-between mb-40 text-green font-semibold xlscreen2:flex-wrap xlscreen2:gap-20">
+    <section className="shop-page">
+      <div className="flex items-center justify-between mb-40 text-green font-semibold xlscreen2:gap-[12px] small_desktop1:flex-wrap mdscreen3:!flex-nowrap">
         <div className="flex items-center gap-4 w-2/3 xlscreen2:w-full flex-wrap">
-          {/* <h4 className="!text-24">Categorised By</h4> */}
-          <div className="flex items-center justify-start flex-wrap gap-4 font-body">
-            <button className="bg-white border border-green rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons />
+          <div className="flex items-center justify-start smscreen:flex-wrap gap-[12] font-body">
+            <button className="bg-white text-14 font-body leading-[normal] font-400 border border-green rounded-full px-12 py-13 flex items-center gap-x-2">
+              <Icon type="filter" />
               FILTER
             </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons />
-              On Sale
-            </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons /> Classification
-            </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons /> Price
-            </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons />
-              THC
-            </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons />
-              Effects
-            </button>
-            <button className="bg-[#F9F4EF] rounded-full px-16 py-8 flex items-center gap-x-2">
-              <DummyIcons />
-              Brands
-            </button>
+            <div className="mdscreen3:hidden flex items-center justify-start gap-[12px] w-full">
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="sale" />
+                On Sale
+              </button>
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="classification" /> Classification
+              </button>
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="price" /> Price
+              </button>
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="thc" /> THC
+              </button>
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="effects" /> Effects
+              </button>
+              <button className="bg-[#F9F4EF] text-14 font-body leading-[normal] font-400 rounded-full px-12 py-12 flex items-center gap-x-2">
+                <Icon type="brands" /> Brands
+              </button>
+            </div>
           </div>
         </div>
-
-        {/*  and put here */}
-
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="bg-white border border-green rounded-full px-16 py-8 flex items-center gap-x-2"
+            className="bg-white justify-between w-full min-w-[130px] border font-body leading-[normal] font-400 border-green rounded-full px-12 py-13 flex items-center gap-x-2"
           >
             {selectedOption.label}
-            <DummyIcons className="ml-2" />
+            <Icon type="downArrow" />
           </button>
-
           {isOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-white border border-green rounded-lg shadow-lg z-10">
+            <div className="absolute right-0 mt-2 w-56 bg-white border border-green rounded-lg shadow-lg z-10 p-12">
               {filterOptions.map((option) => (
                 <button
                   key={option.value}
-                  className={`w-full flex justify-between items-center px-4 py-2 hover:bg-gray-100 ${
+                  className={`w-full flex justify-between items-center px-4 py-2 hover:bg-gray-100 font-body font-400 ${
                     selectedOption.value === option.value ? "font-bold" : ""
                   }`}
                   onClick={() => {
                     setSelectedOption(option);
+                    setFilter(option.value);
+                    window.dispatchEvent(
+                      new CustomEvent("filterChange", {
+                        detail: { filter: option.value },
+                      })
+                    );
                     setIsOpen(false);
                   }}
                 >
                   {option.label}
-                  {selectedOption.value === option.value && (
-                    <DummyIcons className="ml-2" />
-                  )}
+                  {selectedOption.value === option.value && <DummyIcons />}
                 </button>
               ))}
             </div>

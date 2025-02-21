@@ -11,4 +11,5 @@ export const components = {
   promotional_banner: dynamic(() => import("./PromotionalBanner")),
   slider: dynamic(() => import("./Slider")),
   style: dynamic(() => import("./Style")),
+  testimonial_slice: dynamic(() => import("./TestimonialSlice")),
 };

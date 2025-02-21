@@ -1,0 +1,39 @@
+{
+  "id": "testimonial_slice",
+  "type": "SharedSlice",
+  "name": "TestimonialSlice",
+  "description": "TestimonialSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "testimonial_relation": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonial Relation",
+            "repeat": true,
+            "fields": {
+              "testimonial_rel": {
+                "type": "Link",
+                "config": {
+                  "label": "Testimonial Rel",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "testimonials"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

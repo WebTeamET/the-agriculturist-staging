@@ -11,13 +11,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "promotional_banner": {
+              "type": "SharedSlice"
+            },
             "hero_banner": {
               "type": "SharedSlice"
             },
             "news_letter": {
-              "type": "SharedSlice"
-            },
-            "promotional_banner": {
               "type": "SharedSlice"
             }
           }

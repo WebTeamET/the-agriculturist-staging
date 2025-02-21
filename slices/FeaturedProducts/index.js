@@ -128,7 +128,7 @@ const ProductGrid = ({ products }) => {
       {products.map((product, index) => (
         <div
           key={index}
-          className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] hover:border hover:border-[#CDBAA7] bg-white shadow-md"
+          className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] hover:border hover:border-[#CDBAA7] bg-white shadow-[0px_6px_40px_0px_rgba(0,0,0,0.1)] hover:shadow-none"
         >
           <a
             className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"

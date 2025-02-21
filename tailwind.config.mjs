@@ -28,6 +28,8 @@ export default {
         green: "#004D43",
         meant: "#004d438a",
         gray: "#10100f57",
+        dark_gray: "#6E6B68",
+        dark_cream: "#F9F4EF",
       },
       zIndex: {
         "-1": "-1",

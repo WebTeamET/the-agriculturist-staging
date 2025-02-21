@@ -1,17 +1,26 @@
 "use client";
 
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, PrismicText } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import Player from "@vimeo/player";
 
+// Helper function to get plain text from rich text fields
 const getPlainText = (richText) => {
   if (!richText) return "";
   return richText.map((block) => block.text).join(" ");
+};
+
+// Helper to extract Vimeo ID from a given URL
+const extractVimeoId = (url) => {
+  const regExp = /vimeo\.com\/(?:.*\/)?(\d+)/;
+  const match = url.match(regExp);
+  return match ? match[1] : null;
 };
 
 const Slider = ({ slice }) => {
@@ -30,6 +39,67 @@ const Slider = ({ slice }) => {
           slidesPerView={1}
           navigation
           onSlideChange={(swiper) => {
+            const currentSlide = swiper.slides[swiper.activeIndex];
+            const video = currentSlide.querySelector("video");
+            const vimeoIframe = currentSlide.querySelector(
+              'iframe[src*="vimeo.com"]'
+            );
+            console.log(vimeoIframe, 123);
+            if (vimeoIframe) {
+              const vimeoPlayer = new Player(vimeoIframe);
+              if (typeof vimeoPlayer !== "undefined") {
+                vimeoPlayer.pause();
+                // Wait until the video is fully ready before trying to control it
+                vimeoPlayer
+                  .ready()
+                  .then(() => {
+                    // Reset video to the beginning and play
+                    vimeoPlayer
+                      .play()
+                      .then(() => null)
+                      .catch(() => {
+                        vimeoPlayer.play();
+                      });
+                    vimeoPlayer.setCurrentTime(0).then(() => {
+                      vimeoPlayer.play();
+                    });
+
+                    // Get video duration and update autoplay delay
+                    vimeoPlayer
+                      .getDuration()
+                      .then((duration) => {
+                        swiper.params.autoplay = {
+                          delay: duration * 1000, // Set autoplay delay based on video duration
+                        };
+                        swiper.autoplay?.start();
+                      })
+                      .catch((error) => {
+                        console.error(
+                          "Error getting Vimeo video duration:",
+                          error
+                        );
+                        swiper.params.autoplay = {
+                          delay: parseInt("5000"), // Default autoplay delay
+                        };
+                        swiper.autoplay?.start();
+                      });
+                  })
+                  .catch(() => console.log("Error while playing vimeo video"));
+              } else {
+                console.error("Vimeo API is not loaded yet.");
+              }
+            } else if (video) {
+              video.currentTime = 0; // Restart the video
+              video.play(); // Play the video
+              swiper.params.autoplay = {
+                delay: parseFloat(video.duration.toFixed(1)) * 1000, // Convert seconds to milliseconds
+              };
+            } else {
+              swiper.params.autoplay = {
+                delay: parseInt("5000"),
+              };
+            }
+
             setActiveIndex(swiper.activeIndex);
             document
               .querySelectorAll(".swiper-pagination-bullet")
@@ -62,19 +132,47 @@ const Slider = ({ slice }) => {
           className={`${slice.primary.extra_class} h-[calc(100vh_-_105px)] mdscreen:h-[500px] w-full`}
         >
           {slice.primary.slides.map((item, index) => (
+            // console.log(item)
             <SwiperSlide key={index} className="relative h-full w-full">
               <div className="absolute inset-0 h-full w-full">
-                <PrismicNextImage
-                  alt="image"
-                  field={item.slide_image}
-                  fetchPriority="high"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent via-transparent via-50%"></div>
+                {item.video_link.url || item.video.url ? (
+                  item.video_link.url ? (
+                    <div className="absolute inset-0 overflow-hidden">
+                      <iframe
+                        src={`https://player.vimeo.com/video/${extractVimeoId(item.video_link.url)}?background=1&controls=0&muted=1&transparent=1`}
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        style={{ width: "100vw", height: "100%" }}
+                        frameBorder="0"
+                        allow="autoplay"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  ) : (
+                    
+                      <iframe
+                        src={item.video.url}
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        style={{ width: "100vw", height: "100%" }}
+                        frameBorder="0"
+                        allow="autoplay"
+                        allowFullScreen
+                      ></iframe>
+                  )
+                ) : (
+                  // Otherwise render the image
+                  <PrismicNextImage
+                    alt="image"
+                    field={item.slide_image}
+                    fetchPriority="high"
+                    className="h-full w-full object-cover"
+                  />
+                )}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${!item.video.url || (item.video_link.url && "from-[#004D43] to-transparent via-transparent via-50%")}`}
+                ></div>
               </div>
-              <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-30">
+              <div className="relative z-2 flex h-full w-full flex-col items-center justify-center p-30">
                 <div className="max-w-3xl text-center text-white">
-                  {/* The key includes the activeIndex so that it re-mounts on slide change */}
                   <h1
                     key={`typewriter-slide-${index}-${activeIndex}`}
                     className="!h1-text lgscreen:text-60 text-42 mb-6 opacity-0 animate-fadeInUp"
@@ -82,13 +180,12 @@ const Slider = ({ slice }) => {
                     <Typewriter
                       words={[
                         getPlainText(item.slide_text),
-
                         getPlainText(item.slide_text_two),
                       ]}
                       typeSpeed={50}
                       deleteSpeed={30}
-                      delaySpeed={1000} // Wait before deleting
-                      loop={1} // Runs only once per slide
+                      delaySpeed={1000}
+                      loop={1}
                     />
                   </h1>
                 </div>
