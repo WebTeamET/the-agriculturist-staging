@@ -60,7 +60,7 @@ const Page = () => {
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="bg-white justify-between w-full min-w-[130px] border font-body leading-[normal] font-400 border-green rounded-full px-12 py-13 flex items-center gap-x-2"
+            className="whitespace-nowrap bg-white justify-between w-full min-w-[130px] border font-body leading-[normal] font-400 border-green rounded-full px-12 py-13 flex items-center gap-x-2"
           >
             {selectedOption.label}
             <Icon type="downArrow" />

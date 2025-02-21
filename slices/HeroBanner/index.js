@@ -1,17 +1,13 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import Link from "next/link";
 
-const HeroBanner = ({ slice }) => { 
-    const components = {
-        paragraph: ({ children }) => (
-          <p
-            className="font-body capitalize"
-      >
-        {children}
-      </p>
-    )
+const HeroBanner = ({ slice }) => {
+  const components = {
+    paragraph: ({ children }) => (
+      <p className="font-body !text-18 capitalize">{children}</p>
+    ),
   };
-
 
   return (
     <section
@@ -28,12 +24,20 @@ const HeroBanner = ({ slice }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
         </div>
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
+        <div className="relative z-10 flex gap-11 lgscreen2:gap-14 h-full w-full flex-col items-center justify-center">
           <div className="max-w-3xl text-center text-white">
-            <PrismicRichText   field={slice.primary.heading} />
+            <PrismicRichText field={slice.primary.heading} />
           </div>
-          <div className="max-w-3xl text-center text-white">
-            <PrismicRichText components={components} field={slice.primary.sub_heading} />
+          <div className="flex !text-18 gap-1 max-w-3xl text-center text-white">
+            <p className="font-body !text-18">
+              <Link href={slice.primary.sub_heading_prefix.url}>
+                {slice.primary.sub_heading_prefix.text}
+              </Link>
+            </p>
+            <PrismicRichText
+              components={components}
+              field={slice.primary.sub_heading}
+            />
           </div>
         </div>
       </div>
