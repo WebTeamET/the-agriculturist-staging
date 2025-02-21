@@ -36,7 +36,7 @@ body {
     @apply small_desktop:!text-48 small_desktop:!leading-[58px] !font-700 !text-38 !leading-40 mdscreen:!text-28 mdscreen:!leading-30 tracking-normal;
   }
   h3 {
-    @apply small_desktop:!text-40 small_desktop:!leading-[44px] !text-36 !leading-40 mdscreen:!text-26 mdscreen:!leading-30;
+    @apply small_desktop:!text-40 small_desktop:!leading-[44px] !text-36 !leading-40 mdscreen:!text-32 mdscreen:!leading-36;
   } 
   h4 {
     @apply !text-32 !leading-[44px] mdscreen:!text-28 mdscreen:!leading-30;
@@ -424,4 +424,13 @@ body {
 
 body:has(.age-popup) {
   overflow: hidden;
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .percentage-off-text {
+    @apply !text-24;
+  }
+  .percentahe-p {
+    @apply !text-16;
+  }
 }

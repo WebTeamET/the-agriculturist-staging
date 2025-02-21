@@ -96,13 +96,47 @@
 							[
 								"video_link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "3c4216f8-23c3-42d9-a07b-59fd139f10e7",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",
 										"text": "arrow"
 									}
+								}
+							],
+							[
+								"video_thumbnail",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+										"width": 4000,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+									"width": 4000,
+									"height": 4000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"video_button_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "exchange",
+									"type": "Text"
 								}
 							]
 						]

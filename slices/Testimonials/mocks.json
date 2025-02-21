@@ -3,17 +3,28 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"testimonial_relation": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Point"
+						}
+					}
+				]
+			},
+			"testimonialcards": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"testimonial_rel",
+								"testimonial",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "875f1937-3658-4c18-a267-0cd32f252133",
+									"key": "1ca59a62-efd5-48f2-bc91-724c22e43806",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"

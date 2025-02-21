@@ -29,6 +29,17 @@
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
+        "sub_heading_prefix": {
+          "type": "Link",
+          "config": {
+            "label": "Sub Heading Prefix",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
         "sub_heading": {
           "type": "StructuredText",
           "config": {

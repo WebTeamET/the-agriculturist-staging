@@ -9,6 +9,7 @@ import THC from "./Icons/Thc";
 import Effects from "./Icons/Effects";
 import Brands from "./Icons/Brands";
 import FilterIcon from "./Icons/FilterIcon";
+import Star from "./Icons/Star";
 
 const Icon = ({ type }) => {
   return (
@@ -21,6 +22,7 @@ const Icon = ({ type }) => {
       {type === "effects" && <Effects />}
       {type === "brands" && <Brands />}
       {type === "filter" && <FilterIcon />}
+      {type === "star" && <Star />}
     </div>
   );
 };

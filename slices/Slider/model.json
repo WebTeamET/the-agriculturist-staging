@@ -88,6 +88,21 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "video_thumbnail": {
+                "type": "Image",
+                "config": {
+                  "label": "Video Thumbnail",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "video_button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Video Button Text",
+                  "placeholder": ""
+                }
               }
             }
           }
