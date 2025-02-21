@@ -7,7 +7,6 @@ import ProductSlider from "./ProductSlider";
 const ProductDetail = async () => {
   let client = createClient();
   const {data} = await client.getByUID("settings", "settings-uid");
-  console.log(data,1231)
 
   return (
     <div className="container-lg container-py bg-white">

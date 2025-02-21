@@ -399,6 +399,9 @@ body {
   margin: 10px !important;
   padding-bottom: 25px !important;
 }
+.custom-pagination .swiper-pagination-bullet {
+  padding-bottom: 9px !important;
+}
 
 .footer-img-line {
   position: relative;

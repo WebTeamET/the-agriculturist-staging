@@ -22,13 +22,11 @@ const Testimonials = async ({ slice }) => {
         isFilled.contentRelationship(item.testimonial) &&
         item.testimonial.uid
       ) {
-        console.log("item.testimonial.uid:,", item.testimonial.uid);
         return client.getByUID("testimonial", item.testimonial.uid);
       }
     })
   );
 
-  console.log("testimonials232323:,", testimonials);
   return (
     <section
       data-slice-type={slice.slice_type}

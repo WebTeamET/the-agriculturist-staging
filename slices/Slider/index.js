@@ -52,7 +52,6 @@ const Slider = ({ slice }) => {
             const vimeoIframe = currentSlide.querySelector(
               'iframe[src*="vimeo.com"]'
             );
-            console.log(vimeoIframe, 123);
             if (vimeoIframe) {
               const vimeoPlayer = new Player(vimeoIframe);
               if (typeof vimeoPlayer !== "undefined") {
@@ -150,6 +149,7 @@ const Slider = ({ slice }) => {
                           frameBorder="0"
                           allow="autoplay"
                           allowFullScreen
+                          title={`Vimeo video player for ${item.video_button_text || "video"}`}
                         ></iframe>
                       </div>
                     ) : (
@@ -178,7 +178,10 @@ const Slider = ({ slice }) => {
                                   className="w-full h-full cursor-pointer"
                                 />
                               </div>
-                              <p onClick={(e) => handlePlayVideo(index, e)} className="ml-6 text-18 text-white cursor-pointer">
+                              <p
+                                onClick={(e) => handlePlayVideo(index, e)}
+                                className="ml-6 text-18 text-white cursor-pointer"
+                              >
                                 {item.video_button_text}
                               </p>
                             </div>
@@ -205,7 +208,7 @@ const Slider = ({ slice }) => {
                     />
                   )}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${!item.video.url || (item.video_link.url && "from-[#004D43] to-transparent via-transparent via-50%")}`}
+                    className={`absolute inset-0 bg-gradient-to-t ${!item.video.url && !item.video_link.url ? "from-[#004D43] to-transparent via-transparent via-50%" : ""}`}
                   ></div>
                 </div>
                 <div className="relative z-2 flex h-full w-full flex-col items-center justify-center p-30">

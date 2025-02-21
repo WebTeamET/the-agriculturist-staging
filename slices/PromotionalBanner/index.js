@@ -8,9 +8,9 @@ import StarIcon from "../../public/star.svg";
 import useFilter from "@/app/hooks/useFilter";
 
 const PromotionalBanner = ({ slice }) => {
-  if (slice.primary.hide_module) return null;
+  const { filter } = useFilter();
 
-  console.log(slice.primary.promotional_items, 123);
+  if (slice.primary.hide_module) return null;
 
   const components = {
     heading5: ({ children }) => (
@@ -103,8 +103,6 @@ const PromotionalBanner = ({ slice }) => {
       date: "2024-12-18",
     },
   ];
-
-  const { filter } = useFilter();
 
   const sortedProducts = [...products].sort((a, b) => {
     if (filter === "newest") return new Date(b.date) - new Date(a.date);
