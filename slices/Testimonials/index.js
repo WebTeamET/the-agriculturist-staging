@@ -35,14 +35,14 @@ const Testimonials = async ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="container-lg container-py">
+      <div className="container-lg container-py text-green">
         <div className="container-lg">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center text-green font-semibold">
             <PrismicRichText field={slice.primary.title} />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-lg:gap-12 max-md:justify-center text-center max-lg:max-w-3xl max-md:max-w-lg mx-auto mt-16">
             {testimonials.map((item, index) => (
-              <div key="{index}">
+              <div key="{index}" className={`border-r border-[#F9F4EF] pr-[24px] ${index === testimonials.length - 1 ? 'border-r-0' : ''}`}>
                 <div className="flex justify-center space-x-1 mt-2.5">
                   {[...Array(item.data.rating_count)].map((_, starIndex) => (
                     <Icon key={starIndex} type="star" />

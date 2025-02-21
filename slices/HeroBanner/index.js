@@ -29,11 +29,22 @@ const HeroBanner = ({ slice }) => {
             <PrismicRichText field={slice.primary.heading} />
           </div>
           <div className="flex !text-18 gap-1 max-w-3xl text-center text-white">
-            <p className="font-body !text-18">
-              <Link href={slice.primary.sub_heading_prefix.url}>
-                {slice.primary.sub_heading_prefix.text}
-              </Link>
-            </p>
+            {slice.primary.sub_heading_prefix?.url &&
+              slice.primary.sub_heading_prefix?.text && (
+                <p className="font-body !text-18">
+                  <Link href={slice.primary.sub_heading_prefix.url}>
+                    {slice.primary.sub_heading_prefix.text}
+                  </Link>
+                </p>
+              )}
+            {slice.primary.sub_heading_prefix_2?.url &&
+              slice.primary.sub_heading_prefix_2?.text && (
+                <p className="font-body !text-18">
+                  <Link href={slice.primary.sub_heading_prefix_2?.url}>
+                    {slice.primary.sub_heading_prefix_2?.text}
+                  </Link>
+                </p>
+              )}
             <PrismicRichText
               components={components}
               field={slice.primary.sub_heading}
