@@ -746,6 +746,40 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
+type ProductDocumentDataSlicesSlice = TestimonialSliceSlice;
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
+
 /**
  * Item in *Settings → Social Media*
  */
@@ -1111,6 +1145,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
   | NavigationDocument
+  | ProductDocument
   | SettingsDocument
   | ShopDocument
   | TestDocument
@@ -2197,6 +2232,9 @@ declare module "@prismicio/client" {
       NavigationDocumentData,
       NavigationDocumentDataNavItemsItem,
       NavigationDocumentDataNavActionsItem,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataSocialMediaItem,

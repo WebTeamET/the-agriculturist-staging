@@ -16,7 +16,9 @@ const PromotionalBanner = ({ slice }) => {
     heading5: ({ children }) => (
       <h5 className="text-green font-700">{children}</h5>
     ),
-    paragraph: ({ children }) => <p className="text-body">{children}</p>,
+    paragraph: ({ children }) => (
+      <p className="font-body text-white !text-18">{children}</p>
+    ),
   };
 
   const products = [
@@ -124,33 +126,34 @@ const PromotionalBanner = ({ slice }) => {
           className="font-body text-green"
           field={slice.primary.heading}
         />
-        <div className="grid grid-cols-4 small_desktop1:grid-cols-3 xlscreen:!grid-cols-2 smscreen:!grid-cols-1 gap-[15px] mt-18">
+        <div className="grid desktop:grid-cols-4 grid-cols-3 lgscreen2:grid-cols-2 smscreen:!grid-cols-1 gap-[15px] mt-18 pb-40">
           {slice.primary.promotional_items.map((item, index) => (
             <div key={index} className="deals-inner relative w-full h-full">
               <div className="ctm-deals-inner relative w-full h-full">
-                <div className="deals-img relative">
+                <div className="deals-img relative h-full">
                   <PrismicNextImage
                     className="rounded-[20px]"
                     alt="img"
                     field={item.image}
                   />
-                  <div className="gradiant absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
+                  <div className="gradiant rounded-[20px] absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
                 </div>
                 <div className="deals-main w-full h-full absolute top-0 flex flex-col justify-between">
-                  <div className="deals-descount w-full relative top-[55px] left-0">
+                  <div className="deals-descount flex flex-col justify-between w-full h-full px-25 py-32 relative top-0 left-0">
                     <div className="flex justify-between">
                       <h4 className="text-white font-700">
-                        {item.percentage_offer}
+                        {item.percentage_offer}% off
                       </h4>
                       <div className="deals-btn">
                         <PrismicNextLink
-                          className="green-btn"
+                          className="white-btn"
                           field={item.button_link}
                         />
                       </div>
                     </div>
                     <div className="deals-details">
                       <PrismicRichText
+                        components={components}
                         className="text-white"
                         field={item.content}
                       />

@@ -138,25 +138,24 @@ const Slider = ({ slice }) => {
                 {item.video_link.url || item.video.url ? (
                   item.video_link.url ? (
                     <div className="absolute inset-0 overflow-hidden">
-                      <iframe
-                        src={`https://player.vimeo.com/video/${extractVimeoId(item.video_link.url)}?background=1&controls=0&muted=1&transparent=1`}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                        style={{ width: "100vw", height: "100%" }}
-                        frameBorder="0"
-                        allow="autoplay"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
+                    <iframe
+                      src={`https://player.vimeo.com/video/${extractVimeoId(item.video_link.url)}?background=1&controls=0&muted=1&transparent=1`}
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      style={{ width: "", height: "100%" }}
+                      frameBorder="0"
+                      allow="autoplay"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  
                   ) : (
-                    
-                      <iframe
-                        src={item.video.url}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                        style={{ width: "100vw", height: "100%" }}
-                        frameBorder="0"
-                        allow="autoplay"
-                        allowFullScreen
-                      ></iframe>
+                    <video controls autoPlay muted playsInline>
+                      <source
+                        src="https://cdn.pixabay.com/video/2024/01/20/197485-905015019_large.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
                   )
                 ) : (
                   // Otherwise render the image
