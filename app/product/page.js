@@ -1,5 +1,6 @@
 import React from "react";
 import Ingrediants from "../components/Ingrediants";
+import Link from "next/link";
 
 const Prod1 = () => {
   return (
@@ -142,7 +143,7 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
             </div>
           </div>
           <div className="flex justify-center">
-            <a href="%">
+            <Link href="/shop">
               <div className="flex items-center mt-15 gap-[10px]">
                 <div className="link">
                   <h6 className="font-16 uppercase text-green font-400">
@@ -164,7 +165,7 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
                   </svg>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
           {/* About this product */}
