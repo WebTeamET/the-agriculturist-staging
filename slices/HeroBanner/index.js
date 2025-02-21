@@ -24,7 +24,7 @@ const HeroBanner = ({ slice }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
         </div>
-        <div className="relative z-10 flex gap-11 lgscreen2:gap-14 h-full w-full flex-col items-center justify-center">
+        <div className="relative z-2 flex gap-11 lgscreen2:gap-14 h-full w-full flex-col items-center justify-center">
           <div className="max-w-3xl text-center text-white">
             <PrismicRichText field={slice.primary.heading} />
           </div>
