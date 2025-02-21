@@ -1,5 +1,4 @@
-import Ingrediants from "@/app/components/Ingrediants";
-import ProductCard from "@/app/components/ProductCard";
+import YouMayAlsoLike from "@/app/components/YouMayAlsoLike";
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
@@ -62,7 +61,7 @@ const Testimonials = async ({ slice }) => {
         </div>
       </div>
 
-      <ProductCard />
+      <YouMayAlsoLike />
     </section>
   );
 };
