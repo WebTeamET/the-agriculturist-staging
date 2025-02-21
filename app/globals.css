@@ -163,6 +163,9 @@ body {
     @apply smscreen:pt-32;
   }
   /* footer end */
+  .product-details::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* :root {

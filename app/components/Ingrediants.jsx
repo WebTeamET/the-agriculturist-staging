@@ -92,21 +92,21 @@ const Ingrediants = () => {
         <div className="border-t border-green/20 my-[16px]"></div>
 
         {/* Responsive two-column grid (stacks on small screens) */}
-        <div className="grid grid-cols-1 lgscreen:grid-cols-2 gap-x-6 gap-y-2 ">
+        <div className="grid grid-cols-1 smscreen1:grid-cols-2 gap-x-[150px] xlscreen:gap-x-[30px] gap-y-2 ">
           <div className="px-12">
             {[
-              { name: "THC", percentage: "27.99%" },
+              { name: "THC", percentage: "27.99%", padding: '13' },
               { name: "THCA", percentage: "28.2151%" },
-              { name: "THCV", percentage: "0.00%" },
+              { name: "THCV", percentage: "0.00%", padding: '19' },
             ].map((cannabinoid, index) => (
               <div
                 key={index}
-                className="flex justify-start items-center"
+                className="flex justify-between items-center"
               >
-                <p className="text-green min-w-[200px] !font-body text-base md:text-lg">
+                <p className="text-green !font-body text-base md:text-lg">
                   {cannabinoid.name}
                 </p>
-                <p className="text-green min-w-[200px] !font-body text-base md:text-lg">
+                <p className={`text-green !font-body text-base md:text-lg ${index == 0? 'pr-[13px]' : index == 1? '' : 'pr-[20px]'}`}>
                   {cannabinoid.percentage}
                 </p>
               </div>
@@ -114,20 +114,20 @@ const Ingrediants = () => {
           </div>
           <div className="px-12">
             {[
-              { name: "CBD", percentage: "0.0303%" },
+              { name: "CBD", percentage: "0.0303%"},
               { name: "CBDA", percentage: "0.0345%" },
-              { name: "CBC", percentage: "0.00%" },
-              { name: "CBG", percentage: "0.00%" },
-              { name: "CBN", percentage: "0.00%" },
+              { name: "CBC", percentage: "0.00%", padding: '18' },
+              { name: "CBG", percentage: "0.00%", padding: '18' },
+              { name: "CBN", percentage: "0.00%", padding: '18' },
             ].map((cannabinoid, index) => (
               <div
                 key={index}
-                className="flex justify-start items-center py-1"
+                className="flex justify-between items-center py-1"
               >
-                <p className="text-green min-w-[200px] !font-body text-base md:text-lg">
+                <p className="text-green !font-body text-base md:text-lg">
                   {cannabinoid.name}
                 </p>
-                <p className="text-green min-w-[200px] !font-body text-base md:text-lg">
+                <p className={`text-green !font-body text-base md:text-lg ${index == 2? 'pr-[18px]' : index == 3? 'pr-[18px]' : index == 4? 'pr-[18px]' : ''}`}>
                   {cannabinoid.percentage}
                 </p>
               </div>

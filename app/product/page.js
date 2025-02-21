@@ -5,20 +5,18 @@ import Link from "next/link";
 const Prod1 = () => {
   return (
     <div className="container-lg container-py bg-white">
-      <div className="grid grid-cols-1 lgscreen:grid-cols-2 lgscreen:gap-[50px]">
+      <div className="grid grid-cols-1 lgscreen:grid-cols-2 lgscreen:gap-[50px] lgscreen:mb-14">
         {/* Left Image Section */}
-        <div className="relative">
+        <div className="relative lgscreen:sticky lgscreen:top-20 lgscreen:h-[100vh] flex items-start">
           <img
-            src="
-https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
- "
+            src="https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg"
             alt="Product"
             className="w-full h-auto rounded-lg"
           />
         </div>
 
         {/* Right Side Product Info */}
-        <div className="flex flex-col gap-16 py-40 product-details">
+        <div className="flex flex-col gap-16 py-40 product-details overflow-auto lgscreen:max-h-[100vh]">
           <span className="bg-dark_cream w-max font-body text-16 font-400 text-green rounded-full px-12 py-2">
             30% Off
           </span>
