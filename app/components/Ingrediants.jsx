@@ -40,7 +40,7 @@ const Ingrediants = () => {
                 <p className="text-xl text-green font-700 font-body">
                   {terpene.name}
                 </p>
-                <span className="ml-20 px-16 py-3 font-body text-12 bg-green font-400 tracking-[0.5px] text-white rounded-full">
+                <span className="ml-20 leading-[normal] px-16 py-3 font-body text-12 bg-green font-400 tracking-[0.5px] text-white rounded-full">
                   {terpene.percentage}
                 </span>
               </div>

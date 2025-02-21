@@ -3,10 +3,11 @@ import Ingrediants from "./Ingrediants";
 import { createClient } from "@/prismicio";
 import Icon from "./Icon";
 import ProductSlider from "./ProductSlider";
+import Link from "next/link";
 
 const ProductDetail = async () => {
   let client = createClient();
-  const {data} = await client.getByUID("settings", "settings-uid");
+  const { data } = await client.getByUID("settings", "settings-uid");
 
   return (
     <div className="container-lg container-py bg-white">
@@ -23,251 +24,251 @@ const ProductDetail = async () => {
 
         {/* Right Side Product Info */}
         <div className="pdp-sticky sticky top-[13rem] z-2">
-        <div className="flex flex-col gap-16 py-40 product-details">
-          <span className="bg-dark_cream w-max font-body text-16 font-400 text-green rounded-full px-12 py-2">
-            30% Off
-          </span>
-          <div className="flex flex-col gap-[8px] lgscreen:px-8">
-            <p className="text-green font-body leading-[normal]">Brand</p>
-            <h3 className="text-green font-500">Product Name</h3>
-          </div>
-          <div className="pdp-Categories lgscreen:px-8">
-            <a
-              href="#"
-              className="text-green font-bodytext-green font-body underline"
-            >
-              Categories
-            </a>
-          </div>
-
-          {/* Details */}
-          <div className="pdp-details flex flex-col gap-[8px] lgscreen:px-8">
-            <span className="text-2xl text-green font-500 font-body">
-              Details
+          <div className="flex flex-col gap-16 py-40 product-details">
+            <span className="bg-dark_cream w-max font-body text-16 font-400 text-green rounded-full px-12 py-2">
+              30% Off
             </span>
-            <div className="text-[#6E6B68] flex items-center gap-14">
-              <div className="flex gap-[8px] items-center">
-                <PlaceholderSvg />
-                THC 00.00%
+            <div className="flex flex-col gap-[8px] lgscreen:px-8">
+              <p className="text-green font-body leading-[normal]">Brand</p>
+              <h3 className="text-green font-500">Product Name</h3>
+            </div>
+            <div className="pdp-Categories lgscreen:px-8">
+              <a
+                href="#"
+                className="text-green font-bodytext-green font-body underline"
+              >
+                Categories
+              </a>
+            </div>
+
+            {/* Details */}
+            <div className="pdp-details flex flex-col gap-[8px] lgscreen:px-8">
+              <span className="text-2xl text-green font-500 font-body">
+                Details
+              </span>
+              <div className="text-[#6E6B68] flex items-center gap-14">
+                <div className="flex gap-[8px] items-center">
+                  <PlaceholderSvg />
+                  THC 00.00%
+                </div>
+                <div className="flex gap-[8px] items-center">
+                  <PlaceholderSvg /> CBD 0.000%
+                </div>
               </div>
-              <div className="flex gap-[8px] items-center">
-                <PlaceholderSvg /> CBD 0.000%
+              <div className="ctm-pdp-details">
+                <p>
+                  *This % may represent an aggregate of THC/CBD, THCa/CBDa,
+                  THCb/CBDb within the product. Consumers should review the
+                  actual product label for exact % of THC/CBD.
+                </p>
               </div>
             </div>
-            <div className="ctm-pdp-details">
+
+            {/* Description */}
+            <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
+            <div className="flex flex-col gap-[8px] lgscreen:px-8">
+              <h5 className="text-green font-500">Product Description</h5>
               <p>
-                *This % may represent an aggregate of THC/CBD, THCa/CBDa,
-                THCb/CBDb within the product. Consumers should review the actual
-                product label for exact % of THC/CBD.
+                This full gram 510 Vape Cartridge is ready to smoke out of the
+                bag. Like a tart blueberry popsicle, this Blue Dream sativa
+                vape's quality ceramic coil means big flavor and bigger clouds.
+                Battery not included. Rip to unlock Gramlin Mode.----- Proper
+                Disposal: A spent cannabis cartridge shall be properly disposed
+                of as hazardous waste at a household hazardous waste facility or
+                other approved facility.
               </p>
             </div>
-          </div>
 
-          {/* Description */}
-          <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
-          <div className="flex flex-col gap-[8px] lgscreen:px-8">
-            <h5 className="text-green font-500">Product Description</h5>
-            <p>
-              This full gram 510 Vape Cartridge is ready to smoke out of the
-              bag. Like a tart blueberry popsicle, this Blue Dream sativa vape's
-              quality ceramic coil means big flavor and bigger clouds. Battery
-              not included. Rip to unlock Gramlin Mode.----- Proper Disposal: A
-              spent cannabis cartridge shall be properly disposed of as
-              hazardous waste at a household hazardous waste facility or other
-              approved facility.
-            </p>
-          </div>
-
-          {/* Warning Section */}
-          <div className="bg-dark_cream p-20 rounded-[20px]">
-            <div className=" lgscreen:px-8 flex flex-col gap-[8px]">
-              <div className="flex gap-[10px] items-center">
-                {/* SVG Placeholder */}
-                <Icon type="warning" />
-                <h5 className="text-[#004D43] font-500">Warning</h5>
-              </div>
-              <div className="warning-details">
-                <p className="font-700">
-                  Proposition 65 Warning for California Consumers
-                </p>
-                <p>
-                  This product can expose you to chemicals including β-myrcene
-                  and cannabis smoke, which are known to the State of California
-                  to cause cancer, and chemicals including cannabis smoke and
-                  9-tetrahydrocannabinol, which are known to the State of
-                  California to cause birth defects or other reproductive harm.
-                  For more information go to 
-                  <a className="a-link-hover" href="#">
-                    www.P65Warnings.ca.gov
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
-
-          {/* Price & Buttons */}
-          <div className="flex flex-col gap-[16px] lgscreen:px-8">
-            <h5 className="text-green font-500">Available variants</h5>
-            <div className="bg-dark_cream p-16 w-max rounded-[20px]">
-              <p className="text-14">3.5 gram</p>
-              <h6 className="text-green font-700 !font-opensans text-28">
-                $28
-                <span className="ml-5 font-400 text-16 text-dark_gray line-through">
-                  40
-                </span>
-              </h6>
-            </div>
-            <div className="flex smscreen:flex-col gap-[16px] mt-2">
-              <button className="green-btn w-1/2 smscreen:w-full">
-                ADD TO CART
-              </button>
-              <button className="green-btn w-1/2 smscreen:w-full">
-                WISHLIST
-              </button>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <a href="#">
-              <div className="flex items-center mt-15 gap-[10px]">
-                <div className="link">
-                  <h6 className="font-16 uppercase text-green font-400">
-                    Continue shopping
-                  </h6>
+            {/* Warning Section */}
+            <div className="bg-dark_cream p-20 rounded-[20px]">
+              <div className=" lgscreen:px-8 flex flex-col gap-[8px]">
+                <div className="flex gap-[10px] items-center">
+                  {/* SVG Placeholder */}
+                  <Icon type="warning" />
+                  <h5 className="text-[#004D43] font-500">Warning</h5>
                 </div>
-                <div className="icone">
+                <div className="warning-details">
+                  <p className="font-700">
+                    Proposition 65 Warning for California Consumers
+                  </p>
+                  <p>
+                    This product can expose you to chemicals including β-myrcene
+                    and cannabis smoke, which are known to the State of
+                    California to cause cancer, and chemicals including cannabis
+                    smoke and 9-tetrahydrocannabinol, which are known to the
+                    State of California to cause birth defects or other
+                    reproductive harm. For more information go to 
+                    <a className="a-link-hover" href="#">
+                      www.P65Warnings.ca.gov
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
+
+            {/* Price & Buttons */}
+            <div className="flex flex-col gap-[16px] lgscreen:px-8">
+              <h5 className="text-green font-500">Available variants</h5>
+              <div className="bg-dark_cream p-16 w-max rounded-[20px]">
+                <p className="text-14">3.5 gram</p>
+                <h6 className="text-green font-700 !font-opensans text-28">
+                  $28
+                  <span className="ml-5 font-400 text-16 text-dark_gray line-through">
+                    40
+                  </span>
+                </h6>
+              </div>
+              <div className="flex smscreen:flex-col gap-[16px] mt-2">
+                <button className="green-btn w-1/2 smscreen:w-full">
+                  ADD TO CART
+                </button>
+                <button className="green-btn w-1/2 smscreen:w-full">
+                  WISHLIST
+                </button>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <Link href="/shop">
+                <div className="flex items-center mt-15 gap-[10px]">
+                  <div className="link">
+                    <h6 className="font-16 uppercase text-green font-400">
+                      Continue shopping
+                    </h6>
+                  </div>
+                  <div className="icone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="12"
+                      viewBox="0 0 6 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M5.5 5.98167C5.5 6.05498 5.46417 6.16495 5.42834 6.23826L1.12869 11.37C0.985373 11.5166 0.77039 11.5533 0.627069 11.4067C0.483747 11.26 0.447917 11.0401 0.591238 10.8935L4.6759 5.98167L0.591238 1.10651C0.447917 0.959893 0.483747 0.739961 0.627069 0.593339C0.77039 0.446717 1.0212 0.483373 1.12869 0.629994L5.42834 5.76174C5.46417 5.7984 5.5 5.90836 5.5 5.98167Z"
+                        fill="#004D43"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
+            {/* About this product */}
+            <div className="pdp-about lgscreen:px-8">
+              <div className="pdp-about-inner flex flex-col gap-[16px]">
+                <h5 className="text-green font-500">About this product</h5>
+                <div className="flex flex-col gap-[8px]">
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body caption-bottom">
+                        Licenced Producer
+                      </p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">Licenced Producer</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">Category</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">Licenced Producer</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">THC</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">00.00%</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">CBD</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">0.000%</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">Package Info</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">CBD 0.000%</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">Available Weights</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">3.5 G</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full justify-start">
+                    <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
+                      <p className="font-body capitalize">SubCategory</p>
+                      <span className="mr-15">:</span>
+                    </div>
+                    <div className="flex w-[65%] smscreen:w-1/2">
+                      <p className="font-[600]">CBD 0.000%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
+            <div className="social lgscreen:px-8">
+              <div className="social-inner items-center flex gap-15">
+                <h5 className="text-green font-500">Share :</h5>
+                <div className="flex items-center gap-10">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="12"
-                    viewBox="0 0 6 12"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
                     fill="none"
                   >
                     <path
-                      d="M5.5 5.98167C5.5 6.05498 5.46417 6.16495 5.42834 6.23826L1.12869 11.37C0.985373 11.5166 0.77039 11.5533 0.627069 11.4067C0.483747 11.26 0.447917 11.0401 0.591238 10.8935L4.6759 5.98167L0.591238 1.10651C0.447917 0.959893 0.483747 0.739961 0.627069 0.593339C0.77039 0.446717 1.0212 0.483373 1.12869 0.629994L5.42834 5.76174C5.46417 5.7984 5.5 5.90836 5.5 5.98167Z"
+                      d="M8 1.442C10.136 1.442 10.3893 1.45 11.2333 1.48867C13.4013 1.58733 14.414 2.616 14.5127 4.768C14.5513 5.61133 14.5587 5.86467 14.5587 8.00067C14.5587 10.1373 14.5507 10.39 14.5127 11.2333C14.4133 13.3833 13.4033 14.414 11.2333 14.5127C10.3893 14.5513 10.1373 14.5593 8 14.5593C5.864 14.5593 5.61067 14.5513 4.76733 14.5127C2.594 14.4133 1.58667 13.38 1.488 11.2327C1.44933 10.3893 1.44133 10.1367 1.44133 8C1.44133 5.864 1.45 5.61133 1.488 4.76733C1.58733 2.616 2.59733 1.58667 4.76733 1.488C5.61133 1.45 5.864 1.442 8 1.442ZM8 0C5.82733 0 5.55533 0.00933333 4.702 0.048C1.79667 0.181333 0.182 1.79333 0.0486667 4.70133C0.00933333 5.55533 0 5.82733 0 8C0 10.1727 0.00933333 10.4453 0.048 11.2987C0.181333 14.204 1.79333 15.8187 4.70133 15.952C5.55533 15.9907 5.82733 16 8 16C10.1727 16 10.4453 15.9907 11.2987 15.952C14.2013 15.8187 15.82 14.2067 15.9513 11.2987C15.9907 10.4453 16 10.1727 16 8C16 5.82733 15.9907 5.55533 15.952 4.702C15.8213 1.79933 14.2073 0.182 11.2993 0.0486667C10.4453 0.00933333 10.1727 0 8 0ZM8 3.892C5.73133 3.892 3.892 5.73133 3.892 8C3.892 10.2687 5.73133 12.1087 8 12.1087C10.2687 12.1087 12.108 10.2693 12.108 8C12.108 5.73133 10.2687 3.892 8 3.892ZM8 10.6667C6.52733 10.6667 5.33333 9.47333 5.33333 8C5.33333 6.52733 6.52733 5.33333 8 5.33333C9.47267 5.33333 10.6667 6.52733 10.6667 8C10.6667 9.47333 9.47267 10.6667 8 10.6667ZM12.2707 2.77C11.74 2.77 11.31 3.2 11.31 3.73C11.31 4.26 11.74 4.69 12.2707 4.69C12.8007 4.69 13.23 4.26 13.23 3.73C13.23 3.2 12.8007 2.77 12.2707 2.77Z"
+                      fill="#004D43"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M3.72439 5.14107H0.512361C0.369806 5.14107 0.254297 5.25688 0.254297 5.3997V15.7413C0.254297 15.8842 0.369806 15.9999 0.512361 15.9999H3.72439C3.86694 15.9999 3.98245 15.8842 3.98245 15.7413V5.3997C3.98245 5.25688 3.86694 5.14107 3.72439 5.14107Z"
+                      fill="#004D43"
+                    />
+                    <path
+                      d="M2.11954 0C0.950813 0 0 0.951875 0 2.12188C0 3.2924 0.950813 4.24464 2.11954 4.24464C3.28733 4.24464 4.23737 3.29235 4.23737 2.12188C4.23742 0.951875 3.28733 0 2.11954 0Z"
+                      fill="#004D43"
+                    />
+                    <path
+                      d="M11.8944 4.88404C10.6043 4.88404 9.65068 5.43984 9.07226 6.07137V5.3997C9.07226 5.25688 8.95675 5.14107 8.81419 5.14107H5.73812C5.59556 5.14107 5.48005 5.25688 5.48005 5.3997V15.7413C5.48005 15.8842 5.59556 15.9999 5.73812 15.9999H8.94312C9.08568 15.9999 9.20119 15.8842 9.20119 15.7413V10.6246C9.20119 8.90041 9.66849 8.22868 10.8678 8.22868C12.1739 8.22868 12.2777 9.30553 12.2777 10.7133V15.7414C12.2777 15.8842 12.3932 16 12.5357 16H15.7419C15.8845 16 16 15.8842 16 15.7414V10.0688C16 7.50498 15.5122 4.88404 11.8944 4.88404Z"
                       fill="#004D43"
                     />
                   </svg>
                 </div>
               </div>
-            </a>
-          </div>
-          <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
-          {/* About this product */}
-          <div className="pdp-about lgscreen:px-8">
-            <div className="pdp-about-inner flex flex-col gap-[16px]">
-              <h5 className="text-green font-500">About this product</h5>
-              <div className="flex flex-col gap-[8px]">
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body caption-bottom">
-                      Licenced Producer
-                    </p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">Licenced Producer</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">Category</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">Licenced Producer</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">THC</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">00.00%</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">CBD</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">0.000%</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">Package Info</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">CBD 0.000%</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">Available Weights</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">3.5 G</p>
-                  </div>
-                </div>
-                <div className="flex items-center w-full justify-start">
-                  <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
-                    <p className="font-body capitalize">SubCategory</p>
-                    <span className="mr-15">:</span>
-                  </div>
-                  <div className="flex w-[65%] smscreen:w-1/2">
-                    <p className="font-[600]">CBD 0.000%</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
-          <div className="social lgscreen:px-8">
-            <div className="social-inner items-center flex gap-15">
-              <h5 className="text-green font-500">Share :</h5>
-              <div className="flex items-center gap-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M8 1.442C10.136 1.442 10.3893 1.45 11.2333 1.48867C13.4013 1.58733 14.414 2.616 14.5127 4.768C14.5513 5.61133 14.5587 5.86467 14.5587 8.00067C14.5587 10.1373 14.5507 10.39 14.5127 11.2333C14.4133 13.3833 13.4033 14.414 11.2333 14.5127C10.3893 14.5513 10.1373 14.5593 8 14.5593C5.864 14.5593 5.61067 14.5513 4.76733 14.5127C2.594 14.4133 1.58667 13.38 1.488 11.2327C1.44933 10.3893 1.44133 10.1367 1.44133 8C1.44133 5.864 1.45 5.61133 1.488 4.76733C1.58733 2.616 2.59733 1.58667 4.76733 1.488C5.61133 1.45 5.864 1.442 8 1.442ZM8 0C5.82733 0 5.55533 0.00933333 4.702 0.048C1.79667 0.181333 0.182 1.79333 0.0486667 4.70133C0.00933333 5.55533 0 5.82733 0 8C0 10.1727 0.00933333 10.4453 0.048 11.2987C0.181333 14.204 1.79333 15.8187 4.70133 15.952C5.55533 15.9907 5.82733 16 8 16C10.1727 16 10.4453 15.9907 11.2987 15.952C14.2013 15.8187 15.82 14.2067 15.9513 11.2987C15.9907 10.4453 16 10.1727 16 8C16 5.82733 15.9907 5.55533 15.952 4.702C15.8213 1.79933 14.2073 0.182 11.2993 0.0486667C10.4453 0.00933333 10.1727 0 8 0ZM8 3.892C5.73133 3.892 3.892 5.73133 3.892 8C3.892 10.2687 5.73133 12.1087 8 12.1087C10.2687 12.1087 12.108 10.2693 12.108 8C12.108 5.73133 10.2687 3.892 8 3.892ZM8 10.6667C6.52733 10.6667 5.33333 9.47333 5.33333 8C5.33333 6.52733 6.52733 5.33333 8 5.33333C9.47267 5.33333 10.6667 6.52733 10.6667 8C10.6667 9.47333 9.47267 10.6667 8 10.6667ZM12.2707 2.77C11.74 2.77 11.31 3.2 11.31 3.73C11.31 4.26 11.74 4.69 12.2707 4.69C12.8007 4.69 13.23 4.26 13.23 3.73C13.23 3.2 12.8007 2.77 12.2707 2.77Z"
-                    fill="#004D43"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3.72439 5.14107H0.512361C0.369806 5.14107 0.254297 5.25688 0.254297 5.3997V15.7413C0.254297 15.8842 0.369806 15.9999 0.512361 15.9999H3.72439C3.86694 15.9999 3.98245 15.8842 3.98245 15.7413V5.3997C3.98245 5.25688 3.86694 5.14107 3.72439 5.14107Z"
-                    fill="#004D43"
-                  />
-                  <path
-                    d="M2.11954 0C0.950813 0 0 0.951875 0 2.12188C0 3.2924 0.950813 4.24464 2.11954 4.24464C3.28733 4.24464 4.23737 3.29235 4.23737 2.12188C4.23742 0.951875 3.28733 0 2.11954 0Z"
-                    fill="#004D43"
-                  />
-                  <path
-                    d="M11.8944 4.88404C10.6043 4.88404 9.65068 5.43984 9.07226 6.07137V5.3997C9.07226 5.25688 8.95675 5.14107 8.81419 5.14107H5.73812C5.59556 5.14107 5.48005 5.25688 5.48005 5.3997V15.7413C5.48005 15.8842 5.59556 15.9999 5.73812 15.9999H8.94312C9.08568 15.9999 9.20119 15.8842 9.20119 15.7413V10.6246C9.20119 8.90041 9.66849 8.22868 10.8678 8.22868C12.1739 8.22868 12.2777 9.30553 12.2777 10.7133V15.7414C12.2777 15.8842 12.3932 16 12.5357 16H15.7419C15.8845 16 16 15.8842 16 15.7414V10.0688C16 7.50498 15.5122 4.88404 11.8944 4.88404Z"
-                    fill="#004D43"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
       <Ingrediants />
