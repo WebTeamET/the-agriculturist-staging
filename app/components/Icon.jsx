@@ -10,6 +10,7 @@ import Effects from "./Icons/Effects";
 import Brands from "./Icons/Brands";
 import FilterIcon from "./Icons/FilterIcon";
 import Star from "./Icons/Star";
+import Warning from "./Icons/Warning";
 
 const Icon = ({ type }) => {
   return (
@@ -23,6 +24,7 @@ const Icon = ({ type }) => {
       {type === "brands" && <Brands />}
       {type === "filter" && <FilterIcon />}
       {type === "star" && <Star />}
+      {type === "warning" && <Warning />}
     </div>
   );
 };

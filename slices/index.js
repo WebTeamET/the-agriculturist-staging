@@ -8,6 +8,7 @@ export const components = {
   hero_banner: dynamic(() => import("./HeroBanner")),
   image_with_text: dynamic(() => import("./ImageWithText")),
   news_letter: dynamic(() => import("./NewsLetter")),
+  product_details: dynamic(() => import("./ProductDetails")),
   promotional_banner: dynamic(() => import("./PromotionalBanner")),
   slider: dynamic(() => import("./Slider")),
   style: dynamic(() => import("./Style")),

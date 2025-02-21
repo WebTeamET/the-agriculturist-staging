@@ -747,6 +747,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type ProductsDocumentDataSlicesSlice =
+  | ProductDetailsSlice
   | TestimonialsSlice
   | NewsLetterSlice
   | HeroBannerSlice;
@@ -1736,6 +1737,51 @@ export type NewsLetterSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ProductDetails → Default → Primary*
+ */
+export interface ProductDetailsSliceDefaultPrimary {
+  /**
+   * Title field in *ProductDetails → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_details.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ProductDetails Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductDetailsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductDetailsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductDetails*
+ */
+type ProductDetailsSliceVariation = ProductDetailsSliceDefault;
+
+/**
+ * ProductDetails Shared Slice
+ *
+ * - **API ID**: `product_details`
+ * - **Description**: ProductDetails
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductDetailsSlice = prismic.SharedSlice<
+  "product_details",
+  ProductDetailsSliceVariation
+>;
+
+/**
  * Item in *PromotionalBanner → Default → Primary → Promotional Items*
  */
 export interface PromotionalBannerSliceDefaultPrimaryPromotionalItemsItem {
@@ -2302,6 +2348,10 @@ declare module "@prismicio/client" {
       NewsLetterSliceDefaultPrimary,
       NewsLetterSliceVariation,
       NewsLetterSliceDefault,
+      ProductDetailsSlice,
+      ProductDetailsSliceDefaultPrimary,
+      ProductDetailsSliceVariation,
+      ProductDetailsSliceDefault,
       PromotionalBannerSlice,
       PromotionalBannerSliceDefaultPrimaryPromotionalItemsItem,
       PromotionalBannerSliceDefaultPrimary,

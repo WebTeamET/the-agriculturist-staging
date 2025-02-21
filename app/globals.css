@@ -434,3 +434,17 @@ body:has(.age-popup) {
     @apply !text-16;
   }
 }
+/* Custom pagination bullets */
+.custom-pagination .swiper-pagination-bullet {
+  background-color: #004D43 !important; /* Tailwind green-600 */
+  width: 8px;
+  height: 2px;
+  margin: 0 5px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #004D43 !important;
+  opacity: 1;
+}

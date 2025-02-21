@@ -1,23 +1,29 @@
 import React from "react";
-import Ingrediants from "../components/Ingrediants";
-import Link from "next/link";
+import Ingrediants from "./Ingrediants";
+import { createClient } from "@/prismicio";
+import Icon from "./Icon";
+import ProductSlider from "./ProductSlider";
 
-const Prod1 = () => {
+const ProductDetail = async () => {
+  let client = createClient();
+  const {data} = await client.getByUID("settings", "settings-uid");
+  console.log(data,1231)
+
   return (
     <div className="container-lg container-py bg-white">
       <div className="grid grid-cols-1 lgscreen:grid-cols-2 lgscreen:gap-[50px]">
         {/* Left Image Section */}
-        <div className="relative">
+        {/* <div className="relative">
           <img
-            src="
-https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
- "
+            src="https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg"
             alt="Product"
             className="w-full h-auto rounded-lg"
           />
-        </div>
+        </div> */}
+        <ProductSlider />
 
         {/* Right Side Product Info */}
+        <div className="pdp-sticky sticky top-[13rem] z-2">
         <div className="flex flex-col gap-16 py-40 product-details">
           <span className="bg-dark_cream w-max font-body text-16 font-400 text-green rounded-full px-12 py-2">
             30% Off
@@ -78,26 +84,7 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
             <div className=" lgscreen:px-8 flex flex-col gap-[8px]">
               <div className="flex gap-[10px] items-center">
                 {/* SVG Placeholder */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="18"
-                  viewBox="0 0 20 18"
-                  fill="none"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M9.99991 14.5812C9.66192 14.5812 9.3885 14.3022 9.3885 13.9589C9.3885 13.6272 9.67332 13.3379 9.99991 13.3379C10.3265 13.3379 10.6126 13.6272 10.6126 13.9589C10.6126 14.2906 10.3265 14.5812 9.99991 14.5812ZM9.98814 0C9.49065 0 8.99444 0.249428 8.71342 0.748286L0.197998 15.7667C-0.364043 16.7644 0.337242 18 1.46132 18H18.5162C19.6631 18 20.3644 16.7644 19.8023 15.7667L11.2629 0.748286C10.9831 0.249428 10.4856 0 9.98814 0ZM9.98814 1.02857C10.0679 1.02857 10.2666 1.05043 10.3856 1.26257L18.9238 16.2771C19.0377 16.4803 18.9732 16.6539 18.9251 16.74C18.8757 16.8261 18.7567 16.9714 18.5162 16.9714H1.46132C1.23727 16.9714 1.1246 16.83 1.07524 16.7451C1.02587 16.659 0.960044 16.4829 1.07397 16.2797L9.59319 1.25871C9.70965 1.05043 9.90839 1.02857 9.98814 1.02857Z"
-                    fill="#004D43"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M9.99991 12.1974C9.66192 12.1974 9.3885 11.9184 9.3885 11.5752V5.78559C9.3885 5.45387 9.67332 5.16459 9.99991 5.16459C10.3265 5.16459 10.6126 5.45387 10.6126 5.78559V11.5752C10.6126 11.9069 10.3265 12.1974 9.99991 12.1974Z"
-                    fill="#004D43"
-                  />
-                </svg>
+                <Icon type="warning" />
                 <h5 className="text-[#004D43] font-500">Warning</h5>
               </div>
               <div className="warning-details">
@@ -143,7 +130,7 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
             </div>
           </div>
           <div className="flex justify-center">
-            <Link href="/shop">
+            <a href="#">
               <div className="flex items-center mt-15 gap-[10px]">
                 <div className="link">
                   <h6 className="font-16 uppercase text-green font-400">
@@ -165,7 +152,7 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
                   </svg>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
           <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
           {/* About this product */}
@@ -282,13 +269,12 @@ https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg
             </div>
           </div>
         </div>
+        </div>
       </div>
       <Ingrediants />
     </div>
   );
 };
-
-export default Prod1;
 
 const PlaceholderSvg = () => {
   return (
@@ -318,3 +304,5 @@ const PlaceholderSvg = () => {
     </svg>
   );
 };
+
+export default ProductDetail;
