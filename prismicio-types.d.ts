@@ -616,6 +616,169 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type LoyaltyDocumentDataSlicesSlice = LoyaltyCardsSlice | HeroBannerSlice;
+
+/**
+ * Content for Loyalty documents
+ */
+interface LoyaltyDocumentData {
+  /**
+   * Title Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.title_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * SubTitle Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.subtitle_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  subtitle_color: prismic.ColorField;
+
+  /**
+   * Content Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.content_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  content_color: prismic.ColorField;
+
+  /**
+   * Slice Zone field in *Loyalty*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LoyaltyDocumentDataSlicesSlice> /**
+   * Meta Title field in *Loyalty*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: loyalty.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Loyalty*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: loyalty.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Loyalty*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Loyalty document from Prismic
+ *
+ * - **API ID**: `loyalty`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LoyaltyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<LoyaltyDocumentData>,
+    "loyalty",
+    Lang
+  >;
+
+/**
+ * Content for Loyalty card documents
+ */
+interface LoyaltyCardDocumentData {
+  /**
+   * Icon field in *Loyalty card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_card.icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Loyalty card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_card.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Subtitle field in *Loyalty card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_card.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Content field in *Loyalty card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_card.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Loyalty card document from Prismic
+ *
+ * - **API ID**: `loyalty_card`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LoyaltyCardDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LoyaltyCardDocumentData>,
+    "loyalty_card",
+    Lang
+  >;
+
 /**
  * Item in *Navigation → Nav Items*
  */
@@ -1100,6 +1263,8 @@ export type AllDocumentTypes =
   | ContainerDocument
   | FooterDocument
   | HomeDocument
+  | LoyaltyDocument
+  | LoyaltyCardDocument
   | NavigationDocument
   | ProductsDocument
   | SettingsDocument
@@ -1558,6 +1723,68 @@ type ImageWithTextSliceVariation = ImageWithTextSliceDefault;
 export type ImageWithTextSlice = prismic.SharedSlice<
   "image_with_text",
   ImageWithTextSliceVariation
+>;
+
+/**
+ * Item in *LoyaltyCards → Default → Primary → Loyalty card*
+ */
+export interface LoyaltyCardsSliceDefaultPrimaryLoyaltyCardItem {
+  /**
+   * Loyalty card field in *LoyaltyCards → Default → Primary → Loyalty card*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_cards.default.primary.loyalty_card[].loyalty_card
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  loyalty_card: prismic.ContentRelationshipField<"loyalty_card">;
+}
+
+/**
+ * Primary content in *LoyaltyCards → Default → Primary*
+ */
+export interface LoyaltyCardsSliceDefaultPrimary {
+  /**
+   * Loyalty card field in *LoyaltyCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty_cards.default.primary.loyalty_card[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  loyalty_card: prismic.GroupField<
+    Simplify<LoyaltyCardsSliceDefaultPrimaryLoyaltyCardItem>
+  >;
+}
+
+/**
+ * Default variation for LoyaltyCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LoyaltyCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LoyaltyCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LoyaltyCards*
+ */
+type LoyaltyCardsSliceVariation = LoyaltyCardsSliceDefault;
+
+/**
+ * LoyaltyCards Shared Slice
+ *
+ * - **API ID**: `loyalty_cards`
+ * - **Description**: LoyaltyCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LoyaltyCardsSlice = prismic.SharedSlice<
+  "loyalty_cards",
+  LoyaltyCardsSliceVariation
 >;
 
 /**
@@ -2307,6 +2534,11 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      LoyaltyDocument,
+      LoyaltyDocumentData,
+      LoyaltyDocumentDataSlicesSlice,
+      LoyaltyCardDocument,
+      LoyaltyCardDocumentData,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataNavItemsItem,
@@ -2344,6 +2576,11 @@ declare module "@prismicio/client" {
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
+      LoyaltyCardsSlice,
+      LoyaltyCardsSliceDefaultPrimaryLoyaltyCardItem,
+      LoyaltyCardsSliceDefaultPrimary,
+      LoyaltyCardsSliceVariation,
+      LoyaltyCardsSliceDefault,
       NewsLetterSlice,
       NewsLetterSliceDefaultPrimary,
       NewsLetterSliceVariation,

@@ -7,6 +7,7 @@ export const components = {
   featured_products: dynamic(() => import("./FeaturedProducts")),
   hero_banner: dynamic(() => import("./HeroBanner")),
   image_with_text: dynamic(() => import("./ImageWithText")),
+  loyalty_cards: dynamic(() => import("./LoyaltyCards")),
   news_letter: dynamic(() => import("./NewsLetter")),
   product_details: dynamic(() => import("./ProductDetails")),
   promotional_banner: dynamic(() => import("./PromotionalBanner")),

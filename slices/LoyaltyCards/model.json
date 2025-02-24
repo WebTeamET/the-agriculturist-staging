@@ -1,0 +1,39 @@
+{
+  "id": "loyalty_cards",
+  "type": "SharedSlice",
+  "name": "LoyaltyCards",
+  "description": "LoyaltyCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "loyalty_card": {
+          "type": "Group",
+          "config": {
+            "label": "Loyalty card",
+            "repeat": true,
+            "fields": {
+              "loyalty_card": {
+                "type": "Link",
+                "config": {
+                  "label": "Loyalty card",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "loyalty_card"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
