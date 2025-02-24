@@ -93,5 +93,126 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "skewedImageWithText",
+		"primary": {
+			"hide_module": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+					"width": 8640,
+					"height": 8640
+				},
+				"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+				"width": 8640,
+				"height": 8640,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Tomorrow"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi magna ad deserunt amet."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "pile",
+				"type": "Text"
+			},
+			"button_link": {
+				"key": "3e1baaa5-1c19-42ec-9be6-2bf1c30c661c",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "talk"
+				}
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9b1779",
+				"type": "Color"
+			},
+			"text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#daebe1",
+				"type": "Color"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a861dd",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f361bb",
+				"type": "Color"
+			},
+			"image_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"text_above_image": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Amet ullamco irure veniam magna duis veniam ea cupidatat cupidatat magna anim aliqua elit ea voluptate."
+						}
+					}
+				]
+			},
+			"text_above_image_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#153748",
+				"type": "Color"
+			},
+			"content_alignment": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

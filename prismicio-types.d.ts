@@ -616,12 +616,26 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type LoyaltyDocumentDataSlicesSlice = LoyaltyCardsSlice | HeroBannerSlice;
+type LoyaltyDocumentDataSlicesSlice =
+  | ImageWithTextSlice
+  | LoyaltyCardsSlice
+  | HeroBannerSlice;
 
 /**
  * Content for Loyalty documents
  */
 interface LoyaltyDocumentData {
+  /**
+   * Heading field in *Loyalty*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
   /**
    * Title Color field in *Loyalty*
    *
@@ -654,6 +668,28 @@ interface LoyaltyDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#color
    */
   content_color: prismic.ColorField;
+
+  /**
+   * Icon Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.icon_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  icon_color: prismic.ColorField;
+
+  /**
+   * Button Text field in *Loyalty*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.button_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Loyalty*
@@ -1709,9 +1745,178 @@ export type ImageWithTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImageWithText → SkewedImageWithText → Primary*
+ */
+export interface ImageWithTextSliceSkewedImageWithTextPrimary {
+  /**
+   * Hide Module field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
+   * Image field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Text Above Image field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.text_above_image
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_above_image: prismic.RichTextField;
+
+  /**
+   * Text Above Image Color field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.text_above_image_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_above_image_color: prismic.ColorField;
+
+  /**
+   * Title field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Background Color field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Text Color field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Button Background Color field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.button_background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Button Text Color field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Image Position field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_position: prismic.SelectField<"Left" | "Right">;
+
+  /**
+   * Content Alignment field in *ImageWithText → SkewedImageWithText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: image_with_text.skewedImageWithText.primary.content_alignment
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  content_alignment: prismic.SelectField<"left" | "center" | "right", "filled">;
+}
+
+/**
+ * SkewedImageWithText variation for ImageWithText Slice
+ *
+ * - **API ID**: `skewedImageWithText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceSkewedImageWithText =
+  prismic.SharedSliceVariation<
+    "skewedImageWithText",
+    Simplify<ImageWithTextSliceSkewedImageWithTextPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *ImageWithText*
  */
-type ImageWithTextSliceVariation = ImageWithTextSliceDefault;
+type ImageWithTextSliceVariation =
+  | ImageWithTextSliceDefault
+  | ImageWithTextSliceSkewedImageWithText;
 
 /**
  * ImageWithText Shared Slice
@@ -2574,8 +2779,10 @@ declare module "@prismicio/client" {
       HeroBannerSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
+      ImageWithTextSliceSkewedImageWithTextPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
+      ImageWithTextSliceSkewedImageWithText,
       LoyaltyCardsSlice,
       LoyaltyCardsSliceDefaultPrimaryLoyaltyCardItem,
       LoyaltyCardsSliceDefaultPrimary,
