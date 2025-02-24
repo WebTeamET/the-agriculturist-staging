@@ -45,8 +45,6 @@ const LoyaltyCards = ({ slice }) => {
     fetchLoyaltyCards();
   }, [slice]);
 
-  console.log("loyaltyCardGeneral", loyaltyCardGeneral);
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -93,7 +91,11 @@ const LoyaltyCards = ({ slice }) => {
           </div>
         ))}
       </div>
-      <button>{loyaltyCardGeneral.button_text}</button>
+      <button
+        className={`w-fit m-auto py-14 px-32 rounded-full flex justify-center mt-40 uppercase bg-[${loyaltyCardGeneral?.button_background_color}] text-[${loyaltyCardGeneral?.button_text_color}]`}
+      >
+        {loyaltyCardGeneral.button_text}
+      </button>
     </section>
   );
 };
