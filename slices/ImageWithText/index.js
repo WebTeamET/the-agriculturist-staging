@@ -74,7 +74,7 @@ const ImageWithText = ({ slice }) => {
               </div>
             )}
             <div
-              className={`lgscreen:w-1/2 w-full space-y-8 px-20 lgscreen:max-w-[705px] ${
+              className={`lgscreen:w-1/2 w-full space-y-8 px-20 bg-dark_cream lgscreen:max-w-[645px] mx-auto clip-custom-right ${
                 image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
               } text-${content_alignment}`}
             >
@@ -84,6 +84,7 @@ const ImageWithText = ({ slice }) => {
                 style={textStyle}
               />
               <PrismicRichText
+              className="lgscreen:max-w-[645px]"
                 components={components}
                 field={description}
                 style={textStyle}
@@ -129,7 +130,7 @@ const ImageWithText = ({ slice }) => {
               </div>
             )}
             <div
-              className={`lgscreen:w-1/2 w-full space-y-8 px-20 lgscreen:max-w-[705px] ${
+              className={`lgscreen:w-1/2 w-full space-y-8 px-20 h-screen ${
                 image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
               } text-center lgscreen:text-left`}
             >

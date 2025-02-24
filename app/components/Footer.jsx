@@ -20,7 +20,7 @@ const Footer = async () => {
       <div className="footer-container">
         <div className="pb-30 mx-auto flex justify-between items-start flex-wrap lgscreen:flex-nowrap lgscreen2:gap-30">
           {/* Categories Section */}
-          <div className="flex mdscreen3:flex-wrap mdscreen3:!gap-y-50 smscreen:gap-y-30 md:flex-nowrap flex-wrap lgscreen:w-2/3 w-full smscreen:text-left">
+          <div className="flex mdscreen3:flex-wrap mdscreen3:!gap-y-50 smscreen:gap-y-30 md:flex-nowrap flex-wrap lgscreen:w-2/3 w-full smscreen:text-left desktop:gap-0 gap-50 lgscreen2:gap-0">
             {data.footer_categories.map((item, index) => (
               <div
                 className={`w-1/6 mdscreen3:w-1/2 ${item.category_heading == "Categories" && "footer-categorie"}`}

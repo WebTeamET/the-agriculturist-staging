@@ -39,13 +39,13 @@ body {
     @apply small_desktop:!text-40 small_desktop:!leading-[44px] !text-36 !leading-40 mdscreen:!text-32 mdscreen:!leading-36;
   } 
   h4 {
-    @apply !text-32 !leading-[44px] mdscreen:!text-28 mdscreen:!leading-30;
+    @apply !text-32 !leading-[44px] mdscreen:!text-28 mdscreen:!leading-[34px];
   }
   h5 {
-    @apply !text-24 !leading-[26px];
+    @apply !text-24 !leading-[28px];
   }  
   h6 {
-    @apply !text-20 !leading-[24px];
+    @apply !text-20 !leading-[28px];
   }
   .container-lg {
     @apply lgscreen2:px-20 px-75;
@@ -145,6 +145,9 @@ body {
   /* About Us */
   .team-img img {
     @apply transition-all duration-500 ease-in-out;
+  }
+  .team-img  {
+    @apply rounded-[20px];
   }
   .team-img:hover img {
    @apply scale-[1.02] rounded-[20px];

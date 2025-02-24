@@ -4,49 +4,49 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutUsDocumentDataSlicesSlice = never;
+type AboutDocumentDataSlicesSlice = IconWIthTextSlice | HeroBannerSlice;
 
 /**
- * Content for About Us documents
+ * Content for About documents
  */
-interface AboutUsDocumentData {
+interface AboutDocumentData {
   /**
-   * Slice Zone field in *About Us*
+   * Slice Zone field in *About*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_us.slices[]
+   * - **API ID Path**: about.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<AboutUsDocumentDataSlicesSlice> /**
-   * Meta Title field in *About Us*
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
+   * Meta Title field in *About*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: about_us.meta_title
+   * - **API ID Path**: about.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *About Us*
+   * Meta Description field in *About*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: about_us.meta_description
+   * - **API ID Path**: about.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *About Us*
+   * Meta Image field in *About*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_us.meta_image
+   * - **API ID Path**: about.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
@@ -54,20 +54,16 @@ interface AboutUsDocumentData {
 }
 
 /**
- * About Us document from Prismic
+ * About document from Prismic
  *
- * - **API ID**: `about_us`
+ * - **API ID**: `about`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type AboutUsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AboutUsDocumentData>,
-    "about_us",
-    Lang
-  >;
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
 /**
  * Content for Age Verification documents
@@ -1379,7 +1375,7 @@ export type TestimonialDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | AboutUsDocument
+  | AboutDocument
   | AgeVerificationDocument
   | AnnouncementBarDocument
   | BlogDocument
@@ -1807,6 +1803,89 @@ type IconWIthTextSliceVariation = IconWIthTextSliceDefault;
 export type IconWIthTextSlice = prismic.SharedSlice<
   "icon_w_ith_text",
   IconWIthTextSliceVariation
+>;
+
+/**
+ * Item in *ImageGallery → Default → Primary → ImageGrid*
+ */
+export interface ImageGallerySliceDefaultPrimaryImagegridItem {
+  /**
+   * Gallery Image field in *ImageGallery → Default → Primary → ImageGrid*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegrid[].gallery_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  gallery_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageGallery → Default → Primary*
+ */
+export interface ImageGallerySliceDefaultPrimary {
+  /**
+   * Hide Module field in *ImageGallery → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_gallery.default.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
+   * Title field in *ImageGallery → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * ImageGrid field in *ImageGallery → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegrid[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  imagegrid: prismic.GroupField<
+    Simplify<ImageGallerySliceDefaultPrimaryImagegridItem>
+  >;
+}
+
+/**
+ * Default variation for ImageGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageGallery*
+ */
+type ImageGallerySliceVariation = ImageGallerySliceDefault;
+
+/**
+ * ImageGallery Shared Slice
+ *
+ * - **API ID**: `image_gallery`
+ * - **Description**: ImageGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGallerySlice = prismic.SharedSlice<
+  "image_gallery",
+  ImageGallerySliceVariation
 >;
 
 /**
@@ -2920,9 +2999,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      AboutUsDocument,
-      AboutUsDocumentData,
-      AboutUsDocumentDataSlicesSlice,
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataSlicesSlice,
       AgeVerificationDocument,
       AgeVerificationDocumentData,
       AnnouncementBarDocument,
@@ -2985,6 +3064,11 @@ declare module "@prismicio/client" {
       IconWIthTextSliceDefaultPrimary,
       IconWIthTextSliceVariation,
       IconWIthTextSliceDefault,
+      ImageGallerySlice,
+      ImageGallerySliceDefaultPrimaryImagegridItem,
+      ImageGallerySliceDefaultPrimary,
+      ImageGallerySliceVariation,
+      ImageGallerySliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceSkewedImageWithTextPrimary,

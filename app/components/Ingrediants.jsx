@@ -95,18 +95,17 @@ const Ingrediants = () => {
         <div className="grid grid-cols-1 smscreen1:grid-cols-2 gap-x-[150px] xlscreen:gap-x-[30px] gap-y-2 ">
           <div className="px-12">
             {[
-              { name: "THC", percentage: "27.99%", padding: '13' },
+              { name: "THC", percentage: "27.99%", padding: "13" },
               { name: "THCA", percentage: "28.2151%" },
-              { name: "THCV", percentage: "0.00%", padding: '19' },
+              { name: "THCV", percentage: "0.00%", padding: "19" },
             ].map((cannabinoid, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center"
-              >
+              <div key={index} className="flex justify-between items-center">
                 <p className="text-green !font-body text-base md:text-lg">
                   {cannabinoid.name}
                 </p>
-                <p className={`text-green !font-body text-base md:text-lg ${index == 0? 'pr-[13px]' : index == 1? '' : 'pr-[20px]'}`}>
+                <p
+                  className={`text-green !font-body text-base md:text-lg ${index == 0 ? "pr-[13px]" : index == 1 ? "" : "pr-[20px]"}`}
+                >
                   {cannabinoid.percentage}
                 </p>
               </div>
@@ -114,11 +113,11 @@ const Ingrediants = () => {
           </div>
           <div className="px-12">
             {[
-              { name: "CBD", percentage: "0.0303%"},
+              { name: "CBD", percentage: "0.0303%" },
               { name: "CBDA", percentage: "0.0345%" },
-              { name: "CBC", percentage: "0.00%", padding: '18' },
-              { name: "CBG", percentage: "0.00%", padding: '18' },
-              { name: "CBN", percentage: "0.00%", padding: '18' },
+              { name: "CBC", percentage: "0.00%", padding: "18" },
+              { name: "CBG", percentage: "0.00%", padding: "18" },
+              { name: "CBN", percentage: "0.00%", padding: "18" },
             ].map((cannabinoid, index) => (
               <div
                 key={index}
@@ -127,14 +126,15 @@ const Ingrediants = () => {
                 <p className="text-green !font-body text-base md:text-lg">
                   {cannabinoid.name}
                 </p>
-                <p className={`text-green !font-body text-base md:text-lg ${index == 2? 'pr-[18px]' : index == 3? 'pr-[18px]' : index == 4? 'pr-[18px]' : ''}`}>
+                <p
+                  className={`text-green !font-body text-base md:text-lg ${index == 2 ? "pr-[18px]" : index == 3 ? "pr-[18px]" : index == 4 ? "pr-[18px]" : ""}`}
+                >
                   {cannabinoid.percentage}
                 </p>
               </div>
             ))}
           </div>
         </div>
-        
       </div>
     </div>
   );

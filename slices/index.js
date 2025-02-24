@@ -6,6 +6,8 @@ export const components = {
   blog_cards: dynamic(() => import("./BlogCards")),
   featured_products: dynamic(() => import("./FeaturedProducts")),
   hero_banner: dynamic(() => import("./HeroBanner")),
+  icon_w_ith_text: dynamic(() => import("./IconWIthText")),
+  image_gallery: dynamic(() => import("./ImageGallery")),
   image_with_text: dynamic(() => import("./ImageWithText")),
   loyalty_cards: dynamic(() => import("./LoyaltyCards")),
   news_letter: dynamic(() => import("./NewsLetter")),
@@ -14,5 +16,4 @@ export const components = {
   slider: dynamic(() => import("./Slider")),
   style: dynamic(() => import("./Style")),
   testimonials: dynamic(() => import("./Testimonials")),
-  icon_w_ith_text: dynamic(() => import("./IconWIthText")),
 };

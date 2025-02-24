@@ -1,6 +1,7 @@
 "use client";
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const LoyaltyCards = ({ slice }) => {
@@ -68,11 +69,13 @@ const LoyaltyCards = ({ slice }) => {
           >
             <div className="w-full flex items-center gap-14">
               <div
-                className={`rounded-full bg-[${loyaltyCardSettings.iconColor}] opacity-50`}
+                className={`rounded-full bg-[${loyaltyCardSettings.iconColor}] bg-green opacity-50`}
               >
-                <img
+                <Image
                   src={loyaltyCard?.data?.icon?.url}
-                  alt={"loyaltyCard"}
+                  alt="loyaltyCard"
+                  width={96} 
+                  height={96}
                   className="w-24 h-24 smscreen:!h-[70px] smscreen:!w-[70px] lgscreen2:w-[80px] lgscreen2:h-[80px] smscreen:!p-14 lgscreen2:p-16 object-contain p-20 flex items-center justify-center m-auto"
                 />
               </div>
