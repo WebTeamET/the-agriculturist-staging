@@ -50,6 +50,20 @@
           "placeholder": ""
         }
       },
+      "button_background_color": {
+        "type": "Color",
+        "config": {
+          "label": "Button Background Color",
+          "placeholder": ""
+        }
+      },
+      "button_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Button Text Color",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

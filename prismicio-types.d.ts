@@ -757,6 +757,28 @@ interface LoyaltyDocumentData {
   button_text: prismic.KeyTextField;
 
   /**
+   * Button Background Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.button_background_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Button Text Color field in *Loyalty*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loyalty.button_text_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
    * Slice Zone field in *Loyalty*
    *
    * - **Field Type**: Slice Zone
@@ -1673,6 +1695,118 @@ type HeroBannerSliceVariation = HeroBannerSliceDefault;
 export type HeroBannerSlice = prismic.SharedSlice<
   "hero_banner",
   HeroBannerSliceVariation
+>;
+
+/**
+ * Item in *IconWIthText → Default → Primary → Strengths*
+ */
+export interface IconWIthTextSliceDefaultPrimaryStrengthsItem {
+  /**
+   * Icon  field in *IconWIthText → Default → Primary → Strengths*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.strengths[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *IconWIthText → Default → Primary → Strengths*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.strengths[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *IconWIthText → Default → Primary → Strengths*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.strengths[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *IconWIthText → Default → Primary*
+ */
+export interface IconWIthTextSliceDefaultPrimary {
+  /**
+   * Title field in *IconWIthText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Strengths field in *IconWIthText → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.strengths[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  strengths: prismic.GroupField<
+    Simplify<IconWIthTextSliceDefaultPrimaryStrengthsItem>
+  >;
+
+  /**
+   * Icon Bg Color field in *IconWIthText → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.icon_bg_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  icon_bg_color: prismic.ColorField;
+
+  /**
+   * Section Bg Color field in *IconWIthText → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_w_ith_text.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  section_bg_color: prismic.ColorField;
+}
+
+/**
+ * Default variation for IconWIthText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconWIthTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IconWIthTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IconWIthText*
+ */
+type IconWIthTextSliceVariation = IconWIthTextSliceDefault;
+
+/**
+ * IconWIthText Shared Slice
+ *
+ * - **API ID**: `icon_w_ith_text`
+ * - **Description**: IconWIthText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconWIthTextSlice = prismic.SharedSlice<
+  "icon_w_ith_text",
+  IconWIthTextSliceVariation
 >;
 
 /**
@@ -2846,6 +2980,11 @@ declare module "@prismicio/client" {
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,
       HeroBannerSliceDefault,
+      IconWIthTextSlice,
+      IconWIthTextSliceDefaultPrimaryStrengthsItem,
+      IconWIthTextSliceDefaultPrimary,
+      IconWIthTextSliceVariation,
+      IconWIthTextSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceSkewedImageWithTextPrimary,
