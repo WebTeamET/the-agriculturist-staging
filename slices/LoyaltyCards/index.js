@@ -45,6 +45,10 @@ const LoyaltyCards = ({ slice }) => {
     fetchLoyaltyCards();
   }, [slice]);
 
+  const components = {
+    paragraph: ({ children }) => <p className="font-body">{children}</p>,
+  };
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -77,9 +81,12 @@ const LoyaltyCards = ({ slice }) => {
                   <PrismicRichText field={loyaltyCard?.data?.title} />
                 </div>
                 <div
-                  className={`mt-1 font-body text-[${loyaltyCardSettings.subtitleColor}]`}
+                  className={`mt-1 !font-body text-[${loyaltyCardSettings.subtitleColor}]`}
                 >
-                  <PrismicRichText field={loyaltyCard?.data?.subtitle} />
+                  <PrismicRichText
+                    field={loyaltyCard?.data?.subtitle}
+                    components={components}
+                  />
                 </div>
               </div>
             </div>
