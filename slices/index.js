@@ -14,4 +14,5 @@ export const components = {
   slider: dynamic(() => import("./Slider")),
   style: dynamic(() => import("./Style")),
   testimonials: dynamic(() => import("./Testimonials")),
+  icon_w_ith_text: dynamic(() => import("./IconWIthText")),
 };

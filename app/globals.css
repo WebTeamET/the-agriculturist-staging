@@ -43,7 +43,7 @@ body {
   }
   h5 {
     @apply !text-24 !leading-[26px];
-  }  
+  } 
   .container-lg {
     @apply lgscreen2:px-20 px-75;
   }
@@ -139,7 +139,14 @@ body {
 
   /* product_details end */
 
-
+  /* About Us */
+  .team-img img {
+    @apply transition-all duration-500 ease-in-out;
+  }
+  .team-img:hover img {
+   @apply scale-[1.02] rounded-[20px];
+  }
+  
   /* footer start */
   .footer .footer-container p {
     @apply font-300;

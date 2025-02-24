@@ -1,0 +1,94 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua pariatur tempor Lorem id occaecat aliqua esse magna voluptate aliqua nisi nulla. Cupidatat id amet commodo Lorem veniam. Quis labore eu minim."
+						}
+					}
+				]
+			},
+			"strengths": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+										"width": 3456,
+										"height": 3456
+									},
+									"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+									"width": 3456,
+									"height": 3456,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Irure magna nostrud do tempor mollit reprehenderit aliqua aliquip irure ad consectetur. Ullamco Lorem aute eu esse esse id ad nisi. Fugiat eu amet nisi aliquip."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sint incididunt aliquip voluptate dolor. Aute amet voluptate sit amet."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"icon_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0ec0dc",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0ae62c",
+				"type": "Color"
+			}
+		},
+		"items": []
+	}
+]
