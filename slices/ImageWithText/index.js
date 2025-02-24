@@ -92,7 +92,7 @@ const ImageWithText = ({ slice }) => {
               {button_text && button_link && (
                 <PrismicNextLink
                   field={button_link}
-                  className="white-btn-xl"
+                  className="green-btn uppercase hover:!bg-white hover:!text-green border border-green"
                   style={{
                     backgroundColor: button_background_color || "#2563eb",
                     color: button_text_color || "#ffffff",
@@ -106,7 +106,7 @@ const ImageWithText = ({ slice }) => {
               <div className="lgscreen:w-1/2 w-full">
                 <PrismicNextImage
                   field={image}
-                  className="w-full h-auto object-cover rounded-lg "
+                  className="w-full h-auto object-cover rounded-lg"
                   alt="image"
                 />
               </div>

@@ -64,12 +64,12 @@ const LoyaltyCards = ({ slice }) => {
           >
             <div className="w-full flex items-center gap-14">
               <div
-                className={`w-1/4 h-[90px] rounded-full bg-green/50 bg-[${loyaltyCardSettings.iconColor}]`}
+                className={`rounded-full bg-[${loyaltyCardSettings.iconColor}] opacity-50`}
               >
                 <img
                   src={loyaltyCard?.data?.icon?.url}
                   alt={"loyaltyCard"}
-                  className="w-full object-cover p-20"
+                  className="w-24 h-24 smscreen:!h-[70px] smscreen:!w-[70px] lgscreen2:w-[80px] lgscreen2:h-[80px] smscreen:!p-14 lgscreen2:p-16 object-contain p-20 flex items-center justify-center m-auto"
                 />
               </div>
               <div className="w-[75%]">
@@ -77,14 +77,14 @@ const LoyaltyCards = ({ slice }) => {
                   <PrismicRichText field={loyaltyCard?.data?.title} />
                 </div>
                 <div
-                  className={`mt-1 text-[${loyaltyCardSettings.subtitleColor}]`}
+                  className={`mt-1 font-body text-[${loyaltyCardSettings.subtitleColor}]`}
                 >
                   <PrismicRichText field={loyaltyCard?.data?.subtitle} />
                 </div>
               </div>
             </div>
             <div
-              className={`mt-8 !text-14 text-[${loyaltyCardSettings.contentColor}] line-clamp-2`}
+              className={`loyalty-card-content mt-8 !text-14 text-[${loyaltyCardSettings.contentColor}] line-clamp-2`}
             >
               <PrismicRichText field={loyaltyCard?.data?.content} />
             </div>
@@ -92,7 +92,7 @@ const LoyaltyCards = ({ slice }) => {
         ))}
       </div>
       <button
-        className={`w-fit m-auto py-14 px-32 rounded-full flex justify-center mt-40 uppercase bg-[${loyaltyCardGeneral?.button_background_color}] text-[${loyaltyCardGeneral?.button_text_color}]`}
+        className={`green-btn w-fit m-auto flex justify-center mt-40 uppercase bg-[${loyaltyCardGeneral?.button_background_color}] text-[${loyaltyCardGeneral?.button_text_color}]`}
       >
         {loyaltyCardGeneral.button_text}
       </button>
