@@ -63,7 +63,7 @@ const ImageWithText = ({ slice }) => {
           style={{ backgroundColor: background_color || "white" }}
         >
           <div className="w-full relative grid grid-cols-1 xl:grid-cols-2 items-center xl:gap-0 gap-30 xlscreen2:gap-20 rounded-[20px]">
-            <div className="xl:block hidden absolute right-0 top-1 h-[104%] w-2 border-r border-dashed border-green transform origin-top-right rotate-[16.8deg] z-[99] left-[50.5%]"></div>
+            <div className="xl:block hidden absolute right-0 top-1 h-[104%] w-2 border-r border-dashed border-green transform origin-top-right rotate-[16.8deg]  left-[50.5%]"></div>
             {image_position === "Left" && (
               <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] xlscreen2:rounded-[20px]">
                 <div className="overflow-hidden xl:clip-custom">

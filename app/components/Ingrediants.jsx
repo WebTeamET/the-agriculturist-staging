@@ -58,7 +58,7 @@ const Ingrediants = () => {
         <div className="border-t border-green/20 my-[16px]"></div>
 
         {/* Responsive two-column grid (stacks on small screens) */}
-        <div className="grid grid-cols-1 smscreen1:grid-cols-2 gap-x-[150px] xlscreen:gap-x-[30px] gap-y-2 ">
+        <div className="grid grid-cols-1 smscreen1:grid-cols-2 gap-x-[150px] xlscreen:gap-x-[30px] lg:gap-y-2 ">
           <div className="px-12">
             {[
               { name: "THC", percentage: "27.99%", padding: "13" },

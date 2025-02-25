@@ -14,6 +14,7 @@ import Play from "./Icons/Play";
 import Twitter from "./Icons/Twitter";
 import Facebook from "./Icons/Facebook";
 import Whatsapp from "./Icons/Whatsapp";
+import VideoPlay from "./Icons/VideoPlay";
 
 const Icon = ({ type }) => {
   return (
@@ -33,6 +34,7 @@ const Icon = ({ type }) => {
       {type === "twitter" && <Twitter />}
       {type === "whatsapp" && <Whatsapp />}
       {type === "insta" && <Insta />}
+      {type === "videoPlay" && <VideoPlay />}
     </div>
   );
 };

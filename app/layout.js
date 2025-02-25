@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Announcement from "./components/Announcement";
 import AgeVerification from "./components/AgeVarification";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,11 @@ export default async function RootLayout({ children }) {
   const { response, announcementBar, AgeVarification } = await headerData();
   return (
     <html lang="en" className="scroll-smooth">
+      <Script
+        id="terpliScript"
+        async="true"
+        src={`https://assets.terpli.io/TerpliPlugin.js`}
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased scroll-smooth`}
       >
