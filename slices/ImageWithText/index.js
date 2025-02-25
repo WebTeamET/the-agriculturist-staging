@@ -60,22 +60,7 @@ const ImageWithText = ({ slice }) => {
           style={{ backgroundColor: background_color || "white" }}
         >
           <div className="w-full relative grid grid-cols-1 lgscreen:grid-cols-2 items-center lgscreen:gap-[10px] gap-30 rounded-[20px]">
-            <div
-              className="
-    absolute
-    right-0
-    top-1
-    h-full
-    w-[2px]
-    border-r
-    border-dashed
-    border-green
-    transform
-    origin-top-right
-    rotate-[17deg]
-    z-[99]
-  "
-            ></div>
+            <div className="absolute right-0 top-1 h-full w-2 border-r border-dashed border-green transform origin-top-right rotate-[17deg] z-[99] left-[50%]"></div>
             {image_position === "Left" && (
               <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] lgscreen2:rounded-[20px]">
                 <div className="overflow-hidden clip-custom">

@@ -64,6 +64,54 @@ const Page = () => {
     },
   ];
 
+  const teamMembers = [
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7xCuZ7c43Q3gHba_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7xCuZ7c43Q3gHba_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress",
+    },
+    {
+      name: "Founder Name",
+      image:
+        "https://images.prismic.io/the-agriculturist-staging/Z7xCuZ7c43Q3gHba_img.png?auto=format,compress",
+    },
+  ];
+
   return (
     <>
       <section className="py-14">
@@ -97,82 +145,51 @@ const Page = () => {
             <h2 className="text-green font-700 text-center">Meet our team</h2>
           </div>
           <div className="team-inner">
-            <div className="grid desktop:grid-cols-4 grid-cols-3 lgscreen2:grid-cols-2 smscreen:!grid-cols-1 gap-[27px]">
-              <div className="grid-zoom overflow-hidden">
-                <div className="flex flex-col gap-[27px]">
-                  <div className="team-img relative overflow-hidden">
-                    <img
-                      className="rounded-[20px]"
-                      src="https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress"
-                    ></img>
-                    <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-green rounded-[20px]"></div>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                      <div className="tree-img flex items-center absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[70px] h-[35px] bg-dark_cream rounded-t-full overflow-hidden">
+            <div className="grid grid-cols-9 lgscreen2:grid-cols-2 smscreen:!grid-cols-1 gap-[27px]">
+              {teamMembers?.map((member, i) => {
+                const rowIndex = Math.floor(i / 3);
+                const colIndex = i % 3;
+                const colSpanClass =
+                  rowIndex % 2 === 0
+                    ? colIndex < 2
+                      ? "mx-auto lgscreen2:col-span-1 smscreen1:col-span-2 lgscreen:col-span-2"
+                      : "mx-auto lgscreen2:col-span-1 smscreen1:col-span-2 lgscreen:col-span-5"
+                    : colIndex === 0
+                      ? "mx-auto lgscreen2:col-span-1 smscreen1:col-span-2 lgscreen:col-span-5"
+                      : "mx-auto lgscreen2:col-span-1 smscreen1:col-span-2 lgscreen:col-span-2";
+
+                return (
+                  <div
+                    className={`w-full grid-zoom overflow-hidden ${colSpanClass}`}
+                    key={i}
+                  >
+                    <div className="w-full h-[400px] smscreen:!h-[350px] object-cover flex flex-col gap-[27px]">
+                      <div className="team-img w-full h-full relative overflow-hidden">
                         <img
-                          src="https://the-agriculturist-staging.cdn.prismic.io/the-agriculturist-staging/Z7w4Lp7c43Q3gHTw_Vector.svg"
-                          alt="Leaf"
-                          className="w-[20px] h-[20px] top-3 mx-auto relative z-10"
-                        />
+                          className="rounded-[20px]"
+                          src={member.image}
+                          alt={member.name}
+                        ></img>
+                        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-green rounded-[20px]"></div>
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                          <div className="tree-img flex items-center absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[70px] h-[35px] bg-dark_cream rounded-t-full overflow-hidden">
+                            <img
+                              src="https://the-agriculturist-staging.cdn.prismic.io/the-agriculturist-staging/Z7w4Lp7c43Q3gHTw_Vector.svg"
+                              alt="Leaf"
+                              className="w-[20px] h-[20px] top-3 mx-auto relative z-10"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="team-title">
+                        <h5 className="text-center text-green font-700 capitalize">
+                          {member.name}
+                        </h5>
                       </div>
                     </div>
                   </div>
-                  <div className="team-title">
-                    <h5 className="text-center text-green font-700 capitalize">
-                      Founder Name
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="grid-zoom overflow-hidden">
-                <div className="flex flex-col gap-[27px]">
-                  <div className="team-img relative overflow-hidden">
-                    <img
-                      className="rounded-[20px]"
-                      src="https://images.prismic.io/the-agriculturist-staging/Z7w1V57c43Q3gHSO_img.png?auto=format,compress"
-                    ></img>
-                    <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-green rounded-[20px]"></div>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                      <div className="tree-img flex items-center absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[70px] h-[35px] bg-dark_cream rounded-t-full overflow-hidden">
-                        <img
-                          src="https://the-agriculturist-staging.cdn.prismic.io/the-agriculturist-staging/Z7w4Lp7c43Q3gHTw_Vector.svg"
-                          alt="Leaf"
-                          className="w-[20px] h-[20px] top-3 mx-auto relative z-10"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="team-title">
-                    <h5 className="text-center text-green font-700 capitalize">
-                      Founder Name
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="grid-zoom desktop:col-span-2 col-span-1 overflow-hidden">
-                <div className="flex flex-col gap-[27px]">
-                  <div className="team-img relative overflow-hidden">
-                    <img
-                      className="rounded-[20px]"
-                      src="https://images.prismic.io/the-agriculturist-staging/Z7xCuZ7c43Q3gHba_img.png?auto=format,compress"
-                    ></img>
-                    <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-green rounded-b-[20px]"></div>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                      <div className="tree-img flex items-center absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[70px] h-[35px] bg-dark_cream rounded-t-full overflow-hidden">
-                        <img
-                          src="https://the-agriculturist-staging.cdn.prismic.io/the-agriculturist-staging/Z7w4Lp7c43Q3gHTw_Vector.svg"
-                          alt="Leaf"
-                          className="w-[20px] h-[20px] top-3 mx-auto relative z-10"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="team-title">
-                    <h5 className="text-center text-green font-700 capitalize">
-                      Founder Name
-                    </h5>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -185,9 +202,8 @@ const Page = () => {
               <div className="lgscreen:w-2/5 w-full">
                 <div className="store-search relative mb-[16px]">
                   <input
-                    className="border border-green border-solid rounded-full w-full py-12 pr-16 pl-[42px] placeholder:text-14 placeholder:font-opensans focus:outline-none"
+                    className="border search-input border-green border-solid rounded-full w-full py-12 pr-16 pl-[42px] placeholder:text-14 placeholder:font-opensans focus:outline-none"
                     type="text"
-                    class="search-input"
                     placeholder="Find our strores"
                   />
                   <div className="icone absolute top-1/2 -translate-y-1/2 left-[16px]">
