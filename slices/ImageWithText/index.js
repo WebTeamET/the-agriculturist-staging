@@ -52,6 +52,16 @@ const ImageWithText = ({ slice }) => {
       <strong className="text-[24px] text-green font-body">{children}</strong>
     ),
   };
+  const skewedComponents = {
+    heading2: ({ children }) => (
+      <h2
+        className="!text-40 font-bold mb-20 lgscreen:text-left text-center leading-tight tracking-tight font-display"
+        style={textStyle}
+      >
+        {children}
+      </h2>
+    ),
+  };
 
   if (slice.primary.hide_module) return null;
 
@@ -86,7 +96,7 @@ const ImageWithText = ({ slice }) => {
             >
               <div className="w-full xlscreen2:p-20 xl:left-[55%] xl:max-w-[70%] xl:absolute xl:top-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2 space-y-8">
                 <PrismicRichText
-                  components={components}
+                  components={skewedComponents}
                   field={title}
                   style={textStyle}
                 />
