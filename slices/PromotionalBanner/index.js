@@ -140,7 +140,7 @@ const PromotionalBanner = ({ slice }) => {
                 <div className="deals-main w-full h-full absolute top-0 flex flex-col justify-between">
                   <div className="deals-descount flex flex-col justify-between w-full h-full px-25 py-32 relative top-0 left-0">
                     <div className="flex justify-between">
-                      <h4 className="text-white font-700 capitalize percentage-off-text">
+                      <h4 className="text-white !text-30 font-700 capitalize percentage-off-text">
                         {item.percentage_offer}% off
                       </h4>
                       <div className="deals-btn">

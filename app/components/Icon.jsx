@@ -15,26 +15,29 @@ import Twitter from "./Icons/Twitter";
 import Facebook from "./Icons/Facebook";
 import Whatsapp from "./Icons/Whatsapp";
 import VideoPlay from "./Icons/VideoPlay";
+import LinkedIn from "./Icons/LinkedIn";
 
-const Icon = ({ type }) => {
+const Icon = ({ type, fill }) => {
+  const fillColor = fill || "";
   return (
     <div>
-      {type === "downArrow" && <DownAerrow />}
-      {type === "sale" && <Sale />}
-      {type === "classification" && <Classification />}
-      {type === "price" && <Price />}
-      {type === "thc" && <THC />}
-      {type === "effects" && <Effects />}
-      {type === "brands" && <Brands />}
-      {type === "filter" && <FilterIcon />}
-      {type === "star" && <Star />}
-      {type === "warning" && <Warning />}
-      {type === "play" && <Play />}
-      {type === "facebook" && <Facebook />}
-      {type === "twitter" && <Twitter />}
-      {type === "whatsapp" && <Whatsapp />}
-      {type === "insta" && <Insta />}
-      {type === "videoPlay" && <VideoPlay />}
+      {type === "downArrow" && <DownAerrow fillColor={fillColor} />}
+      {type === "sale" && <Sale fillColor={fillColor} />}
+      {type === "classification" && <Classification fillColor={fillColor} />}
+      {type === "price" && <Price fillColor={fillColor} />}
+      {type === "thc" && <THC fillColor={fillColor} />}
+      {type === "effects" && <Effects fillColor={fillColor} />}
+      {type === "brands" && <Brands fillColor={fillColor} />}
+      {type === "filter" && <FilterIcon fillColor={fillColor} />}
+      {type === "star" && <Star fillColor={fillColor} />}
+      {type === "warning" && <Warning fillColor={fillColor} />}
+      {type === "play" && <Play fillColor={fillColor} />}
+      {type === "facebook" && <Facebook fillColor={fillColor} />}
+      {type === "twitter" && <Twitter fillColor={fillColor} />}
+      {type === "whatsapp" && <Whatsapp fillColor={fillColor} />}
+      {type === "insta" && <Insta fillColor={fillColor} />}
+      {type === "videoPlay" && <VideoPlay fillColor={fillColor} />}
+      {type === "linkedin" && <LinkedIn fillColor={fillColor} />}
     </div>
   );
 };

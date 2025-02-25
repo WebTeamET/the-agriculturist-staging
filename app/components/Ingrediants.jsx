@@ -69,25 +69,30 @@ const Ingrediants = () => {
               description: "Focus, Relief, Alert, Balanced",
             },
             {
-              name: "Beta Caryophyllene",
-              percentage: "1.001%",
-              description: "Peppery: Anti-Inflammatory, Analgesic, Calming",
-            },
-            {
-              name: "Beta Pinene",
-              percentage: "1.001%",
-              description: "Pine: Focus, Relief, Alert, Balanced",
-            },
-            {
               name: "Alpha Bisabolol",
-              percentage: "1.001%",
-              description: "Floral: Soothing, Anti-Inflammatory",
+              percentage: "0.00%",
+              category: "Floral",
+              description: "Soothing, Anti-Inflammatory",
             },
             {
               name: "Terpinolene",
-              percentage: "1.001%",
-              description: "Fruity: Cerebral, Focused, Energetic",
+              percentage: "0.00%",
+              category: "Fruity",
+              description: "Cerebral, Focused, Energetic",
             },
+            {
+              name: "Alpha Humulene",
+              percentage: "0.4019%",
+              category: "Hoppy",
+              description: "Pain Relief, Appetite Suppression",
+            },
+            {
+              name: "Terpinene",
+              percentage: "0.00%",
+              category: "Pine",
+              description: "Focus, Relief, Alert, Balanced",
+            },
+           
           ].map((terpene, index) => (
             <div key={index} className="flex flex-col gap-[8px]">
               <div className="flex items-center">
