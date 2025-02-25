@@ -30,7 +30,7 @@ const Ingrediants = () => {
       >
         <h3 className="text-3xl font-semibold text-green">Terpenes</h3>
         <div className="border-t border-green/20 my-[16px]"></div>
-        <div className="flex flex-col gap-[16px] px-12">
+        <div className="flex flex-col gap-[16px] px-12 max-h-[400px] overflow-y-auto custom-scrollbar">
           {[
             {
               name: "Beta Caryophyllene",
@@ -61,6 +61,32 @@ const Ingrediants = () => {
               percentage: "0.4019%",
               category: "Hoppy",
               description: "Pain Relief, Appetite Suppression",
+            },
+            {
+              name: "Terpinene",
+              percentage: "0.00%",
+              category: "Pine",
+              description: "Focus, Relief, Alert, Balanced",
+            },
+            {
+              name: "Beta Caryophyllene",
+              percentage: "1.001%",
+              description: "Peppery: Anti-Inflammatory, Analgesic, Calming",
+            },
+            {
+              name: "Beta Pinene",
+              percentage: "1.001%",
+              description: "Pine: Focus, Relief, Alert, Balanced",
+            },
+            {
+              name: "Alpha Bisabolol",
+              percentage: "1.001%",
+              description: "Floral: Soothing, Anti-Inflammatory",
+            },
+            {
+              name: "Terpinolene",
+              percentage: "1.001%",
+              description: "Fruity: Cerebral, Focused, Energetic",
             },
           ].map((terpene, index) => (
             <div key={index} className="flex flex-col gap-[8px]">

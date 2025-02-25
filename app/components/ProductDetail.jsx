@@ -37,7 +37,7 @@ const ProductDetail = async () => {
               <span className="text-2xl text-green font-500 font-body">
                 Details
               </span>
-              <div className="text-green flex items-center gap-14">
+              <div className="text-green flex items-center font-body gap-14">
                 <div className="flex gap-[8px] items-center">
                   <PlaceholderSvg />
                   THC 00.00%
@@ -91,7 +91,7 @@ const ProductDetail = async () => {
                     reproductive harm.
                     <span className="block">
                       For more information go to 
-                      <Link className="a-link-hover" href="#" target="_blank">
+                      <Link className="a-link-hover" href="https://www.p65warnings.ca.gov/" target="_blank">
                         www.P65Warnings.ca.gov
                       </Link>
                     </span>
