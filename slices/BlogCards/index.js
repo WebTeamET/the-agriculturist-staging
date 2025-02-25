@@ -4,7 +4,6 @@ import Icon from "@/app/components/Icon";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import { Oval } from "react-loader-spinner";
 
 const BlogCards = ({ slice }) => {
   const [allBlogPosts, setAllBlogPosts] = useState([]);
@@ -141,16 +140,8 @@ const BlogCards = ({ slice }) => {
       </div>
 
       {loading ? (
-        <div className="mx-auto w-full flex items-center justify-center">
-          <Oval
-            visible={true}
-            height="80"
-            width="80"
-            color="#4fa94d"
-            ariaLabel="oval-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
+        <div className="mx-auto w-full flex justify-">
+         Loading ...
         </div>
       ) : filteredBlogs.length === 0 ? (
         <div className="text-center text-gray-500 text-green font-body text-2xl mt-20">
