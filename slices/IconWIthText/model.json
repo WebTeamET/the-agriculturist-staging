@@ -69,6 +69,15 @@
             "label": "Section Bg Color",
             "placeholder": ""
           }
+        },
+        "container": {
+          "type": "Boolean",
+          "config": {
+            "label": "Container",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}

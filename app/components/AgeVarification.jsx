@@ -1,6 +1,7 @@
 "use client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -27,6 +28,16 @@ const AgeVerification = ({ data }) => {
     }
   };
 
+  const components = {
+    paragraph: ({ node, children }) => {
+      return (
+        <p className="mb-[42px] font-300 !text-[26px] font-grillsans text-white">
+          {children}
+        </p>
+      );
+    },
+  };
+
   if (!data || !showVerification || data.hide_module) return null;
 
   return (
@@ -47,6 +58,13 @@ const AgeVerification = ({ data }) => {
         <h2 className="text-5xl text-white mb-[24px] !font-400">
           {data.heading}
         </h2>
+
+        {!showExitMessage && (
+          <PrismicRichText
+            components={components}
+            field={data.agreement_text}
+          />
+        )}
         {!showExitMessage && (
           <div className="flex justify-center gap-[40px] smscreen:flex-wrap smscreen:gap-20">
             <button
@@ -68,6 +86,7 @@ const AgeVerification = ({ data }) => {
             <button
               className="font-body max-w-max uppercase leading-[normal] px-[48px] py-[11px] m-[1px] text-white rounded-full bg-transparent border-1 border-white hover:bg-white hover:text-[#004D43] hover:outline hover:outline-1 hover:outline-white hover:outline-offset-4 transition"
               onClick={() => handleVerification(true)}
+              disabled={true}
             >
               Sorry, you must be 21+
             </button>

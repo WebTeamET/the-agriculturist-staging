@@ -87,6 +87,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "#0ae62c",
 				"type": "Color"
+			},
+			"container": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []
