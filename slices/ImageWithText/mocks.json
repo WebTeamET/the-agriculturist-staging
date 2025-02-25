@@ -214,5 +214,110 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "imageWithTaglineText",
+		"primary": {
+			"hide_module": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "River"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui nisi enim tempor aute irure quis occaecat et culpa. Irure pariatur esse nulla ullamco dolore id. Reprehenderit excepteur aute minim deserunt adipisicing proident excepteur ea duis eu sint."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "obtain",
+				"type": "Text"
+			},
+			"button_link": {
+				"key": "39f7ae91-0c12-4476-96c8-0c1e66d028d4",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "difficult"
+				}
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#825f15",
+				"type": "Color"
+			},
+			"text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#60f2f5",
+				"type": "Color"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#59febc",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4adfb1",
+				"type": "Color"
+			},
+			"image_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "nice",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

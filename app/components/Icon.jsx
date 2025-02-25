@@ -11,6 +11,7 @@ import Brands from "./Icons/Brands";
 import FilterIcon from "./Icons/FilterIcon";
 import Star from "./Icons/Star";
 import Warning from "./Icons/Warning";
+import Play from "./Icons/Play";
 
 const Icon = ({ type }) => {
   return (
@@ -25,6 +26,7 @@ const Icon = ({ type }) => {
       {type === "filter" && <FilterIcon />}
       {type === "star" && <Star />}
       {type === "warning" && <Warning />}
+      {type === "play" && <Play />}
     </div>
   );
 };

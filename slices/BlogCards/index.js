@@ -1,5 +1,6 @@
 "use client";
 import { createClient } from "@/prismicio";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { useState, useEffect } from "react";
 
@@ -80,11 +81,7 @@ const BlogCards = ({ slice }) => {
         {blogPostDetails?.map((post) => (
           <div key={post?.uid} className="rounded-lg p-4">
             <div className="relative">
-              <img
-                src={post?.data?.featured_image?.url}
-                alt={"blog"}
-                className="w-full h-full relative object-cover rounded-[20px]"
-              />
+              <PrismicNextImage alt="blog-image" field={post?.data?.featured_image} className="w-full h-full relative object-cover rounded-[20px]"/>
               <div className="absolute bottom-10 right-10 bg-white text-green px-16 py-8 rounded-full">
                 {post?.data?.category}
               </div>

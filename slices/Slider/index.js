@@ -9,6 +9,8 @@ import "swiper/css/pagination";
 import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import Player from "@vimeo/player";
+import Image from "next/image";
+import Icon from "@/app/components/Icon";
 
 const getPlainText = (richText) => {
   if (!richText) return "";
@@ -136,6 +138,7 @@ const Slider = ({ slice }) => {
           className={`${slice.primary.extra_class} h-[calc(100vh_-_105px)] mdscreen:h-[500px] w-full`}
         >
           {slice.primary.slides.map((item, index) => {
+            console.log(item.text_animation);
             return (
               <SwiperSlide key={index} className="relative h-full w-full">
                 <div className="absolute inset-0 h-full w-full">
@@ -159,24 +162,16 @@ const Slider = ({ slice }) => {
                       >
                         {!isPlaying[index] ? (
                           <div className="absolute inset-0">
-                            <img
-                              src={
-                                item.slide_image?.url ||
-                                item.video_thumbnail.url
-                              }
+                            <PrismicNextImage
+                              field={item.video_thumbnail}
                               alt="Video thumbnail"
-                              className="w-full h-full object-cover"
                             />
                             <div className="absolute z-10 inset-0 flex items-center justify-center">
                               <div
                                 className="w-20 cursor-pointer flex items-center justify-center"
                                 onClick={(e) => handlePlayVideo(index, e)}
                               >
-                                <img
-                                  src="/play-icon.svg"
-                                  alt="Play Video"
-                                  className="w-full h-full cursor-pointer"
-                                />
+                                <Icon type="play" />
                               </div>
                               <p
                                 onClick={(e) => handlePlayVideo(index, e)}
@@ -213,23 +208,27 @@ const Slider = ({ slice }) => {
                 </div>
                 <div className="relative z-2 flex h-full w-full flex-col items-center justify-center p-30">
                   <div className="max-w-3xl text-center text-white">
-                    <h1
-                      key={`typewriter-slide-${index}-${activeIndex}`}
-                      className="!h1-text lgscreen:text-60 text-42 mb-6 opacity-0 animate-fadeInUp"
-                    >
-                      <Typewriter
-                        words={[
-                          getPlainText(item.slide_text),
-                          getPlainText(item.slide_text_two),
-                        ]}
-                        typeSpeed={50}
-                        deleteSpeed={30}
-                        delaySpeed={1000}
-                        loop={1}
-                      />
-                    </h1>
+                    {item.text_animation ? (
+                      <h1
+                        key={`typewriter-slide-${index}-${activeIndex}`}
+                        className="!h1-text lgscreen:text-60 text-42 mb-6 opacity-0 animate-fadeInUp"
+                      >
+                        <Typewriter
+                          words={[
+                            getPlainText(item.slide_text),
+                            getPlainText(item.slide_text_two),
+                          ]}
+                          typeSpeed={50}
+                          deleteSpeed={30}
+                          delaySpeed={1000}
+                          loop={1}
+                        />
+                      </h1>
+                    ) : (
+                      <PrismicRichText field={item.slide_text} />
+                    )}
                   </div>
-                  <div className="max-w-3xl text-center text-white">
+                  <div className="max-w-3xl  text-center text-white">
                     <PrismicRichText
                       field={item.slide_subtext}
                       components={{

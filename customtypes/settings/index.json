@@ -59,6 +59,39 @@
           },
           "thumbnails": []
         }
+      },
+      "copyright_content": {
+        "type": "Link",
+        "config": {
+          "label": "Copyright Content",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "terms_conditions": {
+        "type": "Link",
+        "config": {
+          "label": "Terms Conditions",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "privacy_policy": {
+        "type": "Link",
+        "config": {
+          "label": "Privacy Policy",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     }
   }

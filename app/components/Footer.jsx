@@ -1,7 +1,6 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import Link from "next/link";
 import React from "react";
 
 const Footer = async () => {
@@ -81,17 +80,20 @@ const Footer = async () => {
           <div className="footer-line-right w-full mx-auto smscreen:hidden"></div>
         </div>
         <div className="font-body flex justify-between smscreen:flex-wrap smscreen:text-center smscreen:justify-center smscreen:gap-5 text-sm">
-          <p className="font-body font-300">
-            Copyright © 2025. All rights reserved.
-          </p>
+          <PrismicNextLink
+            className="font-body font-300"
+            field={settings.data.copyright_content}
+          />
           <div className="flex gap-4">
-            <a className="font-300" href="#">
-              Terms & Conditions
-            </a>
+            <PrismicNextLink
+              className="font-300"
+              field={settings.data.terms_conditions}
+            />
             <span>|</span>
-            <a className="font-300" href="#">
-              Privacy Policy
-            </a>
+            <PrismicNextLink
+              className="font-300"
+              field={settings.data.privacy_policy}
+            />
           </div>
         </div>
       </div>

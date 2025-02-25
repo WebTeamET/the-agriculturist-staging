@@ -35,9 +35,6 @@ const NewsLetter = ({ slice }) => {
         {slice.primary.preheading && (
           <p
             className="font-opensans tracking-[0.15em] text-meant font-medium text-center mb-14"
-            // style={{
-            //   color: slice.primary.preheading_color || "white",
-            // }}
           >
             {slice.primary.preheading}
           </p>
@@ -95,10 +92,6 @@ const NewsLetter = ({ slice }) => {
 
           <button
             className="btn-green-xxl absolute !px-50 right-[5px] top-1/2 transform -translate-y-1/2 rounded-full text-white text-16 smscreen:relative smscreen:transform-unset smsreen:right:0 smsreen:inline-block smscreen:mt-20"
-            // style={{
-            //   backgroundColor:
-            //     slice.primary.button_background_color || "#1E3932",
-            // }}
           >
             {slice.primary.button_text || "Subscribe"}
           </button>

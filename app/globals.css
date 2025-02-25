@@ -181,17 +181,6 @@ body {
   .product-details::-webkit-scrollbar {
     display: none;
   }
-  @media (min-width: 1024px) {
-    .clip-custom {
-      clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
-    }
-    .clip-custom-right {
-      clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 100%);
-      position: absolute;
-      width: 62%;
-      left: 41%;
-    }
-  }
   .loyalty-card-content p {
     @apply !text-14;
   }
@@ -425,6 +414,18 @@ body {
   background: var(--background);
   font-family: "Teodor Trial", "Gill Sans", sans-serif;
 } */
+
+@media (min-width: 1024px) {
+  .clip-custom {
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+  }
+  .clip-custom-right {
+    clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: absolute;
+    width: 62%;
+    right: -45px;
+  }
+}
 
 .swiper-pagination-bullet {
   background: transparent !important;

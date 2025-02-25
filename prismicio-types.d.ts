@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = IconWIthTextSlice | HeroBannerSlice;
+type AboutDocumentDataSlicesSlice =
+  | ImageWithTextSlice
+  | IconWIthTextSlice
+  | HeroBannerSlice;
 
 /**
  * Content for About documents
@@ -1166,6 +1169,57 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   demo_image: prismic.ImageField<never>;
+
+  /**
+   * Copyright Content field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.copyright_content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  copyright_content: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Terms Conditions field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.terms_conditions
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  terms_conditions: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Privacy Policy field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.privacy_policy
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  privacy_policy: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -2191,11 +2245,158 @@ export type ImageWithTextSliceSkewedImageWithText =
   >;
 
 /**
+ * Primary content in *ImageWithText → ImageWithTaglineText → Primary*
+ */
+export interface ImageWithTextSliceImageWithTaglineTextPrimary {
+  /**
+   * Hide Module field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.hide_module
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_module: prismic.BooleanField;
+
+  /**
+   * Image field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Background Color field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Text Color field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Button Background Color field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.button_background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Button Text Color field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Image Position field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_position: prismic.SelectField<"Left" | "Right">;
+
+  /**
+   * TagLine field in *ImageWithText → ImageWithTaglineText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.imageWithTaglineText.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * ImageWithTaglineText variation for ImageWithText Slice
+ *
+ * - **API ID**: `imageWithTaglineText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceImageWithTaglineText =
+  prismic.SharedSliceVariation<
+    "imageWithTaglineText",
+    Simplify<ImageWithTextSliceImageWithTaglineTextPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *ImageWithText*
  */
 type ImageWithTextSliceVariation =
   | ImageWithTextSliceDefault
-  | ImageWithTextSliceSkewedImageWithText;
+  | ImageWithTextSliceSkewedImageWithText
+  | ImageWithTextSliceImageWithTaglineText;
 
 /**
  * ImageWithText Shared Slice
@@ -2762,6 +2963,17 @@ export interface SliderSliceDefaultPrimarySlidesItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   video_button_text: prismic.KeyTextField;
+
+  /**
+   * Text Animation field in *Slider → Default → Primary → Slides*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: slider.default.primary.slides[].text_animation
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  text_animation: prismic.BooleanField;
 }
 
 /**
@@ -3072,9 +3284,11 @@ declare module "@prismicio/client" {
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceSkewedImageWithTextPrimary,
+      ImageWithTextSliceImageWithTaglineTextPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
       ImageWithTextSliceSkewedImageWithText,
+      ImageWithTextSliceImageWithTaglineText,
       LoyaltyCardsSlice,
       LoyaltyCardsSliceDefaultPrimaryLoyaltyCardItem,
       LoyaltyCardsSliceDefaultPrimary,

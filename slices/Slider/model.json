@@ -103,6 +103,15 @@
                   "label": "Video Button Text",
                   "placeholder": ""
                 }
+              },
+              "text_animation": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Text Animation",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
               }
             }
           }

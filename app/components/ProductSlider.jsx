@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const ProductSlider = () => {
   const images = [
@@ -25,10 +26,13 @@ const ProductSlider = () => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <img
+            <Image
               src={img}
               alt={`Slide ${index + 1}`}
               className="w-full h-auto rounded-lg"
+              layout="responsive" 
+              width={500}
+              height={500}
             />
           </SwiperSlide>
         ))}

@@ -6,6 +6,7 @@ import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import StarIcon from "../../public/star.svg";
 import useFilter from "@/app/hooks/useFilter";
+import Link from "next/link";
 
 const PromotionalBanner = ({ slice }) => {
   const { filter } = useFilter();
@@ -170,16 +171,17 @@ const PromotionalBanner = ({ slice }) => {
             key={index}
             className="relative p-10 flex w-full max-full flex-col overflow-hidden rounded-[20px] hover:border hover:border-[#CDBAA7] bg-white shadow-[0px_6px_40px_0px_rgba(0,0,0,0.1)] hover:shadow-none"
           >
-            <a
+            <Link
               className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
               href="#"
             >
-              <img
+              <Image
                 className="object-cover mx-auto w-full h-full"
                 src={product.imageUrl}
                 alt="product image"
+                layout="fill"
               />
-            </a>
+            </Link>
 
             <div className="flex flex-col justify-center items-center gap-15 mt-4 px-5 pb-5 space-y-4">
               <div className="flex items-center justify-center mt-15">
@@ -195,11 +197,11 @@ const PromotionalBanner = ({ slice }) => {
                 ))}
               </div>
 
-              <a href="#" className="text-center !mt-0">
+              <Link href="#" className="text-center !mt-0">
                 <h5 className="text-24 tracking-tight text-slate-900">
                   {product.name}
                 </h5>
-              </a>
+              </Link>
 
               <div className="text-center !mt-0">
                 <p>

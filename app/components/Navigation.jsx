@@ -18,7 +18,6 @@ const Navigation = ({ data }) => {
   // Listen for scroll events to update the sticky state
   useEffect(() => {
     const handleScroll = () => {
-      // Adjust the threshold as needed
       if (window.scrollY > 50) {
         setIsSticky(true);
       } else {

@@ -326,8 +326,6 @@ export default {
     lineClamp: true,
   },
   plugins: [
-    // require('autoprefixer'),
-    // require('@tailwindcss/aspect-ratio'),
     require("@tailwindcss/line-clamp"),
     function ({ addComponents }) {
       addComponents({

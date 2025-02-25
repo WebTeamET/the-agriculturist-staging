@@ -12,16 +12,7 @@ const ProductDetail = async () => {
   return (
     <div className="container-lg container-py bg-white">
       <div className="grid grid-cols-1 lgscreen:grid-cols-2 lgscreen:gap-[50px]">
-        {/* Left Image Section */}
-        {/* <div className="relative">
-          <img
-            src="https://images.prismic.io/the-agriculturist-staging/Z69A9JbqstJ9-ol4_img.jpg"
-            alt="Product"
-            className="w-full h-auto rounded-lg"
-          />
-        </div> */}
         <ProductSlider />
-
         {/* Right Side Product Info */}
         <div className="pdp-sticky sticky top-[13rem] z-2">
           <div className="flex flex-col gap-16 py-40 product-details">
@@ -33,12 +24,12 @@ const ProductDetail = async () => {
               <h3 className="text-green font-500">Product Name</h3>
             </div>
             <div className="pdp-Categories lgscreen:px-8">
-              <a
+              <Link
                 href="#"
                 className="text-green font-bodytext-green font-body underline"
               >
                 Categories
-              </a>
+              </Link>
             </div>
 
             {/* Details */}
@@ -98,9 +89,9 @@ const ProductDetail = async () => {
                     smoke and 9-tetrahydrocannabinol, which are known to the
                     State of California to cause birth defects or other
                     reproductive harm. For more information go to 
-                    <a className="a-link-hover" href="#">
+                    <Link className="a-link-hover" href="#">
                       www.P65Warnings.ca.gov
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

@@ -51,40 +51,6 @@ const Ingrediants = () => {
       </div>
 
       {/* Cannabinoids Section */}
-      {/* <div className="w-1/2 lgscreen2:w-full bg-[#F9F4EF] rounded-[20px] p-40 h-full">
-        <h3 className="text-3xl font-semibold text-green">Cannabinoids</h3>
-        <div className="border-t border-green/20 my-[16px]"></div>
-        <div className="flex flex-row">
-          <div className="w-1/2">
-            {[
-              { name: "THC", percentage: "27.99%" }, 
-              { name: "THCA", percentage: "28.2151%" }, 
-              { name: "THCV", percentage: "0.00%" }
-            ].map((cannabinoid, index) => (
-              <div key={index} className="flex justify-start items-center">
-                <p className="w-1/2 text-xl text-green">{cannabinoid.name}</p>
-                <p className="w-1/2 text-lg text-green">{cannabinoid.percentage}</p>
-              </div>
-            ))}
-          </div>
-          <div className="w-1/2">
-            {[
-              { name: "CBD", percentage: "0.0303%" }, 
-              { name: "CBDA", percentage: "0.0345%" }, 
-              { name: "CBC", percentage: "0.00%" }, 
-              { name: "CBG", percentage: "0.00%" }, 
-              { name: "CBN", percentage: "0.00%" }
-            ].map((cannabinoid, index) => (
-              <div key={index} className="flex justify-start items-center">
-                <p className="text-xl text-green">{cannabinoid.name}</p>
-                <p className="text-lg text-green">{cannabinoid.percentage}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
-      {/* Cannabinoids Section */}
       <div className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40">
         <h3 className="text-2xl md:text-3xl font-semibold text-green mb-4">
           Cannabinoids

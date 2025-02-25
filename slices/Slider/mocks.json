@@ -138,6 +138,13 @@
 									"value": "exchange",
 									"type": "Text"
 								}
+							],
+							[
+								"text_animation",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
 							]
 						]
 					}
