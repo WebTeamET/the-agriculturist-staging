@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AboutDocumentDataSlicesSlice =
+  | ImageGallerySlice
   | ImageWithTextSlice
   | IconWIthTextSlice
   | HeroBannerSlice;
@@ -1872,6 +1873,16 @@ export interface ImageGallerySliceDefaultPrimaryImagegridItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   gallery_image: prismic.ImageField<never>;
+
+  /**
+   * Founder Name field in *ImageGallery → Default → Primary → ImageGrid*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegrid[].founder_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  founder_name: prismic.KeyTextField;
 }
 
 /**

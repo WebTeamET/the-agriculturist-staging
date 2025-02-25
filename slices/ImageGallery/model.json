@@ -43,6 +43,13 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "founder_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Founder Name",
+                  "placeholder": ""
+                }
               }
             }
           }
