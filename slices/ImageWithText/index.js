@@ -59,22 +59,40 @@ const ImageWithText = ({ slice }) => {
           className="container-lg py-60 lgscreen2:py-40 pb-60"
           style={{ backgroundColor: background_color || "white" }}
         >
-          <div className="w-full flex flex-col lgscreen:flex-row items-center lgscreen:gap-0 gap-30">
+          <div className="w-full relative grid grid-cols-1 lgscreen:grid-cols-2 items-center lgscreen:gap-[10px] gap-30 rounded-[20px]">
+            <div
+              className="
+    absolute
+    right-0
+    top-1
+    h-full
+    w-[2px]
+    border-r
+    border-dashed
+    border-green
+    transform
+    origin-top-right
+    rotate-[17deg]
+    z-[99]
+  "
+            ></div>
             {image_position === "Left" && (
-              <div className="relative lgscreen:w-1/2 w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] lgscreen2:rounded-[20px] clip-custom">
-                <PrismicNextImage
-                  field={image}
-                  className="w-full h-full object-cover rounded-tl-[30px] rounded-bl-[30px] lgscreen2:rounded-[20px]"
-                  alt="image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
+              <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] lgscreen2:rounded-[20px]">
+                <div className="overflow-hidden clip-custom">
+                  <PrismicNextImage
+                    field={image}
+                    className="w-full h-full object-cover rounded-tl-[30px] rounded-bl-[30px] lgscreen2:rounded-[20px]"
+                    alt="image"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
+                </div>
                 <div className="xsscreen3:whitespace-nowrap absolute bottom-40 lgscreen:left-[41%] left-[50%] transform -translate-x-1/2 text-white font-semibold text-lg text-center">
                   <PrismicRichText field={text_above_image} />
                 </div>
               </div>
             )}
             <div
-              className={`lgscreen:w-1/2 w-full space-y-8 px-20 bg-dark_cream lgscreen:max-w-[645px] mx-auto clip-custom-right ${
+              className={`clip-custom-right bg-dark_cream rounded-tr-[20px] rounded-br-[20px] border border-dashed border-green h-full w-full space-y-8 px-20 ${
                 image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
               } text-${content_alignment}`}
             >
@@ -84,7 +102,7 @@ const ImageWithText = ({ slice }) => {
                 style={textStyle}
               />
               <PrismicRichText
-              className="lgscreen:max-w-[645px]"
+                className="lgscreen:max-w-[645px]"
                 components={components}
                 field={description}
                 style={textStyle}
