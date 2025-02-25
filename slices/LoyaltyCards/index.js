@@ -8,6 +8,7 @@ const LoyaltyCards = ({ slice }) => {
   const [loyaltyCards, setLoyaltyCards] = useState([]);
   const [loyaltyCardSettings, setLoyaltyCardSettings] = useState({});
   const [loyaltyCardGeneral, setLoyaltyCardGeneral] = useState([]);
+  const [visibleCards, setVisibleCards] = useState(6); 
   const client = createClient();
 
   const fetchLoyaltyCard = async (type, uid) => {
@@ -50,6 +51,10 @@ const LoyaltyCards = ({ slice }) => {
     paragraph: ({ children }) => <p className="font-body">{children}</p>,
   };
 
+  const loadMoreCards = () => {
+    setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
+  };
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -62,9 +67,9 @@ const LoyaltyCards = ({ slice }) => {
         <PrismicRichText field={loyaltyCardGeneral.heading} />
       </div>
       <div className="grid grid-cols-3 xlscreen:grid-cols-2 smscreen:!grid-cols-1 gap-7 mt-8">
-        {loyaltyCards?.map((loyaltyCard) => (
+        {loyaltyCards?.slice(0, visibleCards).map((loyaltyCard, index) => (
           <div
-            key={loyaltyCard?.uid}
+            key={loyaltyCard?.uid + index}
             className="rounded-[20px] px-20 py-55 bg-[#F9F4EF]"
           >
             <div className="w-full flex items-center gap-14">
@@ -101,11 +106,14 @@ const LoyaltyCards = ({ slice }) => {
           </div>
         ))}
       </div>
-      <button
-        className={`green-btn w-fit m-auto flex justify-center mt-40 uppercase bg-[${loyaltyCardGeneral?.button_background_color}] text-[${loyaltyCardGeneral?.button_text_color}]`}
-      >
-        {loyaltyCardGeneral.button_text}
-      </button>
+      {visibleCards < loyaltyCards.length && (
+        <button
+          onClick={loadMoreCards}
+          className={`green-btn w-fit m-auto flex justify-center mt-40 uppercase bg-[${loyaltyCardGeneral?.button_background_color}] text-[${loyaltyCardGeneral?.button_text_color}]`}
+        >
+          {loyaltyCardGeneral.button_text}
+        </button>
+      )}
     </section>
   );
 };

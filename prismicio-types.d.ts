@@ -2095,6 +2095,16 @@ export interface ImageWithTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   container: prismic.BooleanField;
+
+  /**
+   * Extra Class field in *ImageWithText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.default.primary.extra_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  extra_class: prismic.KeyTextField;
 }
 
 /**

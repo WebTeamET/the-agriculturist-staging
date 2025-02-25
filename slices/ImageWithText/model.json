@@ -112,6 +112,13 @@
             "placeholder_true": "true",
             "default_value": false
           }
+        },
+        "extra_class": {
+          "type": "Text",
+          "config": {
+            "label": "Extra Class",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

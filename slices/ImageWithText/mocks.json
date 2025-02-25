@@ -94,6 +94,11 @@
 			"container": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"extra_class": {
+				"__TYPE__": "FieldContent",
+				"value": "nine",
+				"type": "Text"
 			}
 		},
 		"items": []

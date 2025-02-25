@@ -124,7 +124,7 @@ const ImageWithText = ({ slice }) => {
         </section>
       ) : (
         <section
-          className={`py-100 lgscreen2:pb-40 lgscreen2:pt-01 ${slice.primary.container && "container-lg"}`}
+          className={`py-100 lgscreen2:pb-40 lgscreen2:pt-01 ${slice.primary.container && "container-lg"} ${slice.primary.extra_class}`}
           style={{ backgroundColor: background_color || "white" }}
         >
           <div className="flex flex-col lgscreen:flex-row items-center lgscreen:gap-0 gap-30">
@@ -138,7 +138,7 @@ const ImageWithText = ({ slice }) => {
               </div>
             )}
             <div
-              className={`lgscreen:w-1/2 w-full space-y-8 px-20 h-screen ${
+              className={`lgscreen:w-1/2 w-full space-y-8 px-20 ${
                 image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
               } text-center lgscreen:text-left`}
             >
