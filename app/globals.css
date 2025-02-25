@@ -186,7 +186,7 @@ body {
       clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
     }
     .clip-custom-right {
-      clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 100%);
+      clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
   }
   .loyalty-card-content p {

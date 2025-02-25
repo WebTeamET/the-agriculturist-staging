@@ -49,7 +49,7 @@ const ImageWithText = ({ slice }) => {
       </p>
     ),
     strong: ({ children }) => (
-      <strong className="text-[30px] text-green font-body">{children}</strong>
+      <strong className="text-[24px] text-green font-body">{children}</strong>
     ),
   };
 
@@ -63,7 +63,7 @@ const ImageWithText = ({ slice }) => {
           style={{ backgroundColor: background_color || "white" }}
         >
           <div className="w-full relative grid grid-cols-1 xl:grid-cols-2 items-center xl:gap-0 gap-30 xlscreen2:gap-20 rounded-[20px]">
-            <div className="xl:block hidden absolute right-0 top-1 h-[104%] w-2 border-r border-dashed border-green transform origin-top-right rotate-[16.8deg] z-[99] left-[50.7%]"></div>
+            <div className="xl:block hidden absolute right-0 top-1 h-[104%] w-2 border-r border-dashed border-green transform origin-top-right rotate-[16.8deg] z-[99] left-[50.5%]"></div>
             {image_position === "Left" && (
               <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] xlscreen2:rounded-[20px]">
                 <div className="overflow-hidden xl:clip-custom">
@@ -80,7 +80,7 @@ const ImageWithText = ({ slice }) => {
               </div>
             )}
             <div
-              className={`xl:clip-custom-right xl:absolute xl:w-[62%] xl:left-[40.8%] bg-dark_cream xl:rounded-tr-[20px] xl:rounded-br-[20px] xl:border xl:border-dashed xl:border-green xl:h-full xlscreen2:rounded-[20px] ${
+              className={`xl:clip-custom-right xl:absolute xl:w-[59.4%] xl:left-[40.6%] bg-dark_cream xl:rounded-tr-[20px] xl:rounded-br-[20px] xl:border xl:border-dashed xl:border-green xl:h-full xlscreen2:rounded-[20px] ${
                 image_position === "Left" ? "xl:px-60" : "xl:pr-12"
               } text-${content_alignment}`}
             >
