@@ -93,7 +93,7 @@ const BlogCards = ({ slice }) => {
     setVisibleCount((prevCount) => prevCount + 6);
   }, []);
 
-  const categoryButtons = ["All", "Strains", "Product", "Lifestyle Articles"];
+  const categoryButtons = ["All", "Strains", "Lifestyle Articles", "Product"];
 
   return (
     <section
@@ -120,29 +120,28 @@ const BlogCards = ({ slice }) => {
                   : category === "Product"
                     ? "Product Tips"
                     : category === "Lifestyle Articles"
-                      ? "Life Style"
+                      ? "Lifestyle Articles"
                       : "All"}
               </button>
             ))}
           </div>
         </div>
         <div className="w-2/6 xlscreen2:w-full">
-          <div className="flex justify-end xlscreen2:justify-start">
+          <div className="relative flex justify-end xlscreen2:justify-start">
             <input
               type="text"
               placeholder="Search Keywords"
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
-              className="border border-green rounded-full px-16 py-8 font-normal w-[275px] min-w-[72px]"
+              className="relative border border-green rounded-full px-16 py-8 font-normal w-[275px] min-w-[72px]"
             />
+            <img src="/search.svg" alt="search" className="absolute w-[18px] h-[18px] right-20 top-1/2 -translate-y-1/2" />
           </div>
         </div>
       </div>
 
       {loading ? (
-        <div className="mx-auto w-full flex justify-">
-         Loading ...
-        </div>
+        <div className="mx-auto w-full flex justify-">Loading ...</div>
       ) : filteredBlogs.length === 0 ? (
         <div className="text-center text-gray-500 text-green font-body text-2xl mt-20">
           No blogs found for the selected category or search.
@@ -158,12 +157,14 @@ const BlogCards = ({ slice }) => {
                     field={post.data.featured_image}
                     className="w-full h-full object-cover rounded-[20px]"
                   />
+                  <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-green rounded-[20px]"></div>
+
                   <div className="absolute bottom-10 right-10 bg-white text-green px-16 py-8 rounded-full">
                     {post.data.category}
                   </div>
                 </div>
                 <div className="flex justify-between items-center text-green py-16">
-                  <div>
+                  <div className="text-12">
                     {post.data.publish_date &&
                       new Date(post.data.publish_date).toLocaleDateString(
                         "en-US",
