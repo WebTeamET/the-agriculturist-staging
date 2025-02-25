@@ -20,7 +20,7 @@ const ProductDetail = async () => {
               30% Off
             </span>
             <div className="flex flex-col gap-[8px] lgscreen:px-8">
-              <p className="text-green font-body leading-[normal]">Brand</p>
+              <p className="!text-green font-body leading-[normal]">Brand</p>
               <h3 className="text-green font-500">Product Name</h3>
             </div>
             <div className="pdp-Categories lgscreen:px-8">
