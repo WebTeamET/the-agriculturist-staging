@@ -59,6 +59,15 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "spacing_between_content": {
+          "type": "Boolean",
+          "config": {
+            "label": "Spacing between content",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
         }
       },
       "items": {}

@@ -138,7 +138,7 @@ body {
 
   /* product_details start */
 
-  .product-details p {
+  .ctm-pdp-details p {
     @apply text-dark_gray;
   }
 

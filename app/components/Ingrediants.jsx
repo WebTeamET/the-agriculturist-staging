@@ -1,10 +1,33 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 
 const Ingrediants = () => {
+  const [maxHeight, setMaxHeight] = useState(0);
+  const terpenesRef = useRef(null);
+  const cannabinoidsRef = useRef(null);
+
+  useEffect(() => {
+    const calculateMaxHeight = () => {
+      const terpenesHeight = terpenesRef.current?.offsetHeight || 0;
+      const cannabinoidsHeight = cannabinoidsRef.current?.offsetHeight || 0;
+      const newMaxHeight = Math.max(terpenesHeight, cannabinoidsHeight);
+      setMaxHeight(newMaxHeight);
+    };
+
+    calculateMaxHeight();
+    window.addEventListener("resize", calculateMaxHeight);
+
+    return () => window.removeEventListener("resize", calculateMaxHeight);
+  }, []);
+
   return (
     <div className="flex items-start justify-between gap-[50px] lgscreen2:flex-wrap">
       {/* Terpenes Section */}
-      <div className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40">
+      <div
+        className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40"
+        ref={terpenesRef}
+        style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+      >
         <h3 className="text-3xl font-semibold text-green">Terpenes</h3>
         <div className="border-t border-green/20 my-[16px]"></div>
         <div className="flex flex-col gap-[16px] px-12">
@@ -12,27 +35,32 @@ const Ingrediants = () => {
             {
               name: "Beta Caryophyllene",
               percentage: "1.001%",
-              description: "Peppery: Anti-Inflammatory, Analgesic, Calming",
+              category: "Peppery",
+              description: "Anti-Inflammatory, Analgesic, Calming",
             },
             {
               name: "Beta Pinene",
-              percentage: "1.001%",
-              description: "Pine: Focus, Relief, Alert, Balanced",
+              percentage: "0.1032%",
+              category: "Pine",
+              description: "Focus, Relief, Alert, Balanced",
             },
             {
               name: "Alpha Bisabolol",
-              percentage: "1.001%",
-              description: "Floral: Soothing, Anti-Inflammatory",
+              percentage: "0.00%",
+              category: "Floral",
+              description: "Soothing, Anti-Inflammatory",
             },
             {
               name: "Terpinolene",
-              percentage: "1.001%",
-              description: "Fruity: Cerebral, Focused, Energetic",
+              percentage: "0.00%",
+              category: "Fruity",
+              description: "Cerebral, Focused, Energetic",
             },
             {
               name: "Alpha Humulene",
-              percentage: "1.001%",
-              description: "Hoppy: Pain Relief, Appetite Suppression",
+              percentage: "0.4019%",
+              category: "Hoppy",
+              description: "Pain Relief, Appetite Suppression",
             },
           ].map((terpene, index) => (
             <div key={index} className="flex flex-col gap-[8px]">
@@ -40,18 +68,25 @@ const Ingrediants = () => {
                 <p className="text-xl text-green font-700 font-body">
                   {terpene.name}
                 </p>
-                <span className="ml-20 leading-[normal] px-16 py-3 font-body text-12 bg-green font-400 tracking-[0.5px] text-white rounded-full">
+                <span className="ml-20 leading-[normal] px-16 py-2.5 font-body text-12 bg-green font-400 tracking-[0.5px] text-white rounded-full">
                   {terpene.percentage}
                 </span>
               </div>
-              <p className="text-sm text-green">{terpene.description}</p>
+              <p className="text-sm text-green">
+                <span className="font-500">{terpene.category}:</span>{" "}
+                {terpene.description}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Cannabinoids Section */}
-      <div className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40">
+      <div
+        className="w-1/2 lgscreen2:w-full bg-dark_cream rounded-[20px] px-20 py-40 h-[531px]"
+        ref={cannabinoidsRef}
+        style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+      >
         <h3 className="text-2xl md:text-3xl font-semibold text-green mb-4">
           Cannabinoids
         </h3>

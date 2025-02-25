@@ -37,7 +37,7 @@ const ProductDetail = async () => {
               <span className="text-2xl text-green font-500 font-body">
                 Details
               </span>
-              <div className="text-[#6E6B68] flex items-center gap-14">
+              <div className="text-green flex items-center gap-14">
                 <div className="flex gap-[8px] items-center">
                   <PlaceholderSvg />
                   THC 00.00%
@@ -59,7 +59,7 @@ const ProductDetail = async () => {
             <div className="gap-line w-full h-1 bg-[#EEEEEE]"></div>
             <div className="flex flex-col gap-[8px] lgscreen:px-8">
               <h5 className="text-green font-500">Product Description</h5>
-              <p>
+              <p className="text-dark_gray">
                 This full gram 510 Vape Cartridge is ready to smoke out of the
                 bag. Like a tart blueberry popsicle, this Blue Dream sativa
                 vape's quality ceramic coil means big flavor and bigger clouds.
@@ -78,7 +78,7 @@ const ProductDetail = async () => {
                   <Icon type="warning" />
                   <h5 className="text-[#004D43] font-500">Warning</h5>
                 </div>
-                <div className="warning-details">
+                <div className="warning-details text-dark_gray">
                   <p className="font-700">
                     Proposition 65 Warning for California Consumers
                   </p>
@@ -88,10 +88,13 @@ const ProductDetail = async () => {
                     California to cause cancer, and chemicals including cannabis
                     smoke and 9-tetrahydrocannabinol, which are known to the
                     State of California to cause birth defects or other
-                    reproductive harm. For more information go to 
-                    <Link className="a-link-hover" href="#">
-                      www.P65Warnings.ca.gov
-                    </Link>
+                    reproductive harm.
+                    <span className="block">
+                      For more information go to 
+                      <Link className="a-link-hover" href="#" target="_blank">
+                        www.P65Warnings.ca.gov
+                      </Link>
+                    </span>
                   </p>
                 </div>
               </div>
@@ -103,8 +106,8 @@ const ProductDetail = async () => {
             <div className="flex flex-col gap-[16px] lgscreen:px-8">
               <h5 className="text-green font-500">Available variants</h5>
               <div className="bg-dark_cream p-16 w-max rounded-[20px]">
-                <p className="text-14">3.5 gram</p>
-                <h6 className="text-green font-700 !font-opensans text-28">
+                <p className="!text-14 text-dark_gray">3.5 gram</p>
+                <h6 className="text-green font-700 !font-opensans !text-28">
                   $28
                   <span className="ml-5 font-400 text-16 text-dark_gray line-through">
                     40
@@ -150,7 +153,7 @@ const ProductDetail = async () => {
             <div className="pdp-about lgscreen:px-8">
               <div className="pdp-about-inner flex flex-col gap-[16px]">
                 <h5 className="text-green font-500">About this product</h5>
-                <div className="flex flex-col gap-[8px]">
+                <div className="flex flex-col gap-[8px] text-dark_gray">
                   <div className="flex items-center w-full justify-start">
                     <div className="flex justify-between w-[35%] smscreen:w-1/2 items-center">
                       <p className="font-body caption-bottom">

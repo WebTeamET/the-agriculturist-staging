@@ -1716,6 +1716,17 @@ export interface HeroBannerSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Spacing between content field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: hero_banner.default.primary.spacing_between_content
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  spacing_between_content: prismic.BooleanField;
 }
 
 /**
