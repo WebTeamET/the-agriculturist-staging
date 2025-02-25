@@ -17,7 +17,6 @@ const ImageWithText = ({ slice }) => {
     image_position,
     content_alignment,
     text_above_image,
-    tagline,
   } = slice.primary;
 
   const textStyle = {
@@ -58,57 +57,59 @@ const ImageWithText = ({ slice }) => {
 
   return (
     <Fragment>
-      {slice?.variation === "skewedImageWithText" ? (
+      {slice?.variation == "skewedImageWithText" ? (
         <section
           className="container-lg py-60 lgscreen2:py-40 pb-60"
           style={{ backgroundColor: background_color || "white" }}
         >
-          <div className="w-full relative grid grid-cols-1 lgscreen:grid-cols-2 items-center lgscreen:gap-[10px] gap-30 rounded-[20px]">
-            <div className="absolute right-[960px] top-1 h-full w-[2px] border-r border-dashed border-green transform origin-top-rightrotate-[17deg] z-[99]"></div>
+          <div className="w-full relative grid grid-cols-1 xl:grid-cols-2 items-center xl:gap-0 gap-30 xlscreen2:gap-20 rounded-[20px]">
+            <div className="xl:block hidden absolute right-0 top-1 h-[104%] w-2 border-r border-dashed border-green transform origin-top-right rotate-[16.8deg] z-[99] left-[50.7%]"></div>
             {image_position === "Left" && (
-              <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] lgscreen2:rounded-[20px]">
-                <div className="overflow-hidden clip-custom">
+              <div className="relative w-full overflow-hidden rounded-tl-[30px] rounded-bl-[20px] xlscreen2:rounded-[20px]">
+                <div className="overflow-hidden xl:clip-custom">
                   <PrismicNextImage
                     field={image}
-                    className="w-full h-full object-cover rounded-tl-[30px] rounded-bl-[30px] lgscreen2:rounded-[20px]"
+                    className="w-full h-full object-cover rounded-tl-[30px] rounded-bl-[30px] xlscreen2:rounded-[20px]"
                     alt="image"
                   />
-                  <div className="absolute bottom-0 left-0 w-full h-[80%] bg-gradient-to-b from-black/0 to-green rounded-[20px]"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#004D43] to-transparent"></div>
                 </div>
-                <div className="xsscreen3:whitespace-nowrap absolute bottom-40 lgscreen:left-[41%] left-[50%] transform -translate-x-1/2 text-white font-semibold text-lg text-center">
+                <div className="xsscreen3:whitespace-nowrap absolute bottom-40 xl:left-[41%] left-[50%] transform -translate-x-1/2 text-white font-semibold text-lg text-center">
                   <PrismicRichText field={text_above_image} />
                 </div>
               </div>
             )}
             <div
-              className={`clip-custom-right bg-dark_cream rounded-tr-[20px] rounded-br-[20px] border border-dashed border-green h-full w-full space-y-8 px-20 ${
-                image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
+              className={`xl:clip-custom-right xl:absolute xl:w-[62%] xl:left-[40.8%] bg-dark_cream xl:rounded-tr-[20px] xl:rounded-br-[20px] xl:border xl:border-dashed xl:border-green xl:h-full xlscreen2:rounded-[20px] ${
+                image_position === "Left" ? "xl:px-60" : "xl:pr-12"
               } text-${content_alignment}`}
             >
-              <PrismicRichText
-                components={components}
-                field={title}
-                style={textStyle}
-              />
-              <PrismicRichText
-                className="lgscreen:max-w-[645px]"
-                components={components}
-                field={description}
-                style={textStyle}
-              />
+              <div className="w-full xlscreen2:p-20 xl:left-[55%] xl:max-w-[70%] xl:absolute xl:top-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2 space-y-8">
+                <PrismicRichText
+                  components={components}
+                  field={title}
+                  style={textStyle}
+                />
+                <PrismicRichText
+                  className="xl:max-w-[645px]"
+                  components={components}
+                  field={description}
+                  style={textStyle}
+                />
 
-              {button_text && button_link && (
-                <PrismicNextLink
-                  field={button_link}
-                  className="green-btn uppercase hover:!bg-white hover:!text-green border border-green"
-                  style={{
-                    backgroundColor: button_background_color || "#2563eb",
-                    color: button_text_color || "#ffffff",
-                  }}
-                >
-                  {button_text}
-                </PrismicNextLink>
-              )}
+                {button_text && button_link && (
+                  <PrismicNextLink
+                    field={button_link}
+                    className="green-btn uppercase hover:!bg-white hover:!text-green border border-green"
+                    style={{
+                      backgroundColor: button_background_color || "#2563eb",
+                      color: button_text_color || "#ffffff",
+                    }}
+                  >
+                    {button_text}
+                  </PrismicNextLink>
+                )}
+              </div>
             </div>
             {image_position === "Right" && (
               <div className="lgscreen:w-1/2 w-full">
@@ -137,7 +138,7 @@ const ImageWithText = ({ slice }) => {
               </div>
             )}
             <div
-              className={`lgscreen:w-1/2 w-full space-y-8 px-20  ${
+              className={`lgscreen:w-1/2 w-full space-y-8 px-20 h-screen ${
                 image_position === "Left" ? "lgscreen:px-60" : "lgscreen:pr-12"
               } text-center lgscreen:text-left`}
             >
